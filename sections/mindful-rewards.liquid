@@ -394,6 +394,7 @@
 
     .section-{{ section.id }} .reviews_wrapper.hidden-desktop .reviews-wrapper--inner .person-card__image {
         max-width: 127px;
+        top: -55px;
     }
     
     .section-{{ section.id }} .reviews_wrapper.hidden-desktop .reviews-wrapper--inner .person-card {
@@ -402,7 +403,13 @@
     }
     
     .section-{{ section.id }} .reviews_wrapper.hidden-desktop .reviews-wrapper--inner .slick-list {
-        padding-top: 80px;
+        padding-top: 70px;
+        padding-bottom: 50px;
+    }
+
+    .section-{{ section.id }} .reviews_wrapper.hidden-desktop .reviews-wrapper--inner {
+        padding-top: 0;
+        padding-bottom: 0;
     }
 
 
@@ -629,6 +636,7 @@
     window.addEventListener('load', function() {
         $('.reviews_wrapper.hidden-desktop .reviews-wrapper--inner').slick({
             dots: true,
+            arrows: true,
             infinite: true,
             speed: 300,
             slidesToShow: 1,
