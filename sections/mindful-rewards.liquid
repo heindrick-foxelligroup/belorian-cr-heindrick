@@ -402,7 +402,7 @@
                     {% case block.type %}
                         {% when 'reviews' %}
                         <div class="person" {{ block.shopify_attributes }}>
-                            {{ block.settings.person_picture | image_url: "original" | image_tag }}
+                            <img src="{{ block.settings.person_picture | img_url: "original" }}" alt="{{ section.settings.person_name }}">
                             <p>{{ block.settings.person_name }}</p>
                             <p>{{ block.settings.person_testimonials }}</p>
                         </div>
