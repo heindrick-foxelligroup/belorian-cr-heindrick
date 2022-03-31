@@ -1,0 +1,44 @@
+{%- comment -%}
+	Custom JS code which is used in ALL pages in shop
+{%- endcomment -%}
+<script>
+      
+  /* toggle search input content on mobile with plain js clicking search icon */
+  var ready = (callback) => {
+    if (document.readyState != "loading") callback();
+    else document.addEventListener("DOMContentLoaded", callback);
+  }
+
+  ready(() => {
+    var searchIcon = document.querySelector('.header .mobile_search_icon');
+    var searchDropdownContent = document.querySelector('.mobile_search_dropdown');
+	searchDropdownContent.classList.add('hide');
+    searchIcon.addEventListener("click", (e) => {
+      if (searchDropdownContent.classList.contains("show")) {
+        searchDropdownContent.classList.replace("show", "hide");
+      } else if (searchDropdownContent.classList.contains("hide")) {
+        searchDropdownContent.classList.replace("hide", "show");
+      }
+    }); 
+  });
+
+  // open mobile nav menu first item (SHOP) and make link list openable by clicking on title
+  let interval = setInterval(function(){
+    if($("#shopify-section-navigation-mobile > nav > ul > li:nth-child(1) > div.mobile-nav__children.mobile-nav__children--mega.row.gutter-ele-bottom.flex.flex-wrap").length){
+      $('.mobile-nav__item__top-link[title="SHOP"]').next().click();
+      let link = $('.mobile-nav__item__top-link[title="SHOP"]');
+      if(link.length){
+        link.off("click");
+        link.click(function(e) {
+          const arrowButton = $(this).next();
+          if(arrowButton.hasClass("hide") == false){
+            e.preventDefault(); 
+            arrowButton.click();
+          }
+        });
+      }
+      clearInterval(interval);
+    }
+  }, 16);
+
+</script>

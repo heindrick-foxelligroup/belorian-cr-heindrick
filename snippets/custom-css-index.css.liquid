@@ -1,0 +1,149 @@
+{%- comment -%}
+    Custom CSS for all pages.
+    Custom selectors starts with "fox-"
+
+    Structure:
+      overwrite theme files
+      overwrite apps files
+      new custom elements
+{%- endcomment -%}
+
+<style>
+
+  /***** Overwrite theme files *****/
+  section.rich-banner-section .section__heading {
+    padding: 0;
+    text-align: center;
+  }
+
+  section.rich-banner-section .section__sub-title {
+    padding-top: 0;
+    padding-bottom: 12px;
+  }
+
+  section.rich-banner-section .banner-item {
+    display: flex;
+    flex-direction: column;
+  }
+
+  section.product-single-deal .psd__desc,
+  section.product-single-deal a {
+    font-size: 15px;
+  }
+  /***** END OF overwrite theme files *****/
+
+  /***** Overwrite apps files *****/
+  /* Instagram home page feed */
+  body.template-index #insta-feed h2 {
+    text-align: left !important;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    padding: 0 15px !important; 
+  }
+
+  body.template-index #insta-feed h2:before {
+    content: ' '; 
+    height: 35px;
+    width: 35px;
+    margin-right: 10px;
+    background: url('https://cdn.shopify.com/s/files/1/2987/3832/files/home-instagram-logo.svg') left center no-repeat;
+  }
+
+  body.template-index #insta-feed > [href="#1-insta-feed"]:before {
+    height: 35px;
+    width: 95%;
+    color: #000;
+    display: block;
+    float: left;
+    text-align: left;
+    margin-top: -30px;
+    margin-bottom: 3px;
+    margin-left: 1em;
+    font-size: 16px;
+    background: none;
+    line-height: 35px;
+  }
+  /***** END OF overwrite apps files *****/
+
+  /***** CSS for custom/new elements *****/
+  /***** END OF CSS for custom/new elements *****/
+
+  /* Best sellers item info fixes */
+
+  .simple-product-slider .item__name{
+    font-weight: 500;
+    text-transform: uppercase;
+    min-height: 45px;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+
+  }
+
+  .simple-product-slider .product-price__percent{
+    display: none; 
+  }
+
+  .simple-product-slider .pg__bottom .flex.flex-align-space-between.flex-align-ver.w100{
+    flex-flow: column-reverse;
+    margin-bottom: -10px;
+  }
+  /* End of best sellers item info fixes */
+
+  .bt-sidebar__header {
+    margin-bottom: 0;
+  }
+
+
+  /* Bestsellers mobile slick slider  */
+  .products.grid .slick-list.draggable { min-height:700px }
+
+  
+  /* Section header style */
+  .section__title__text {
+    font-weight: 500;
+    letter-spacing: 0.05em;
+  }
+  @media only screen and (min-width: 992px){
+    .section__title__text {
+      font-weight: 600;
+    }
+  }
+  /* End of Section header style  */
+
+  /* #insta-feed padding */
+  #insta-feed {
+    padding-bottom: 20px;
+  }
+  @media only screen and (min-width: 992px){
+    #insta-feed {
+      padding-bottom: 40px;
+    }
+  }
+  /* End of #insta-feed padding */
+
+  /* How can we help section layout  */
+  @media only screen and (max-width: 991px){
+    #rich_banner_text_template--14269404151868__1633591489e69f5f78 .banner-item__bkg {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+      flex-direction: column;
+      -webkit-box-pack: center;
+      -ms-flex-pack: center;
+      justify-content: center;
+    }
+
+    #rich_banner_text_template--14269404151868__1633591489e69f5f78 .banner-item__bkg > .banner-item__text__sub {
+      width: auto;
+      margin-right: auto!important;
+      margin-left: auto!important;
+    }
+  }
+  /* End of How can we help section layout  */
+
+</style>

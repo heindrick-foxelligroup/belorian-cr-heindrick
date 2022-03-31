@@ -1,0 +1,67 @@
+<style>
+  #bfcm-timer-top-promotion {
+  	text-align: center;
+  }
+  #bfcm-timer-top-promotion__clock {
+  	text-align: center;
+    color: red;
+  }
+  #bfcm-timer-top-promotion__text {
+  	white-space: normal;
+    text-align: center;
+  }
+  #bfcm-timer-top-promotion__clock-text,
+  #bfcm-timer-top-promotion__clock-time {
+  	font-weight: bold;
+  }
+</style>
+
+<div id="bfcm-timer-top-promotion">
+  <span id="bfcm-timer-top-promotion__text">BLACK FRIDAY SALE is on! Use code <b>BLACK20</b> and get 20% OFF! </span>
+  <span id="bfcm-timer-top-promotion__clock">
+    <span id="bfcm-timer-top-promotion__clock-text">Time left: </span>
+    <span id="bfcm-timer-top-promotion__clock-time"></span>
+  </span>
+</div>
+
+<script>
+  (function() {
+    var start = new Date;
+    start.setHours(0, 0, 0); // 0am
+
+    function pad(num) {
+      return ("0" + parseInt(num)).substr(-2);
+    }
+
+    function timeLeftCountDown() {
+      var now = new Date;
+      if (now > start) { // too late, go to next circle
+        start.setDate(start.getDate() + 1);
+      }
+      var remain = ((start - now) / 1000);
+      var hh = pad((remain / 60 / 60) % 60);
+      var mm = pad((remain / 60) % 60);
+      var ss = pad(remain % 60);
+
+      var timeLeft = hh + "h " + mm + "m " + ss + "s";
+      document.getElementById("bfcm-timer-top-promotion__clock-time").innerHTML = timeLeft;
+      setTimeout(timeLeftCountDown, 1000);
+    }
+
+    var observer = new MutationObserver(function(mutations) {
+      setTimeout(function() {
+        let element = document.getElementById('bfcm-timer-top-promotion');
+        if (typeof(element) != 'undefined' && element != null) {
+          timeLeftCountDown();  
+          observer.disconnect();
+        }
+      }
+      , 1000);
+    });
+
+    observer.observe(document.body, {
+      childList: true,
+      subtree: true
+    });
+  })();
+</script>

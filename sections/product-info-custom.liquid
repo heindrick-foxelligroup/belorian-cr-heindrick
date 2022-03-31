@@ -1,0 +1,430 @@
+{% assign product = all_products["javier-leather-handbag"] %} 
+
+<style>
+
+  #{{section.id}}{
+    max-width: 1000px; 
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 170px;
+  }
+
+  #{{section.id}} .loox-rating span{
+    text-decoration-line: underline;
+    color: #5A4F34;
+  }
+
+  #{{section.id}} .section-wrapper-desktop{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  #{{section.id}} .info-section{
+    width: 45%;
+    margin-bottom: 0;
+    margin-top: auto;
+  }
+
+  #{{section.id}} .loox-rating {
+    text-align: center; 
+  }
+
+  #{{section.id}} .bulletpoints li{
+    list-style: disc;
+    margin-left: 20px;
+    font-size: 16px;
+    line-height: 22px;
+  }
+
+  #{{section.id}} .bulletpoints {
+    max-width: 420px; 
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 25px;
+  }
+
+  #{{section.id}} .color-variations-wrapper{
+    margin-top: 20px;
+    margin-bottom: 25px;
+    max-width: 410px;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+  }
+
+  #{{section.id}} .swatch-color-option{
+    max-width: 20px;
+    max-height: 20px;
+    width: 20px;
+    height: 20px;
+    min-width: 20px;
+    min-height: 20px;
+    border-radius: 20px;
+    display: inline-block;
+    margin-right: 12px;
+  }
+
+  #{{section.id}} .color-variations-wrapper span{
+    font-size: 16px; 
+    margin-right: 10px;
+  }
+
+  #{{section.id}} .view-button{
+    display: block;
+    font-family: Avenir Next;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 22px;
+    line-height: 38px;
+    text-align: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    color: #FFFFFF;
+    background-color: black;
+    width: 100%;
+    max-width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
+    border: none;
+  }
+
+  #{{section.id}} .old-price {
+    font-family: Avenir Next;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 20px;
+    text-decoration: line-through;
+    color: #A2A2A2;
+    text-align: center;
+  }
+
+  #{{section.id}} .price{
+    font-family: Avenir Next;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 28px;
+    line-height: 40px;
+    text-align: center;
+    max-width: 400px;
+    color: #CB0000; 
+    margin-left: auto;
+    margin-right: auto;
+
+  }
+
+  #{{section.id}} .product-price__percent{
+    font-size: 13px;
+    padding: 6px 10px;
+    color: #e12c2c;
+    position: relative;
+    font-weight: 600;
+    float: right;
+    border-color: #CB0000;
+
+  }
+
+  #{{section.id}} .price-percent-wrapper{
+    max-width: 400px; 
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: -32px;
+    padding-bottom: 25px;
+  }
+
+  #{{section.id}}  .product-price__percent:before{
+    top: calc(50% - 5px);
+    left: -5px !important;
+    height: 10px;
+    width: 10px;
+    border-top: 1px solid #CB0000 !important;
+    border-left: 1px solid #CB0000 !important;
+  }
+
+
+  #{{section.id}} .info-section .title{
+    font-family: Avenir Next;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 26px;
+    text-align: center;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    color: #000000; 
+  }
+
+  #{{section.id}} .image-section{
+    width: 43%;
+  }
+
+  #{{section.id}} .img-wrapper{
+    background-color: white;
+    padding: 40px;
+    box-shadow: 0px 0px 40px rgba(0, 0, 0, 0.25); 
+  }
+
+  #{{section.id}} .image-section img{
+    width: 100%;
+  }
+
+  #{{section.id}} .divider{
+    height: 60px;
+    background-color: #FFF1F1;
+    position: absolute;
+    z-index: -1;
+    width: 100%;
+    left: 0;
+    margin-top: -30px;
+  }
+
+  {% if section.settings.reverse == true %}
+  #{{section.id}} .section-wrapper-desktop{
+    flex-direction: row-reverse; 
+    /* transform: translateX(45px); */
+  }
+  {% endif %}
+
+  @media only screen and (max-width: 768px){
+
+    #{{section.id}} {
+      margin-bottom: 100px;
+      margin-top: 20px;
+      padding-left: 15px;
+      padding-right: 15px;
+    }
+
+
+    #{{section.id}} .section-wrapper-mobile{
+      align-items: center;
+      /* transform: translateX(-45px); */
+    }
+
+    #{{section.id}} .section-wrapper-mobile .info-section{
+      width: 100%;
+    }
+
+    #{{section.id}} .section-wrapper-mobile .img-wrapper{
+      max-width: 400px;
+      margin-left: auto;
+      margin-right: auto;
+      box-shadow: none;
+      padding-top: 0;
+      padding-bottom: 0;
+
+    }
+
+    #{{section.id}} .section-wrapper-mobile .img-wrapper img{
+      width: 100%;
+    }
+
+    #{{section.id}} .section-wrapper-mobile .bulletpoints{
+      margin-top: 0;
+    }
+
+    #{{section.id}} .section-wrapper-mobile .loox-rating {
+      margin-top: -10px;
+      margin-bottom: 20px;
+    }
+
+    #{{section.id}} .section-wrapper-mobile .view-button {
+      font-size: 18px;
+      padding-top: 5px;
+      padding-bottom: 5px;
+    }
+  }
+  
+</style>
+
+{% assign options_with_values = section.settings.product.options_with_values | default: product.options_with_values %}
+
+{% capture colors %}
+  {%- assign color_label = 'products.product.color' | t | downcase -%}
+  {%- for option in options_with_values -%}
+    {%- assign option_name_downcase = option.name | downcase -%}
+    {%- assign is_color = false -%}
+    {%- if option_name_downcase contains color_label or option_name_downcase contains 'colour' or option_name_downcase contains 'color' -%}
+      {{ option.values | join: "," | downcase }}
+    {%- endif -%}
+  {% endfor %}
+{% endcapture %}
+
+{% assign discount = section.settings.product.compare_at_price | minus: section.settings.product.price | times: 100 | divided_by: section.settings.product.compare_at_price %}
+{% assign colors = colors | strip_newlines %}
+{% assign color_codes = "camel:#C08A00,green:#117B00,black:#000000,burgundy:#BD000E,red:#DB0000,blue:#0400BD,wine red:#DB0000,brown:#946100,coffee:#523F0E,grey:#8F8F8F,pink:#CBA3C7,purple:#885596" | split: "," %}
+
+{% capture color_swatch_html %}
+	{% assign colors_array = colors | split: "," %}
+	
+	{% for color in colors_array %}
+		{% for color_code in color_codes %}
+			{% assign color_code_color = color_code | split: ":" | first %}
+			{% assign color_code_hex = color_code | split: ":" | last %}
+			{% if color_code_color == color %}
+				<div class="swatch-color-option" style="background-color: {{color_code_hex}}"></div>
+			{% endif %}
+		{% endfor %}
+	{% endfor %}
+{% endcapture %}
+
+<div id="{{section.id}}">
+  <div class="section-wrapper-desktop fox-hide--small">
+	<div class="info-section">
+      <div class="title">
+      	{{ section.settings.product.title | default: "Product Title" }}    
+      </div>
+      <div class="loox-rating" data-id="{{ section.settings.product.id }}" data-rating="{{ section.settings.product.metafields.loox.avg_rating }}" data-raters="{{ section.settings.product.metafields.loox.num_reviews }}"></div>
+  	  <div class="bulletpoints">
+        <ul>
+          <li>{{ section.settings.bulletpoint1 }}</li>
+          <li>{{ section.settings.bulletpoint2 }}</li>
+          <li>{{ section.settings.bulletpoint3 }}</li>
+          <li>{{ section.settings.bulletpoint4 }}</li>
+          <li>{{ section.settings.bulletpoint5 }}</li>
+        </ul>
+      </div>
+      <div class="color-variations-wrapper">
+        <span>Available color variations: </span>
+          {{ color_swatch_html }}
+      </div>
+      
+      <div class="old-price">{{ section.settings.product.compare_at_price | money | default: "$0.00" }}</div>
+      <div class="price">{{ section.settings.product.price | money | default: "$0.00"}}</div>
+      <div class="price-percent-wrapper">
+        <span class="product-price__percent dib">SAVE {{discount | default: 0}}%</span>
+      </div>
+      <a href="{{ section.settings.product.url }}"><button class="view-button">SHOP NOW</button></a>
+      
+    </div>
+    
+    <div class="image-section">
+      <div class="img-wrapper">
+      	<img src="{{ section.settings.product.images[0] | img_url: "master" }}"/>
+      </div>
+  	</div>
+  </div>
+  
+  
+  <div class="section-wrapper-mobile fox-hide--medium-up">
+    <div class="info-section">
+      <div class="title">
+        {{ section.settings.product.title | default: "Product Title" }}    
+      </div>
+      <div class="loox-rating" data-id="{{ section.settings.product.id }}" data-rating="{{ section.settings.product.metafields.loox.avg_rating }}" data-raters="{{ section.settings.product.metafields.loox.num_reviews }}"></div>
+      <div class="old-price">{{ section.settings.product.compare_at_price | money | default: "$0.00" }}</div>
+      <div class="price">{{ section.settings.product.price | money | default: "$0.00"}}</div>
+      <div class="price-percent-wrapper">
+        <span class="product-price__percent dib">SAVE {{discount | default: 0}}%</span>
+      </div>
+      <div class="img-wrapper">
+        <img src="{{ section.settings.product.images[0] | img_url: "master" }}"/>
+      </div>
+      <div class="bulletpoints">
+        <ul>
+          <li>{{ section.settings.bulletpoint1 }}</li>
+          <li>{{ section.settings.bulletpoint2 }}</li>
+          <li>{{ section.settings.bulletpoint3 }}</li>
+          <li>{{ section.settings.bulletpoint4 }}</li>
+          <li>{{ section.settings.bulletpoint5 }}</li>
+        </ul>
+      </div>
+      <div class="color-variations-wrapper">
+        <span>Available color variations: </span>
+        {{ color_swatch_html }}
+
+      </div>
+
+	
+      <a href="{{ section.settings.product.url }}"><button class="view-button">SHOP NOW</button></a>
+
+    </div>
+
+  </div>
+  
+  <div class="divider"> </div>
+</div>
+
+
+<script>
+
+
+  (function(){
+    const interval = setInterval(function(){
+      const reviewCounts = $("#{{section.id}} .loox-rating span");
+
+
+      if(reviewCounts.length > 0){
+        reviewCounts.each(function(index) {
+          const reviewCount = $(this).html().replace("(","").replace(")","");
+          $(this).html(reviewCount + " Reviews");
+          
+        });
+        clearInterval(interval); 
+      }
+    }, 100);
+  })();
+  
+</script>
+
+{% schema %}
+  {
+    "name": "Product Info (Custom)",
+    "class": "product-info-custom-section",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "reverse",
+        "label": "Reverse",
+        "default": false
+      },
+      {
+        "type": "text",
+        "id": "bulletpoint1",
+        "label": "Bulletpoint 1",
+        "default": "Lorem ipsum"
+      },
+      {
+        "type": "text",
+        "id": "bulletpoint2",
+        "label": "Bulletpoint 2",
+        "default": "Lorem ipsum"
+      },
+      {
+        "type": "text",
+        "id": "bulletpoint3",
+        "label": "Bulletpoint 3",
+        "default": "Lorem ipsum"
+      },
+      {
+        "type": "text",
+        "id": "bulletpoint4",
+        "label": "Bulletpoint 4",
+        "default": "Lorem ipsum"
+      },
+      {
+        "type": "text",
+        "id": "bulletpoint5",
+        "label": "Bulletpoint 5",
+        "default": "Lorem ipsum"
+      },
+	  {
+		"type": "product",
+		"label": "Product",
+		"id": "product"
+	  }
+    ],
+    "presets": [
+      {
+        "name": "Product Info (Custom)",
+        "category": "Text"
+      }
+    ]
+  }
+{% endschema %}

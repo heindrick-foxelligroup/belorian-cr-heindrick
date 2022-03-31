@@ -1,0 +1,46 @@
+<div style="background:{{ settings.sec_bck_color }}" class="bottom-mobile-toolbar bmt flex flex-align-space-between flex-align-ver hidden-sm hidden-md hidden-lg">
+	<div class="bmt__item gutter-ele-small-top gutter-ele-small-bottom text-center">
+	    <a style="color:{{ settings.sec_font_color }}" href="/collections/all" class="flex flex-align-hoz" title="Shop All">
+        	<div class="por flex">
+      			{%- render 'icon-cart-header' with add_class: 'fw-bold bmt__icon' -%}
+			</div>
+        	<span class="w100 db text-center bmt__text">Shop All</span>
+        </a> 
+   	</div>
+	<div class="bmt__item gutter-ele-small-top gutter-ele-small-bottom text-center">
+			<a style="color:{{ settings.sec_font_color }}" href="/collections/bestsellers" class="flex flex-align-hoz" title="{{ 'general.accessibility.your_compare' | t | escape }}">
+				<div class="por flex">
+                  <i class="fa fa-2x fa-star-o fw-bold bmt__icon" aria-hidden="true"></i>
+             	</div>
+				<span class="w100 db text-center bmt__text">Bestsellers</span>
+			</a>
+	</div>
+	<div class="bmt__item gutter-ele-small-top gutter-ele-small-bottom text-center">
+		<a style="color:{{ settings.sec_font_color }}" href="/collections" class="flex flex-align-hoz">
+			<div class="por flex">
+				<i class="fa fa-2x fa-diamond fw-bold bmt__icon" aria-hidden="true"></i>
+			</div>
+			<span class="w100 db text-center bmt__text">Collections</span>
+		</a>
+	</div>
+	<div class="bmt__item gutter-ele-small-top gutter-ele-small-bottom text-center">
+			<a style="color:{{ settings.sec_font_color }}" href="/collections/sale" class="flex flex-align-hoz" data-placement-mobile="up" title="Sale">
+			  <div class="por flex">	
+           	  <i class="fa fa-2x fa-tag fw-bold bmt__icon" aria-hidden="true"></i>
+              </div> 
+				<span class="w100 db text-center bmt__text">
+					Sale
+				</span>
+			</a>
+	</div>
+    <div class="bmt__item gutter-ele-small-top gutter-ele-small-bottom text-center">	
+		<a style="color:{{ settings.sec_font_color }}" href="/" class="flex flex-align-hoz" data-placement-mobile="up" title="Home">
+		  <div class="por flex">	
+            <i class="lnr-home fw-bold bmt__icon"></i>
+          </div>
+          <span class="w100 db text-center bmt__text">
+		      Home
+		  </span>
+		</a>	
+	</div>
+</div>

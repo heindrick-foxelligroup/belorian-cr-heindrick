@@ -1,0 +1,55 @@
+{% comment %}
+******************************************
+
+Last changes: 2022-02-21 Grazina
+
+******************************************
+{% endcomment %}
+
+{% comment %} code to assign subscription box {% endcomment %}
+{% assign item_is_sub_box = false %}
+{% for p in item.properties %}
+    {% if p.first == 'shipping_interval_frequency' %}
+        {% assign item_is_sub_box = true %}
+    {% endif %}
+{% endfor %}
+
+{% assign item_is_indyprep = false %}
+{% if item.vendor == 'INDYPREP' %}
+    {% assign item_is_indyprep = true %}
+{% endif %}
+
+  {% if item_is_sub_box == true %}
+    <div class="cart-subox-message">
+      <p>- First box ships immediately</p>
+      <p>- Following boxes ship on the 7th of each month</p>
+      <p>- Cancel anytime</p>
+	</div>
+  {% endif %}
+  <div class="cart-subox-delivery-message">
+    <span class="cart-subox-fast-icon">
+      <svg width="14" 
+           height-"10" 
+           aria-hidden="true" 
+           focusable="false" 
+           data-prefix="fas" 
+           data-icon="shipping-fast" 
+           class="svg-inline--fa fa-shipping-fast fa-w-17" 
+           role="img" 
+           xmlns="http://www.w3.org/2000/svg" 
+           viewBox="0 0 14 10">
+        <path d="M13.3333 5.38217L11.6663 2.30714H9.16622V0.770708C9.15126 0.552976 9.05548 0.350195 8.89959 0.206229C8.7437 0.062263 8.54023 -0.0113137 8.33321 0.00141425H0.833014C0.625988 -0.0113137 0.422524 0.062263 0.266634 0.206229C0.110743 0.350195 0.0149589 0.552976 0 0.770708V6.92076L0.833014 7.69005H1.88987C1.74474 7.91759 1.66685 8.18527 1.66603 8.45934C1.69516 8.89523 1.88668 9.30136 2.1989 9.58932C2.51112 9.87728 2.91876 10.0238 3.33308 9.99685C3.74739 10.0238 4.15503 9.87728 4.46725 9.58932C4.77947 9.30136 4.97099 8.89523 5.00013 8.45934C4.9993 8.18527 4.92142 7.91759 4.77629 7.69005H9.39006C9.24493 7.91759 9.16704 8.18527 9.16622 8.45934C9.19535 8.89523 9.38687 9.30136 9.69909 9.58932C10.0113 9.87728 10.419 10.0238 10.8333 9.99685C11.2477 10.0234 11.6554 9.87654 11.9675 9.58816C12.2795 9.29977 12.4707 8.89327 12.4993 8.45719C12.4985 8.18312 12.4206 7.91544 12.2755 7.6879H13.3323L13.3333 5.38217ZM9.16622 5.38217V3.07536H10.8936L12.1436 5.38217H9.16622Z" fill="currentColor"/>
+      </svg>
+    </span>
+    <span class="cart-subox-delivery">Delivery within {% render 'vendor-shipping-times' with input_vendor:item.vendor %}</span>
+  </div>
+
+<style>
+  .cart-subox-message,
+  .cart-subox-delivery-message { margin-top: 5px }
+  .cart-subox-message p { 
+    font-size: 13px;
+    margin-bottom: 0;
+  }
+  
+</style>

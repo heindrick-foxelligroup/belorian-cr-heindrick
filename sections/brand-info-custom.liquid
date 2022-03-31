@@ -1,0 +1,367 @@
+{% assign product = all_products["javier-leather-handbag"] %} 
+
+<style>
+  
+  #{{section.id}}{
+
+  }
+  
+  #{{section.id}} .section-wrapper-desktop{
+   	max-width: 1000px; 
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  #{{section.id}} .heading{
+    font-family: Avenir Next;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 36px;
+    line-height: 40px;
+    text-align: center;
+    letter-spacing: 0.03em;
+    text-transform: capitalize;
+
+    color: #000000;
+  }
+  
+  #{{section.id}} .subheading {
+   	font-family: Avenir Next;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 15px;
+    line-height: 26px;
+    text-align: center;
+	margin-top: 20px;
+    margin-bottom: 15px;
+    color: #000000; 
+  }
+  
+  #{{section.id}} .images-wrapper{
+    display: flex;
+    align-items: middle;
+    gap: 13px;
+    font-size: 0;
+  }
+  
+  #{{section.id}} .images-wrapper .img-col-1{
+    display: inline-block;
+    
+    max-width: 20%;
+  }
+
+  #{{section.id}} .images-wrapper .img-col-2{
+    max-width: 20%;
+    display: inline-flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: space-between;
+    font-size: 0;
+  }
+  
+  #{{section.id}} .images-wrapper .img-col-3{
+    display: inline-block;
+    min-width: 20%;
+  }
+
+  #{{section.id}} .images-wrapper .img-col-4{
+    max-width: 20%;
+    display: inline-flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: space-between;
+    font-size: 0;
+  }
+
+  #{{section.id}} .images-wrapper .img-col-5{
+    display: inline-block;
+    max-width: 20%;
+  }
+  
+  #{{section.id}} .images-wrapper img{
+      max-width: 100%;
+  }
+  
+  #{{section.id}} .text-below-image{
+    font-family: Avenir Next;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 29px;
+    line-height: 28px;
+    text-align: center;
+	margin-top: 35px;
+    color: #000000;
+  }
+  
+    #{{section.id}} .text-below-image .discount{
+    color: #885596;
+      font-weight: 600;
+  }
+  
+  #{{section.id}} .text-below-image-2{
+    margin-top: 25px;
+    font-family: Avenir Next;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 29px;
+    line-height: 30px;
+    text-align: center;
+    letter-spacing: 0.01em;
+    color: #885596;
+  }
+  
+  #{{section.id}} .badges{
+    margin-top: 35px;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 500px;
+   	display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  
+  #{{section.id}} .badges img{
+   	max-width: 130px;
+  }
+  
+  #{{section.id}} .banner{
+    width: 100vw;
+    position: relative;
+    left: calc( calc(100vw - 100%) / -2);
+    margin-top: 35px;
+   	background: #885596; 
+    color: white;
+    text-align: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-bottom: 110px;
+  }
+  
+  #{{section.id}} .banner .text1{
+    font-family: Avenir Next;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 24px;
+    line-height: 36px;
+    /* or 130% */
+    text-align: center;
+
+    color: #FFFFFF;
+  }
+  
+   #{{section.id}} .banner .text2{
+    font-family: Avenir Next;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 24px;
+    line-height: 36px;
+    /* or 130% */
+    text-align: center;
+
+    color: #FFFFFF;
+  }
+  
+  #{{section.id}} .mobile-hero-image{
+   	width: 100%;
+  }
+  
+  #{{section.id}} .mobile-banner{
+    font-family: Avenir Next;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 27px;
+    text-align: center;
+    color: #000000;
+    background-color: #FFF1F1;
+    padding: 10px;
+  }
+  
+  #{{section.id}} .mobile-subheading{
+    font-family: Avenir Next;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 15px;
+    line-height: 22px;
+    text-align: center;
+    letter-spacing: 0.03em;
+    padding: 15px 25px;
+
+    color: #000000; 
+  }
+  
+    #{{section.id}} .mobile-badges{
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-top: 15px;
+    max-width: 100%;
+   	display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  
+  #{{section.id}} .mobile-badges img{
+   	width: 90px;
+    min-width: 70px;
+  }
+  
+  #{{section.id}} .mobile-banner2{
+    width: 100vw;
+    margin-top: 35px;
+   	background: #885596; 
+    color: white;
+    text-align: center;
+    margin-bottom: 50px;
+    padding: 10px;
+  }
+  
+  #{{section.id}} .mobile-banner2 .text1{
+    font-family: Avenir Next;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 28px;
+    /* or 130% */
+    text-align: center;
+
+    color: #FFFFFF;
+  }
+  
+   #{{section.id}} .mobile-banner2 .text2{
+    font-family: Avenir Next;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 28px;
+    /* or 130% */
+    text-align: center;
+
+    color: #FFFFFF;
+  }
+</style>
+
+
+<div id="{{section.id}}">
+  <div class="section-wrapper-desktop fox-hide--small">
+    <div class="heading">A brand made to inspire</div>
+    <div class="subheading">We are Closet Rituals. Our primary purpose is to empower women & make them fall in love with their gorgeous inner selves.</div>
+  	<div class="images-wrapper">
+      <div class="img-col-1">
+        <img src="https://cdn.shopify.com/s/files/1/0278/9903/5708/files/image_33.png?v=1636995726"/>
+      </div>
+      <div class="img-col-2">
+        <img src="https://cdn.shopify.com/s/files/1/0278/9903/5708/files/image_29.png?v=1636996208"/>
+        <img src="https://cdn.shopify.com/s/files/1/0278/9903/5708/files/image_33_1.png?v=1636996324"/>
+      </div>
+      <div class="img-col-3">
+        <img src="https://cdn.shopify.com/s/files/1/0278/9903/5708/files/image_25.png?v=1636997937"/>
+      </div>
+      <div class="img-col-4">
+        <img src="https://cdn.shopify.com/s/files/1/0278/9903/5708/files/image_31.png?v=1636998070"/>
+        <img src="https://cdn.shopify.com/s/files/1/0278/9903/5708/files/image_27.png?v=1636998127"/>
+      </div>
+      <div class="img-col-5">
+        <img src="https://cdn.shopify.com/s/files/1/0278/9903/5708/files/image_26.png?v=1636998215"/>
+      </div>
+    </div>
+    <div class="text-below-image">
+      Best-selling stylish bags with up to <span class="discount">66%</span> OFF
+    </div>
+    <div class="text-below-image-2">
+      The autumn sale ends soon!
+    </div>
+    <div class="badges">
+      <img src="https://cdn.shopify.com/s/files/1/0278/9903/5708/files/Group_1177.png?v=1636999008"/>
+      <img src="https://cdn.shopify.com/s/files/1/0278/9903/5708/files/Group_1178.png?v=1636999008"/>
+      <img src="https://cdn.shopify.com/s/files/1/0278/9903/5708/files/Group_1179.png?v=1636999008"/>
+    </div>
+    <div class="banner">
+      <div class="text1">Limited Offer for our Most-Loved items</div>
+      <div class="text2">Get and additional <b>10% OFF</b> with a code : <b>AUTUMN10</b></div>
+    </div>
+  </div>
+    
+  
+  <div class="section-wrapper-mobile fox-hide--medium-up">
+	<img class="mobile-hero-image" src="https://cdn.shopify.com/s/files/1/0278/9903/5708/files/image_25.png?v=1636997937"/>	
+    <div class="mobile-banner">
+      Best-selling bags with up to <b>66% OFF</b>
+    </div>
+    <div class="mobile-subheading">
+      <div>We are Closet Rituals.</div>
+      <div>Our primary purpose is to empower women & make them fall in love with their gorgeous inner selves.</div>
+    </div>
+    <div class="mobile-badges">
+      <img src="https://cdn.shopify.com/s/files/1/0278/9903/5708/files/Group_1177.png?v=1636999008"/>
+      <img src="https://cdn.shopify.com/s/files/1/0278/9903/5708/files/Group_1178.png?v=1636999008"/>
+      <img src="https://cdn.shopify.com/s/files/1/0278/9903/5708/files/Group_1179.png?v=1636999008"/>
+    </div>
+    <div class="mobile-banner2">
+      <div class="text1">Limited Offer for our Most-Loved items</div>
+      <div class="text2">Get and additional <b>10% OFF</b> with a code : <b>AUTUMN10</b></div>
+    </div>
+  </div>
+
+</div>
+
+
+<script>
+
+  
+</script>
+
+{% schema %}
+  {
+    "name": "Brand Info (Custom)",
+    "class": "brand-info-custom-section",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "reverse",
+        "label": "Reverse",
+        "default": false
+      },
+      {
+        "type": "text",
+        "id": "bulletpoint1",
+        "label": "Bulletpoint 1",
+        "default": "Lorem ipsum"
+      },
+      {
+        "type": "text",
+        "id": "bulletpoint2",
+        "label": "Bulletpoint 2",
+        "default": "Lorem ipsum"
+      },
+      {
+        "type": "text",
+        "id": "bulletpoint3",
+        "label": "Bulletpoint 3",
+        "default": "Lorem ipsum"
+      },
+      {
+        "type": "text",
+        "id": "bulletpoint4",
+        "label": "Bulletpoint 4",
+        "default": "Lorem ipsum"
+      },
+      {
+        "type": "text",
+        "id": "bulletpoint5",
+        "label": "Bulletpoint 5",
+        "default": "Lorem ipsum"
+      },
+	  {
+		"type": "product",
+		"label": "Product",
+		"id": "product"
+	  }
+    ],
+    "presets": [
+      {
+        "name": "Brand Info (Custom)",
+        "category": "Text"
+      }
+    ]
+  }
+{% endschema %}

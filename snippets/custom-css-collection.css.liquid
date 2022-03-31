@@ -1,0 +1,101 @@
+{%- comment -%}
+  Custom CSS for all collection pages.
+  Custom selectors starts with "fox-"
+
+  Structure:
+	overwrite theme files
+	overwrite apps files
+	new custom elements
+{%- endcomment -%}
+
+<style>
+  
+  /***** Overwrite theme styles *****/
+  #collection-template > div:nth-child(1) h1,
+  #collection-template > div:nth-child(1) p {
+	text-align: center;
+    padding: 0 15px;
+  }
+
+  @media all and (min-width: 992px) {
+    #collection-template > div:nth-child(1) h1,
+    #collection-template > div:nth-child(1) p {
+      padding: 0 30px;
+    }
+  }
+
+  @media all and (min-width: 1366px) {
+    #collection-template > div:nth-child(1) h1,
+    #collection-template > div:nth-child(1) p {
+      padding: 0 45px;
+    }
+  }
+
+  /* fix product card height in collection pages */
+  .collection__products .grid__item > div {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    height: 100%;
+  }
+
+  .collection__products .grid__item .pg__bottom {
+    -webkit-box-flex: 1;
+    -ms-flex: 1 0 auto;
+    flex: 1 0 auto;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+  }
+
+  .collection__products .grid__item .pg__bottom > .flex {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-align: start;
+    -ms-flex-align: start;
+    align-items: flex-start;
+    margin-top: auto;
+  }
+
+  .collection__products .grid__item .pg__bottom .product-price__sold-out {
+    display: inline;
+    margin-left: 8px;
+  }
+  /* END OF fix product card height in collection pages */
+
+{% if template contains 'bags'%}
+
+  @media all and (max-width: 767px) {
+    
+    .ct__filter--trigger { 
+      display: block!important;
+      order: 1; }
+    
+    .ct__filter--trigger span.lh1.ver-sub { text-transform: uppercase; }
+    .ct__filter--trigger span.lh1.ver-sub:after { 
+      content: " / CATEGORIES"; }
+    
+    .ct__total { display: none } 
+    
+    
+  }
+
+{% endif %}
+  /***** END OF Overwrite theme styles *****/
+
+  /***** Overwrite apps styles *****/
+  /***** END OF Overwrite apps styles *****/
+
+  /***** CSS for new/custom elements *****/
+
+</style>

@@ -1,0 +1,20 @@
+{% comment %}
+******************************************
+
+Last changes: 2022-03-03 Zilvinas
+
+******************************************
+{% endcomment %}
+  
+<script>
+  // alternative to DOMContentLoaded
+    document.onreadystatechange = function () {
+    if (document.readyState == "interactive") {
+      // Add info page seo name to <body> as class name
+      var url = location.href;
+      var className = url.match(/([^\/]+$)/)[0];
+      var bodyElement = document.getElementsByTagName('body')[0];
+      bodyElement.classList.add(className);
+    }
+  }
+</script>

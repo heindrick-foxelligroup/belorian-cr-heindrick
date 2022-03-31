@@ -1,0 +1,354 @@
+<div class="header-cart-frequently-bought-wrapper">
+    <div class="header-cart-frequently-bought-content">
+      
+      <style>
+        
+        .header-cart-frequently-bought-wrapper .section-header__title {
+          padding-top: {{ section.settings.header-cart-pop-frequently-title-padding-top }}px;
+          font-size: {{ section.settings.header-cart-pop-frequently-title-font-size }}px;
+          color: {{ section.settings.header-cart-pop-frequently-title-font-color }};
+          letter-spacing: normal;
+        }
+        .header-cart-frequently-bought-wrapper .buy-btn {
+          width: 100%;
+          height: auto;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          background-color: {{ section.settings.header-cart-pop-frequently-color-buy-button-background-color }};
+          color: {{ section.settings.header-cart-pop-frequently-color_bg--buyBtn }};
+          font-size: {{section.settings.header-cart-pop-frequently-buybtn-font-size}}px;
+          font-weight: 700;
+          letter-spacing: 1px;
+          border-radius: {{section.settings.header-cart-pop-frequently-buybtn-radius}}px;
+          box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.2);
+          padding-top: {{section.settings.header-cart-pop-frequently-buybtn-padding-top-bottom}}px;
+          padding-bottom: {{section.settings.header-cart-pop-frequently-buybtn-padding-top-bottom}}px;
+          padding-left: {{section.settings.header-cart-pop-frequently-buybtn-padding-left-right}}px;
+          padding-right: {{section.settings.header-cart-pop-frequently-buybtn-padding-left-right}}px;
+        }
+        .header-cart-frequently-bought-wrapper .buy-btn:hover {
+          color: {{ section.settings.header-cart-pop-frequently-color_bg--buyBtnHover }};
+          background-color: {{ section.settings.header-cart-pop-frequently-color-buy-button-background-color-hover }};
+          transition: all ease 0.3s;
+        }
+        
+        .header-cart-frequently-bought-wrapper .hc__item__price {
+          display: flex;
+          flex-direction: row;
+          justify-content: space-between;
+        }
+      </style>
+      
+      	{%- assign limit_show_items = section.settings.header-cart-pop-frequently-items-limit -%}
+      	
+
+        {%- if section.settings.header-cart-pop-frequently-enable -%}
+      
+          {%- if section.settings.header-cart-pop-frequently-show_title -%}
+            <h4 class="ls-box-title section-header__title fw-bold">
+              {%- for block in section.blocks -%}
+              {{ section.settings.header-cart-pop-frequently-show_title_text }}
+              {%- comment -%}    
+              {{ collections[block.settings.header-cart-pop-frequently-collection].title }}
+              {%- endcomment -%}
+              {%- endfor -%}
+            </h4>
+          {%- endif -%}
+
+        <div class="hc__items custom-scrollbar">
+              <table class="w95" border="0">
+                  <tbody>
+                      {%- for block in section.blocks -%}
+                          {%- for item in collections[block.settings.header-cart-pop-frequently-collection].products limit: limit_show_items -%}
+                          {% assign input_vendor = item.vendor %}
+                              {%- if input_vendor != "INDYPREP" -%}
+                                      {%- assign show_longest_shipping_time = "true" -%}
+                              {%- endif -%}
+                            {% assign item_is_sub_box = false %}
+                            {% for p in item.properties %}
+                                {% if p.first == 'shipping_interval_frequency' %}
+                                    {% assign item_is_sub_box = true %}
+                                {% endif %}
+                            {% endfor %}
+
+                        {%- if forloop.first == false and forloop.last == false -%}
+                          <tr>
+                            <td colspan="3">
+                              <hr class="margin-top-bottom-8">
+                            </td>
+                        </tr>
+                        {%- endif -%}
+                          <tr class="hc__item">
+                              <td class="hc__item__image text-left" rowspan="2">
+                              {%- assign img_url = item.featured_image | img_url: 'small' -%}
+                                  <a href="{{ item.url | within: collection }}" title="{{ item.media.preview_image.alt | escape }}" class="img-container">
+                                      <img class="cart__image w100" alt="{{ item.media.alt | escape }}" 
+                                           src="{{ img_url }}">
+                                  </a>
+                               
+                              </td>
+                              <td class="hc__item__name flex text-left fw-bold">
+                                  <a href="{{ item.url }}" title="{{ item.title | escape }}" class="no-gutter-top w100">
+                        {%- if settings.header_cart_truncate > 0 -%}
+                          {{ item.title | truncatewords: settings.header_cart_truncate }}
+                        {%- else -%}
+                          {{ item.title }}
+                        {%- endif -%}
+                      </a>
+                      
+                      {% unless item.variants.title contains 'Default' %}
+                        {% for option in item.product.options %}
+                          <div class="cart__meta-text w100">
+                            {{ option }}: {{ item.variants.options[forloop.index0] }}
+                          </div>
+                        {% endfor %}
+                      {% endunless %}
+                      {%- assign property_size = item.properties | size -%}
+                      {% if property_size > 0 %}
+                        {% for p in item.properties %}
+                          <div class="cart__meta-text w100">
+                          {% unless p.last == blank %}
+                            {{ p.first }}:
+
+                            {% comment %}
+                              Check if there was an uploaded file associated
+                            {% endcomment %}
+                            {% if p.last contains '/uploads/' %}
+                              <a href="{{ p.last }}">{{ p.last | split: '/' | last }}</a>
+                            {% else %}
+                              {{ p.last }}
+                            {% endif %}
+                          {% endunless %}
+                          </div>
+                        {% endfor %}
+                      {% endif %}
+                      </td>
+                    <td class="fw-bold" rowspan="2">
+                      <div class="gutter-ele-small-top">
+                        {%- if item.price_min != item.price_max -%}
+                        {%- render 'price' with item.price_min -%}
+                        {%- else -%}
+                        {%- render 'price' with item.price -%}
+                        {%- endif -%}
+                      </div>
+                    </td>
+                      </tr>
+                        <tr>
+                          <td colspan="2">
+                            <form method="post" class="fbt-form" action="/cart/add">
+                           	  <span class="hc__item__price w100 flex flex-align-ver gutter-ele-small-top fw-bold">
+                                
+                                {% comment %} No product quantity selectors {% endcomment %}
+                                {% comment %}
+                                <div class="qty-box-fbt qty-box qty-box--very-small flex flex-align-ver flex-align-space-between">
+                                  <button class="qty-box-fbt__decrease qty-box__ctrl qty-box__ctrl qty-box__ctrl--descrease qty-box__ctrl--very-small flex flex-align-ver flex-align-hoz">
+                                    {%- render 'icon-minus' -%}
+                                  </button>
+                                  <input class="qty-box-fbt__input qty-box__input qty-box__input-{{ forloop.index }} qty-box__input--very-small w100 text-center h100" type="number" name="quantity" value="1" pattern="[0-9]*">
+                                  <button class="qty-box-fbt__increase qty-box__ctrl qty-box__ctrl qty-box__ctrl--increase qty-box__ctrl--very-small flex flex-align-ver flex-align-hoz">
+                                    {%- render 'icon-plus' -%}
+                                  </button>  
+                                </div>
+                                {% endcomment %}
+                                
+             					{% comment %} add product variant selector {% endcomment %}
+                                <div>
+                                   {% if item.variants.size > 0 %}
+                                      <select id="variant-select" name="id" class="product-info-options">
+                                          {% for variant in item.variants %}
+                                              <option value="{{ variant.id }}">{{ variant.title }}</option>
+                                          {% endfor %}
+                                      </select>
+                                  {% else %}
+                                      {% for variant in product.variants %}
+                                          <input type="hidden" id="variant-select" name="id" value="{{ item.id }}" />
+                                      {% endfor %}
+                                  {% endif %}
+                                  <input type="submit" class="btn buy-btn" value="{{ section.settings.header-cart-pop-frequently-btn-buy-text }}"/>
+                                </div>
+
+								{% comment %}backup{% endcomment %}
+                                {% comment %}
+								<div>
+                                  <input type="hidden" name="id" value="{{ item.id }}" />
+                                  <input type="submit" class="btn buy-btn" value="{{ section.settings.header-cart-pop-frequently-btn-buy-text }}"/>
+                                </div>
+								{% endcomment %}
+                                
+                             </span>
+                           </form>
+                          </td>
+                        </tr>
+                      {%- endfor -%}
+                      {%- endfor -%}
+                  </tbody>
+              </table>
+          </div>
+      {%- endif -%}
+    </div>
+</div>
+
+{% schema %}
+{
+    "name": "FBT in cart pop-up",
+	"tag": "section",
+    "settings": [
+        {
+            "type": "checkbox",
+            "id": "header-cart-pop-frequently-enable",
+            "label": "Enable this block",
+            "default": false
+        },
+        {
+            "type": "checkbox",
+            "id": "header-cart-pop-frequently-show_title",
+            "label": "Show title",
+            "default": true
+        },
+        {
+            "type": "range",
+            "id": "header-cart-pop-frequently-title-font-size",
+            "min": 1,
+            "max": 100,
+            "step": 1,
+            "unit": "px",
+            "label": "Title font size in px",
+            "default": 17
+        },
+        {
+            "type": "color",
+            "id": "header-cart-pop-frequently-title-font-color",
+            "label": "Title font color",
+            "default": "#000000"
+        },
+        {
+            "type": "range",
+            "id": "header-cart-pop-frequently-title-padding-top",
+            "min": 1,
+            "max": 100,
+            "step": 1,
+            "unit": "px",
+            "label": "Title padding top",
+            "default": 20
+        },
+        {
+            "type": "text",
+            "id": "header-cart-pop-frequently-show_title_text",
+            "label": "Title text",
+			"default": "FREQUENTLY BOUGHT TOGETHER"
+        },
+        {
+            "type": "color",
+            "id": "header-cart-pop-frequently-color_bg--overlay",
+            "label": "Overlay Color",
+            "default": "#000"
+        },
+        {
+            "type": "color",
+            "id": "header-cart-pop-frequently-detail-box",
+            "label": "Detail Box",
+            "default": "#f3f3f3"
+        },
+        {
+            "type": "text",
+            "id": "header-cart-pop-frequently-btn-buy-text",
+            "default": "Add to cart",
+            "label": "Button BUY text"
+        },
+		{
+            "type": "color",
+            "id": "header-cart-pop-frequently-color-buy-button-background-color",
+            "label": "Button background color",
+            "default": "#ffffff"
+        },
+		{
+            "type": "color",
+            "id": "header-cart-pop-frequently-color-buy-button-background-color-hover",
+            "label": "Button background color on hover",
+            "default": "#cccccc"
+        },
+        {
+            "type": "color",
+            "id": "header-cart-pop-frequently-color_bg--buyBtn",
+            "label": "Button text olor",
+            "default": "#000000"
+        },
+        {
+            "type": "color",
+            "id": "header-cart-pop-frequently-color_bg--buyBtnHover",
+            "label": "Button text color on hover",
+            "default": "#CBD5CC"
+        },
+        {
+            "type": "range",
+            "id": "header-cart-pop-frequently-buybtn-font-size",
+            "min": 1,
+            "max": 20,
+            "step": 1,
+            "unit": "px",
+            "label": "Buy button font size",
+            "default": 12
+        },
+        {
+            "type": "range",
+            "id": "header-cart-pop-frequently-buybtn-padding-top-bottom",
+            "min": 1,
+            "max": 20,
+            "step": 1,
+            "unit": "px",
+            "label": "Buy button padding (top and bottom)",
+            "default": 12
+        },
+        {
+            "type": "range",
+            "id": "header-cart-pop-frequently-buybtn-padding-left-right",
+            "min": 1,
+            "max": 20,
+            "step": 1,
+            "unit": "px",
+            "label": "Buy button padding (left and right)",
+            "default": 12
+        },
+        {
+            "type": "range",
+            "id": "header-cart-pop-frequently-buybtn-radius",
+            "min": 1,
+            "max": 20,
+            "step": 1,
+            "unit": "px",
+            "label": "Buy button border radius",
+            "default": 1
+        },
+        {
+            "type": "range",
+            "id": "header-cart-pop-frequently-items-limit",
+            "min": 1,
+            "max": 30,
+            "step": 1,
+                "label": "Items limit in list",
+                "default": 5
+        }
+    ],
+    "blocks": [
+        {
+            "type": "collection",
+            "name": "Collection",
+            "limit": 1,
+            "settings": [
+                {
+                    "type": "collection",
+                    "id": "header-cart-pop-frequently-collection",
+                    "label": "Collection"
+                }
+            ]
+        }
+    ],
+    "presets": [
+        {
+        "name": "Products carousel",
+        "category": "Carousel Sections"
+        }
+    ]
+}
+{% endschema %}

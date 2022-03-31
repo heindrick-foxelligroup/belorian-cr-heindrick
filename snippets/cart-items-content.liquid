@@ -1,0 +1,106 @@
+<form id="bt-sidebar-cart" action="{{ routes.cart_url }}" method="post" novalidate class="cart">
+          <div class="hc__items custom-scrollbar cart-items">
+              <table class="w95" border="0">
+                  <tbody>
+                      {%- for item in cart.items -%}
+                        {% assign input_vendor = item.vendor %}
+                        {% assign item_is_sub_box = false %}
+                        {% for p in item.properties %}
+                            {% if p.first == 'shipping_interval_frequency' %}
+                                {% assign item_is_sub_box = true %}
+                            {% endif %}
+                        {% endfor %}
+
+                    {%- if forloop.first == false -%}
+                      <tr>
+                        <td colspan="3">
+                          <hr class="margin0">
+                        </td>
+                    </tr>
+                    {%- endif -%}
+                      <tr class="hc__item">
+                          <td class="hc__item__image text-left" rowspan="2">
+                          {%- assign img_url = item.image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
+                              <a href="{{ item.url }}" title="{{ item.title | escape }}" class="img-container" style="padding-top:{{ 1 | divided_by: item.image.aspect_ratio | times: 100}}%;">
+                                  <img class="cart__image lazyload img-abs w100" alt="{{ item.image.alt | escape }}"{% render 'img-one-pixel' %} data-aspectratio="{{ item.image.aspect_ratio }}"
+                                  data-src="{{ img_url }}"
+                                  data-sizes="auto">
+                              </a>
+                          </td>
+                          <td class="hc__item__name flex text-left fw-bold">
+                              <a href="{{ item.url }}" title="{{ item.product.title | escape }}" class="no-gutter-top w100">
+                    {%- if settings.header_cart_truncate > 0 -%}
+                      {{ item.product.title | truncatewords: settings.header_cart_truncate }}
+                    {%- else -%}
+                      {{ item.product.title }}
+                    {%- endif -%}
+                  </a>
+
+                  {% unless item.variant.title contains 'Default' %}
+                    {% for option in item.product.options %}
+                      <div class="cart__meta-text w100">
+                        {{ option }}: {{ item.variant.options[forloop.index0] }}
+                      </div>
+                    {% endfor %}
+                  {% endunless %}
+                  {%- assign property_size = item.properties | size -%}
+                  {% if property_size > 0 %}
+                    {% for p in item.properties %}
+                      <div class="cart__meta-text w100">
+                      {% unless p.last == blank %}
+                        {{ p.first }}:
+
+                        {% comment %}
+                          Check if there was an uploaded file associated
+                        {% endcomment %}
+                        {% if p.last contains '/uploads/' %}
+                          <a href="{{ p.last }}">{{ p.last | split: '/' | last }}</a>
+                        {% else %}
+                          {{ p.last }}
+                        {% endif %}
+                      {% endunless %}
+                      </div>
+                    {% endfor %}
+                  {% endif %}
+                  </td>
+                <td class="hc__item__remove-wrap text-right" rowspan="2">
+                  <a class="button update-cart-btn button--icon hc__item__remove lh1 distance-top-ele" href="#" title="{{ 'cart.general.remove'|t|escape }}" data-index="{{ forloop.index }}" data-value="0"  data-placement="{{ tooltip_remove_pos }}">{%- render 'icon-close' -%}</a>
+                </td>
+                  </tr>
+                    <tr>
+                      <td colspan="2">
+                        <span class="hc__item__price w100 flex flex-align-ver gutter-ele-small-top fw-bold">
+                          <div class="qty-box qty-box--very-small flex flex-align-ver flex-align-space-between">
+                            <button class="qty-box__ctrl qty-box__ctrl--very-small qty-box__ctrl--descrease cart__qty-control flex flex-align-ver flex-align-hoz">
+                              {%- render 'icon-minus' -%}
+                            </button>
+                            <input class="qty-box__input qty-box__input--very-small cart__qty-input cart__qty-input-{{ forloop.index }} w100 text-center h100 qty-box__input--sync" type="number" name="updates[]" value="{{ item.quantity }}" min="1" pattern="[0-9]*" data-line="{{ forloop.index }}">
+                            <button class="qty-box__ctrl qty-box__ctrl--very-small qty-box__ctrl--increase cart__qty-control flex flex-align-ver flex-align-hoz">
+                              {%- render 'icon-plus' -%}
+                            </button>  
+                          </div>
+                          <div class="gutter-ele-small-top">
+                            {%- if item.original_price != item.final_price -%}
+                              {%- render 'price' with item.final_price -%}
+                            {%- else -%}
+                              {%- render 'price' with item.original_price -%}
+                            {%- endif -%}
+                          </div>
+                        </span>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td colspan="3">
+                          <div class="price-container small--hide" style="font-size: 11px; color: #800080; float: right;">
+                            <span style="opacity: 0.75; font-size: 4px; transform: translate(0px, 2px); -webkit-tranform: translate(0px, 2px); -moz-tranform: translate(0px, 2px); -o-tranform: translate(0px, 2px); -ms-tranform: translate(0px, 2px); ">
+                              {% render 'shipping-fast-icon' %}
+                            </span>
+                            <span>(Delivery within {% render 'vendor-shipping-times', input_vendor:input_vendor, show_longest_shipping_time:show_longest_shipping_time %})</span>
+                          </div>
+                      </td>
+                    </tr>
+                      {%- endfor -%}
+                  </tbody>
+              </table>
+          </div>
+      </form>

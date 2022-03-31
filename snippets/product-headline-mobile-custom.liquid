@@ -1,0 +1,32 @@
+{% capture headline_html %}
+	<div class="headline-mobile-custom fox-hide--medium-up">
+    	{{ obj.settings.headline }}  
+	</div>
+{% endcapture %}
+
+<style>
+  .headline-mobile-custom{
+    font-family: Avenir Next;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 24px;
+    line-height: 33px;
+    text-align: center;
+	margin-top: 20px;
+    color: #000000;
+  }
+  
+  .headline-mobile-custom b{
+   	font-weight: 600; 
+  }
+</style>
+
+<script>
+  (function(){
+    $(".product-single__photos").before(`{{ headline_html }}`);
+  	const html = $(".headline-mobile-custom .metafield-multi_line_text_field").html().replace(/&lt;/g, '<').replace(/&gt;/g, '>');
+    $(".headline-mobile-custom").html(html);
+  })();
+  
+  
+</script>

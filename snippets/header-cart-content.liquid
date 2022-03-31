@@ -1,0 +1,263 @@
+{% comment %}
+******************************************
+
+Last changes: 2022-02-25 Grazina
+
+******************************************
+{% endcomment %}
+<div class="bt-sidebar header__cart hc">
+	{%- if cart.item_count > 0 -%}
+    {%- if settings.cart_free_shipping_enable -%}
+  	<hr>
+    <div class="hc__free-shipping gutter-bottom">
+      <p class="hc__free-shipping__text margin0">
+        {%- assign free_shipping_goal = settings.cart_free_shipping_goal | times: 100 -%}
+        {%- comment -%}
+        	{%- render 'icon-truck', addClasses: 'free-shipping-icon' -%}
+        {%- endcomment -%}
+        <span class="hc__free-shipping-text">
+          {%- if cart.total_price >= free_shipping_goal -%}
+            {{ settings.cart_free_shipping_goal_text }}
+          {%- else -%}
+            {%- assign free_remain_amount = free_shipping_goal | minus: cart.total_price -%}
+            {%- capture free_remain_amount_html -%}<strong>{%- render 'price' with free_remain_amount -%}</strong>{%- endcapture -%}
+            {{ settings.cart_free_shipping_progress_text | replace: '[remain_amount]',free_remain_amount_html }}  
+          {%- endif -%}
+        </span>
+      </p>
+      {%- render 'free-shipping-progress' with free_shipping_goal: free_shipping_goal -%}
+    </div>
+  	<hr class="margin0">
+    {%- endif -%}
+    {%- unless settings.enable_rtl and settings.rtl_language_codes contains request.locale.iso_code -%}
+      {%- assign tooltip_remove_pos = 'left' -%}
+    {%- else -%}
+      {%- assign tooltip_remove_pos = 'right' -%}
+    {%- endunless -%}  
+
+    <div class="header-cart-content-wrapper">
+      
+      {% render 'cart-items-content' %}
+      
+      <hr class="top-gutter">
+
+      {% section 'header-cart-frequently-bought-list' %}
+	  
+      <div id="limespot-cart-recommendations"></div>
+  		
+    </div>
+
+     <section class="hc-bottom-part">   
+      <div class="hc__total flex fw-bold border-none">
+        <label>{{ 'cart.general.subtotal' | t }}</label>
+        <div class="hc__total__price">
+          {%- render 'price' with cart.total_price -%}
+        </div>
+      </div>
+
+      {%- if settings.cart_discount_text != '' -%}
+        <div class="header-cart-discount-text">{{ settings.cart_discount_text }}</div>
+      {%- endif -%}
+
+      <div class="hc__actions flex w100">
+        <div class="w100 cart__payment-badges-divider">
+          <div class="line"></div>
+          <div class="text">Secure Payment methods</div>
+          <div class="line"></div>
+        </div>
+        <div class="cart__payment-badges ">
+          <img src="https://cdn.shopify.com/s/files/1/0278/9903/5708/files/icon-visa.svg?v=1645725661" alt="Visa">
+          <img src="https://cdn.shopify.com/s/files/1/0278/9903/5708/files/icon-mastercard.svg?v=1645725661" alt="Mastercard">
+          <img src="https://cdn.shopify.com/s/files/1/0278/9903/5708/files/icon-paypal.svg?v=1645725661" alt="Paypal">
+          <img src="https://cdn.shopify.com/s/files/1/0278/9903/5708/files/icon-amex.svg?v=1645725661" alt="Amex">
+          <img src="https://cdn.shopify.com/s/files/1/0278/9903/5708/files/icon-apple-pay.svg?v=1645725661" alt="Apple Pay">
+          <img src="https://cdn.shopify.com/s/files/1/0278/9903/5708/files/icon-discover.svg?v=1645725661" alt="Discover">
+        </div>
+        
+        {% comment %}   
+          <button onclick="window.location.href = '{{ routes.checkout_url }}';" type="submit" name="checkout" title="{{ 'cart.general.checkout' | t | escape }}" class="button button--style1 button--rad checkout-btn trigger-checkout w100 fw-bold" aria-label="button"><span class="ver-sub">{{ 'cart.general.checkout' | t }}</span></button>
+        {% endcomment %}
+        
+        <button onclick="window.location.href = '/checkout';" type="submit" name="checkout" title="{{ 'cart.general.checkout' | t | escape }}" class="button button--style1 button--rad checkout-btn trigger-checkout w100 fw-bold" aria-label="button"><span class="ver-sub">{{ 'cart.general.checkout' | t }}</span></button>
+        
+        <button class="button button--style2 bt-sidebar__close button--rad w100 distance-bottom-ele fw-bold" title="{{ 'cart.general.continue_shopping' | t | escape }}" aria-label="button"><span class="ver-sub">{{ 'cart.general.continue_shopping' | t }}</span></button>
+        {%- comment -%}
+          {% if additional_checkout_buttons %}
+            <div class="additional-checkout-buttons distance-top-ele">{{ content_for_additional_checkout_buttons }}</div>
+          {% endif %}
+        {%- endcomment -%}
+      </div>
+      {%- if settings.cart_terms_enable -%}
+        {%- assign for_id = 'cart-temrs-header-cart-' -%}
+        {%- render 'cart-terms' with for_id: for_id -%}
+      {%- endif -%}
+    </section>
+
+    {%- else -%}
+  {% comment %}
+      <p class="hc__empty-icon gutter-bottom text-center">{%- render 'icon-cart-empty' -%}</p>
+  {% endcomment %}
+      <p class="hc__empty-text text-center">{{ 'cart.general.empty' | t }}</p>
+
+    {%- endif -%}
+  
+  
+</div>
+
+<style>
+  .cart__image{
+   	max-width: 100px;
+    height: auto;
+    
+  }
+</style>
+
+<script>
+  (function(){
+
+    function formSubmitSideCart(event) {
+      var url = "/cart/add";
+      var request = new XMLHttpRequest();
+      request.open('POST', url, true);
+      request.onload = function() { // request successful
+        BT.updateHeaderCartHtml(false);
+      };
+
+      request.onerror = function() {
+        // request failed
+      };
+
+      request.send(new FormData(event.target)); // create FormData from form that triggered event
+      event.preventDefault();
+    }
+    
+    function initFbtForm(){
+      const forms = document.getElementsByClassName("fbt-form");
+      for(let form of forms){
+        form.addEventListener("submit", formSubmitSideCart);
+      };
+    }
+
+    let limespotBackup;
+    let itemsProcessed = 0;
+    let limespotInitialized = false;
+    
+    function getProductData(url, callback){
+      $.get(url + ".js", function(data) {
+        callback(JSON.parse(data));
+      });
+    }
+    
+    function saveLimespotFbt(){
+     	 limespotBackup = $(".header-cart-frequently-bought-wrapper").html();
+    }
+    
+    function addButtonClickEvent(){
+      $('.fbt-form input[type="submit"]').click(function() {
+        	$(this).attr("value","Adding...");
+      });
+    }
+    
+    function loadBackupLimespotFbt(){
+     	 $(".header-cart-frequently-bought-wrapper").html(limespotBackup);
+          initFbtForm();
+          addButtonClickEvent();
+    }
+    
+    function getCustomFbtElements(fbtItem){
+      return {
+        image: fbtItem.find(".cart__image"),
+        imageLink: fbtItem.find(".hc__item__image a"),
+        title: fbtItem.find(".hc__item__name a"),
+        money: fbtItem.find(".money"),
+        variantSelect: fbtItem.next().find("select")
+      }
+    }
+    
+    // copies elements from limespot FBT to our custom made FBT design
+    function initLimespotFbt(){
+      // reload limespot script
+      
+      const limeboxItems = $('[data-box-style="grid"] .limespot-recommendation-box-item');
+      const fbtItems = $('.header-cart-frequently-bought-content .hc__item');
+
+      if(limeboxItems.length){
+        limeboxItems.each(function(index){
+          const fbtItem = $(fbtItems[index]);
+          const fbt = getCustomFbtElements(fbtItem);
+
+          const limespotImage = $(this).find(".ls-image");
+          const limespotTitle = $(this).find(".ls-title");
+          let limespotPrice = $(this).find(".ls-original-price");
+          if(limespotPrice.html() == ""){
+           	limespotPrice = $(this).find(".ls-price");
+          }
+          
+          const limespotAtc = $(this).find(".ls-add-to-cart");
+          const limespotLink = $(this).find(".ls-link");
+          const limespotProductUrl = $(limespotLink[0]).attr("href").split("?")[0];
+          
+          fbt.title.html(limespotTitle.html());
+          fbt.money.html(limespotPrice.html());
+          fbt.image.attr("data-src", limespotImage.attr("data-img-raw-src"));
+          fbt.image.attr("src", limespotImage.attr("data-img-raw-src"));
+		  fbt.imageLink.attr("href", limespotProductUrl);
+          fbt.title.attr("href", limespotProductUrl);
+          // clear original select options
+          fbt.variantSelect.html("");
+          getProductData(limespotProductUrl, function(product){
+            for(let variant of product.variants){
+              
+              const variantId = variant.id;
+              const variantTitle = variant.title;
+              
+              if(variant.available){
+                fbt.variantSelect.append('<option value="' + variantId + '">' + variantTitle + "</option>");
+              }
+              
+            }
+            
+            itemsProcessed += 1;
+            if(itemsProcessed >= 2){
+              limespotInitialized = true;
+              saveLimespotFbt();
+              $('[data-box-style="grid"]').hide();
+              addButtonClickEvent();
+              console.log("Limespot header cart FBT initialized");
+            }	
+          });
+        });
+      }
+    }
+    +
+    // waits until limebox is fully loaded and initializes FBT
+    window.addEventListener("load", function(){
+      let interval = setInterval(function(){
+        if($('[data-box-style="grid"] .ls-link').attr("href") !== undefined){
+         	 initLimespotFbt();
+          	 clearInterval(interval);
+        }
+      }, 60);
+
+      // on cart refresh, reloads previously initialized limespot fbt
+      $(document).on("ajaxCart.afterUpdateHeaderCartHtml",function(){
+        initFbtForm();
+        if(limespotInitialized){
+          loadBackupLimespotFbt();
+        }
+      });
+    });
+
+    
+    let checkoutBtn = document.getElementsByClassName("checkout-btn")[0];
+    let checkoutBtnText = checkoutBtn.childNodes[0];
+    checkoutBtn.addEventListener("click", function() {
+      checkoutBtnText.innerHTML = "<img src='{{ 'preloader.gif' | asset_url }}'/>"; 
+    });
+
+	initFbtForm();
+  })();
+  
+</script>
+
+

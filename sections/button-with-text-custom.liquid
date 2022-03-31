@@ -1,0 +1,126 @@
+
+<style>
+  #{{section.id}} {
+   	padding-left: 15px;
+    padding-right: 15px;
+    margin-top: 20px;
+    margin-bottom: 30px;
+  }
+	#{{section.id}} .text1{
+      font-family: Avenir Next;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 16px;
+      line-height: 22px;
+      /* or 107% */
+	  margin-bottom: 20px;
+      text-align: center;
+
+      color: #000000;
+    }
+  
+  #{{section.id}} .text-extra-mobile{
+   	    font-family: Avenir Next;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 20px;
+    /* or 107% */
+    text-align: center;
+	margin-bottom: 25px;
+    color: #000000; 
+  }
+  
+  #{{section.id}} .text2{
+    font-family: Avenir Next;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 30px;
+    /* or 107% */
+	margin-top: 20px;
+    text-align: center;
+
+    color: #000000;
+  }
+  
+  #{{section.id}} button{
+    display: block;
+    font-family: Avenir Next;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 22px;
+    line-height: 38px;
+    text-align: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    color: #FFFFFF;
+    background-color: black;
+    width: 100%;
+    max-width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
+    border: none;
+  }
+  
+  @media only screen and (max-width: 768px){
+    #{{section.id}} button{
+      font-size: 18px;
+      padding-top: 5px;
+      padding-bottom: 5px;
+    }
+    
+      #{{section.id}} {
+        margin-bottom: 0px;
+      }
+  }
+  
+</style>
+
+<div id="{{section.id}}">
+  <div class="text-extra-mobile fox-hide--medium-up">
+    {{ section.settings.text-extra-mobile }}
+  </div>
+  <div class="text1">{{ section.settings.text1 }}</div>
+  <a href="{{ section.settings.button-link }}"><button>SHOP SALE</button></a>
+  <div class="text2">{{ section.settings.text2 }}</div>
+</div>
+
+{% schema %}
+  {
+    "name": "Button with text (Custom)",
+    "class": "button-with-text-custom-section",
+    "settings": [
+      {
+        "type": "text",
+        "id": "text-extra-mobile",
+        "label": "Extra text (mobile)",
+        "default": "Head out to checkout with your ultimate favorite before the discount is gone for good! "
+      },
+      {
+        "type": "text",
+        "id": "text1",
+        "label": "Text 1",
+        "default": "In case you still didn’t find the bag you LOVE, check out our Sale Collection here:"
+      },
+      {
+        "type": "text",
+        "id": "text2",
+        "label": "Text 2",
+        "default": "There’s a unique item for everyone!"
+      },
+      {
+        "type": "url",
+        "id": "button-link",
+        "label": "Button link"
+      }
+    ],
+    "presets": [
+      {
+        "name": "Button with text (Custom)",
+        "category": "Text"
+      }
+    ]
+  }
+{% endschema %}

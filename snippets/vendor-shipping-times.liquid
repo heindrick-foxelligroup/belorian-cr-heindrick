@@ -1,0 +1,31 @@
+{% comment %}
+
+{%- if show_longest_shipping_time != "true" -%}
+  {%- case input_vendor -%}
+      {%- when "INDYPREP" -%}
+          {%- assign shipping_time = "2-6 days" -%}
+      {%- when "MSA" -%}
+          {%- assign shipping_time = "8-14 days" -%}
+      {%- else -%}
+          {%- assign shipping_time = "8-14 days" -%}
+  {%- endcase -%}
+{%- else -%}
+	{%- assign shipping_time = "8-14 days" -%}
+{%- endif -%}
+
+{% endcomment %}
+
+
+{%- case input_vendor -%}
+
+      {%- when "eu.mindfulsouls" -%}
+          {%- assign shipping_time = "2-6 days" -%}
+      {%- when "INDYPREP" -%}
+          {%- assign shipping_time = "2-6 days" -%}
+      {%- when "MSA" -%}
+          {%- assign shipping_time = "8-14 days" -%}
+      {%- else -%}
+          {%- assign shipping_time = "8-14 days" -%}
+  {%- endcase -%}
+
+{{ shipping_time }}
