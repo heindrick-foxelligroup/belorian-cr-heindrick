@@ -347,7 +347,7 @@
 
 
     .section-{{ section.id }} .mb-50 { margin-bottom: 50px; }
-
+    .section-{{ section.id }} .w-full { width: 100%; }
     
     .section-{{ section.id }} .reviews_wrapper {
         position: relative;
@@ -434,7 +434,7 @@
         <div class="banner_wrapper">
             <a href="{{ section.settings.banner_link }}" title="Mindful Souls Register Page">
                 <div class="hero-section" role="img" aria-label="Mindful Souls Products">
-                    <img src="{{ section.settings.banner_image | img_url: "original" }}" alt="{{ section.settings.banner_image.label }}">
+                    <img class="w-full" src="{{ section.settings.banner_image | img_url: "original" }}" alt="{{ section.settings.banner_image.label }}">
                     {% comment %} <div class="hero-info">
                         <h1 class="hero-info__title">Mindful Souls Rewards Program</h1>
                         <div class="auth__group">
