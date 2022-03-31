@@ -352,10 +352,6 @@
     }
     
     @media only screen and (min-width: 1224px) {
-    .hero-section {
-        height: 720px;
-        background-image: url('{{ section.settings.banner_image | img_url: "original" }}');
-    }
     
     .hero-info__title {
         font-size: 32px;
@@ -382,10 +378,6 @@
         max-width: 1345px;
     }
     
-    .hero-section {
-        height: 675px;
-        background-position: top center;
-    }
     }
     </style>
     
@@ -393,6 +385,7 @@
         <main>
             <a href="{{ section.settings.banner_link }}" title="Mindful Souls Register Page">
                 <div class="hero-section section" role="img" aria-label="Mindful Souls Products">
+                    <img src="{{ section.settings.banner_image | img_url: "original" }}" alt="{{ section.settings.banner_image.label }}">
                     {% comment %} <div class="hero-info">
                         <h1 class="hero-info__title">Mindful Souls Rewards Program</h1>
                         <div class="auth__group">
