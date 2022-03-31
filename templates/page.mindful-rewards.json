@@ -8,12 +8,21 @@
           "settings": {
             "person_picture": "shopify:\/\/shop_images\/1_2.png",
             "person_name": "May D.",
-            "person_testimonials": "Quick sign up, super easy to redeem, and you get points for your birthday too. I just got the crystal water bottle for 20% off!"
+            "person_testimonials": "<p>Quick sign up, super easy to redeem, and you get points for your birthday too. I just got the crystal water bottle for 20% off!<\/p>"
+          }
+        },
+        "dfe46a10-72ec-4fc2-a37a-82bdfbda1e85": {
+          "type": "reviews",
+          "settings": {
+            "person_picture": "shopify:\/\/shop_images\/3_1.png",
+            "person_name": "Laurie A.",
+            "person_testimonials": "<p>I don’t know about you, but feeling valued as a customer makes all the difference to me. And the Mindful Souls rewards program makes sure I invest in myself every time I make a purchase!! 🥰<\/p>"
           }
         }
       },
       "block_order": [
-        "5972746a-ba42-4079-a848-fce62a26485a"
+        "5972746a-ba42-4079-a848-fce62a26485a",
+        "dfe46a10-72ec-4fc2-a37a-82bdfbda1e85"
       ],
       "settings": {
         "banner_image": "shopify:\/\/shop_images\/22-3-9-MINDFUL-SOULS-REWARDS-SYSTEM-1344x667px-7_1.jpg",
