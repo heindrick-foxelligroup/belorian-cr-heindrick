@@ -344,6 +344,29 @@
         width: 85%;
     }
     }
+
+    
+    .reviews_wrapper {
+        display: flex;
+        justify-content: space-around;
+        padding-top: 100px;
+    }
+    
+    .reviews_wrapper .person-card {
+        position: relative;
+        box-shadow: 0px 0px 10px rgb(0 0 0 / 25%);
+        border-radius: 10px;
+        padding: 25px;
+        max-width: 325px;
+        padding-top: 60px;
+    }
+    
+    .reviews_wrapper .person-card__image {
+        position: absolute;
+        top: -75px;
+        right: 0;
+    }
+
     
     @media only screen and (min-width: 1224px) {
     
@@ -401,18 +424,20 @@
 
             <div class="section">
                 <div class="reviews_wrapper">
-                    {% for block in section.blocks %}
-                        {% case block.type %}
-                            {% when 'reviews' %}
-                            <div class="person-card" {{ block.shopify_attributes }}>
-                                <img class="person-card__image" src="{{ block.settings.person_picture | img_url: "original" }}" alt="{{ section.settings.person_name }}">
-                                <div class="person-card__info">
-                                    <p class="person-card__info-name">{{ block.settings.person_name }}</p>
-                                    <p class="person-card__info-testimonials">{{ block.settings.person_testimonials }}</p>
+                    <div class="reviews-wrapper--inner">
+                        {% for block in section.blocks %}
+                            {% case block.type %}
+                                {% when 'reviews' %}
+                                <div class="person-card" {{ block.shopify_attributes }}>
+                                    <div class="person-card__info">
+                                        <img class="person-card__image" src="{{ block.settings.person_picture | img_url: "original" }}" alt="{{ section.settings.person_name }}">
+                                        <p class="person-card__info-name">{{ block.settings.person_name }}</p>
+                                        <p class="person-card__info-testimonials">{{ block.settings.person_testimonials }}</p>
+                                    </div>
                                 </div>
-                            </div>
-                        {% endcase %}
-                    {% endfor %}
+                            {% endcase %}
+                        {% endfor %}
+                    </div>
                 </div>
             </div>
 
