@@ -404,10 +404,12 @@
                     {% for block in section.blocks %}
                         {% case block.type %}
                             {% when 'reviews' %}
-                            <div class="person" {{ block.shopify_attributes }}>
-                                <img src="{{ block.settings.person_picture | img_url: "original" }}" alt="{{ section.settings.person_name }}">
-                                <p>{{ block.settings.person_name }}</p>
-                                <p>{{ block.settings.person_testimonials }}</p>
+                            <div class="person-card" {{ block.shopify_attributes }}>
+                                <img class="person-card__image" src="{{ block.settings.person_picture | img_url: "original" }}" alt="{{ section.settings.person_name }}">
+                                <div class="person-card__info">
+                                    <p class="person-card__info-name">{{ block.settings.person_name }}</p>
+                                    <p class="person-card__info-testimonials">{{ block.settings.person_testimonials }}</p>
+                                </div>
                             </div>
                         {% endcase %}
                     {% endfor %}
