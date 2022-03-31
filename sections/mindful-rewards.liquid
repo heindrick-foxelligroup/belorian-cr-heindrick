@@ -97,6 +97,8 @@
     .rewards-section__head {
 
     }
+
+    .rewards-section .how-subheading {}
     
     .rewards-section__head p:nth-child(1) {
     background: #E9F4EB;
@@ -526,8 +528,8 @@
     <div class="rewards-section section">
         <div class="rewards-section__head">
             <p>{{ section.settings.how_heading }}</p>
-            <p>{{ section.settings.how_subheading }}</p>
-            <p>{{ section.settings.how_description }}</p>
+            <div class="how-subheading">{{ section.settings.how_subheading }}</div>
+            <div class="how-description">>{{ section.settings.how_description }}</div>
         </div>
 
         <div class="rewards-section__main">
