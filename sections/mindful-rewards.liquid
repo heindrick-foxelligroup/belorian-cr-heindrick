@@ -6,7 +6,7 @@
 */
 {% endcomment %}
 
-<div class="section-{{ section.id }}">
+<div class="section-{{ section.id }} container-fluid">
     <div class="banner-wrapper">
         {% if section.settings.banner_image != nil %}
             <img src="{{ section.settings.banner_image | img_url: 'original' }}" alt="">
