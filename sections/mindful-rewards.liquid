@@ -9,8 +9,8 @@
 <div class="section-{{ section.id }}">
     <div class="banner-wrapper">
         {% if section.settings.banner_image != nil %}
-        {{ section.settings.banner_image | image_url | image_tag: width: nil }}
-        {% endif %}
+            <img src="{{ section.settings.banner_image | img_url }}" alt="">
+        {% endif%}
     </div>
 </div>
 
