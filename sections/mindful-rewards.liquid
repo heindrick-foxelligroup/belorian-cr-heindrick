@@ -345,6 +345,10 @@
     }
     }
 
+
+    .section-{{ section.id }} .mb-50 { margin-bottom: 50px; }
+
+    
     .reviews_wrapper {
         position: relative;
     }
@@ -415,144 +419,16 @@
     }
     
     }
-    </style>
-    
-    <body>
-        <main>
-            <div class="section">
-                <div class="banner_wrapper">
-                    <a href="{{ section.settings.banner_link }}" title="Mindful Souls Register Page">
-                        <div class="hero-section" role="img" aria-label="Mindful Souls Products">
-                            <img src="{{ section.settings.banner_image | img_url: "original" }}" alt="{{ section.settings.banner_image.label }}">
-                            {% comment %} <div class="hero-info">
-                                <h1 class="hero-info__title">Mindful Souls Rewards Program</h1>
-                                <div class="auth__group">
-                                    <a href="https://mindfulsouls.com/account/register" title="Mindful Souls Register Page">
-                                        <button class="btn" aria-label="Join Now" tabindex="-1">JOIN NOW</button>
-                                    </a>
-                                    <p>
-                                        Already have an account?
-                                        <strong><a href="https://mindfulsouls.com/account/login" title="Mindful Souls Login Page">Sign in</a></strong>
-                                    </p>
-                                </div>
-                            </div> {% endcomment %}
-                        </div>
-                    </a>
-                </div>
-            </div>
+</style>
 
-            <div class="section">
-                <div class="reviews_wrapper">
-                    <div class="reviews-wrapper--inner">
-                        {% for block in section.blocks %}
-                            {% case block.type %}
-                                {% when 'reviews' %}
-                                <div class="person-card" {{ block.shopify_attributes }}>
-                                    <div class="person-card__info">
-                                        <img class="person-card__image" src="{{ block.settings.person_picture | img_url: "original" }}" alt="{{ section.settings.person_name }}">
-                                        <p class="person-card__info-name">{{ block.settings.person_name }}</p>
-                                        <img class="person-card__stars" src="{{ block.settings.stars_image | img_url: "original" }}" alt="{{ section.settings.stars_image.label }}">
-                                        <p class="person-card__info-testimonials">{{ block.settings.person_testimonials }}</p>
-                                    </div>
-                                </div>
-                            {% endcase %}
-                        {% endfor %}
-                    </div>
-                </div>
-            </div>
-
-
-
-        
-            <div class="rewards-section section">
-                <div class="rewards-section__head">
-                    <p><strong>HOW IT WORKS</strong></p>
-                    <p>Once you’ve created your account, we’ll keep an eye out for your purchases so that every time <br/> you place an order or celebrate your birthday - you automatically get rewarded with Mindful Points. 
-    </p>
-                    <p>You can carry on shopping as usual and redeem your earned points as you wish!</p>
-                </div>
-        
-                <div class="rewards-section__main">
-                    <article class="reward-card" aria-labelledby="articleHeading1">
-                        <h3 class="reward-card__title" id="articleHeading1">Ways to earn</h3>
-                        <div class="reward-card__info">
-                            <div class="reward-card__info-row">
-                                <div class="info-row__icon-wrapper">
-                                    <img src="https://cdn.shopify.com/s/files/1/0557/5317/9223/files/gift.png?v=1647157852" alt="Gift Icon" class="info-row__icon" />
-                                </div>
-                                <div class="info-row__text">
-                                    <p><strong>Place an Order</strong></p>
-                                    <p>1 Mindful Point for every $1 spent</p>
-                                </div>
-                            </div>
-                            <div class="reward-card__info-row">
-                                <div class="info-row__icon-wrapper">
-                                    <img src="https://cdn.shopify.com/s/files/1/0557/5317/9223/files/cake.png?v=1647157851" alt="Cake Icon" class="info-row__icon" />
-                                </div>
-                                <div class="info-row__text">
-                                    <p><strong>Celebrate a birthday</strong></p>
-                                    <p>100 Mindful Points</p>
-                                </div>
-                            </div>
-                            <div class="reward-card__info-row">
-                                <div class="info-row__icon-wrapper">
-                                    <img src="https://cdn.shopify.com/s/files/1/0557/5317/9223/files/refer.png?v=1647157851" alt="Refer Icon" class="info-row__icon" />
-                                </div>
-                                <div class="info-row__text">
-                                    <p><strong>Refer Mindful Subscription Box to a Friend</strong></p>
-                                    <p>500 Mindful Points!</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="reward-card__btn-wrapper">
-                            <a href="https://mindfulsouls.com/pages/mindful-points-rewards-page#smile-points-activity-rules" title="Mindful Souls Points Reward Page">
-                                <button class="btn reward-card__btn" aria-label="Learn More" tabindex="-1">Learn more...</button>
-                            </a>
-                        </div>
-                    </article>
-    
-                    <article class="reward-card" aria-labelledby="articleHeading2">
-                        <h3 class="reward-card__title" id="articleHeading2">Ways to redeem</h3>
-                        <div class="reward-card__info">
-                            <div class="reward-card__info-row">
-                                <div class="info-row__icon-wrapper">
-                                    <img src="https://cdn.shopify.com/s/files/1/0557/5317/9223/files/free_shipping.png?v=1647157852" alt="Free Shipping Icon" class="info-row__icon" />
-                                </div>
-                                <div class="info-row__text">
-                                    <p><strong>Free Shipping Coupon</strong></p>
-                                    <p>50 Mindful Points</p>
-                                </div>
-                            </div>
-                            <div class="reward-card__info-row">
-                                <div class="info-row__icon-wrapper">
-                                    <img src="https://cdn.shopify.com/s/files/1/0557/5317/9223/files/coupons.png?v=1647157851" alt="Coupons Icon" class="info-row__icon" />
-                                </div>
-                                <div class="info-row__text">
-                                    <p><strong>Mindful Subscription Coupons $5 - $40!</strong></p>
-                                    <p>100 - 1000 Mindful Points</p>
-                                </div>
-                            </div>
-                            <div class="reward-card__info-row">
-                                <div class="info-row__icon-wrapper">
-                                    <img src="https://cdn.shopify.com/s/files/1/0557/5317/9223/files/discount.png?v=1647157852" alt="Discount Icon" class="info-row__icon" />
-                                </div>
-                                <div class="info-row__text">
-                                    <p><strong>15 - 25% Off Storewide Discounts!</strong></p>
-                                    <p>100 - 500 Mindful Points</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="reward-card__btn-wrapper">
-                            <a href="https://mindfulsouls.com/pages/mindful-points-rewards-page#smile-points-products" title="Mindful Souls Points Reward Page">
-                                <button class="btn reward-card__btn" aria-label="Learn More" tabindex="-1">Learn more...</button>
-                            </a>
-                        </div>
-                    </article>
-                </div>
-    
-                <div class="rewards-section__foot">
-                    <div class="foot-info" aria-labelledby="footInfoTitle">
-                        <h2 class="foot-info__title" id="footInfoTitle">Mindful Souls Rewards Program</h2>
+<div class="section-{{ section.id }}">  
+    <div class="section mb-50">
+        <div class="banner_wrapper">
+            <a href="{{ section.settings.banner_link }}" title="Mindful Souls Register Page">
+                <div class="hero-section" role="img" aria-label="Mindful Souls Products">
+                    <img src="{{ section.settings.banner_image | img_url: "original" }}" alt="{{ section.settings.banner_image.label }}">
+                    {% comment %} <div class="hero-info">
+                        <h1 class="hero-info__title">Mindful Souls Rewards Program</h1>
                         <div class="auth__group">
                             <a href="https://mindfulsouls.com/account/register" title="Mindful Souls Register Page">
                                 <button class="btn" aria-label="Join Now" tabindex="-1">JOIN NOW</button>
@@ -562,56 +438,177 @@
                                 <strong><a href="https://mindfulsouls.com/account/login" title="Mindful Souls Login Page">Sign in</a></strong>
                             </p>
                         </div>
+                    </div> {% endcomment %}
+                </div>
+            </a>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="reviews_wrapper">
+            <div class="reviews-wrapper--inner">
+                {% for block in section.blocks %}
+                    {% case block.type %}
+                        {% when 'reviews' %}
+                        <div class="person-card" {{ block.shopify_attributes }}>
+                            <div class="person-card__info">
+                                <img class="person-card__image" src="{{ block.settings.person_picture | img_url: "original" }}" alt="{{ section.settings.person_name }}">
+                                <p class="person-card__info-name">{{ block.settings.person_name }}</p>
+                                <img class="person-card__stars" src="{{ block.settings.stars_image | img_url: "original" }}" alt="{{ section.settings.stars_image.label }}">
+                                <p class="person-card__info-testimonials">{{ block.settings.person_testimonials }}</p>
+                            </div>
+                        </div>
+                    {% endcase %}
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
+    <div class="rewards-section section">
+        <div class="rewards-section__head">
+            <p><strong>HOW IT WORKS</strong></p>
+            <p>Once you’ve created your account, we’ll keep an eye out for your purchases so that every time <br/> you place an order or celebrate your birthday - you automatically get rewarded with Mindful Points. </p>
+            <p>You can carry on shopping as usual and redeem your earned points as you wish!</p>
+        </div>
+
+        <div class="rewards-section__main">
+            <article class="reward-card" aria-labelledby="articleHeading1">
+                <h3 class="reward-card__title" id="articleHeading1">Ways to earn</h3>
+                <div class="reward-card__info">
+                    <div class="reward-card__info-row">
+                        <div class="info-row__icon-wrapper">
+                            <img src="https://cdn.shopify.com/s/files/1/0557/5317/9223/files/gift.png?v=1647157852" alt="Gift Icon" class="info-row__icon" />
+                        </div>
+                        <div class="info-row__text">
+                            <p><strong>Place an Order</strong></p>
+                            <p>1 Mindful Point for every $1 spent</p>
+                        </div>
+                    </div>
+                    <div class="reward-card__info-row">
+                        <div class="info-row__icon-wrapper">
+                            <img src="https://cdn.shopify.com/s/files/1/0557/5317/9223/files/cake.png?v=1647157851" alt="Cake Icon" class="info-row__icon" />
+                        </div>
+                        <div class="info-row__text">
+                            <p><strong>Celebrate a birthday</strong></p>
+                            <p>100 Mindful Points</p>
+                        </div>
+                    </div>
+                    <div class="reward-card__info-row">
+                        <div class="info-row__icon-wrapper">
+                            <img src="https://cdn.shopify.com/s/files/1/0557/5317/9223/files/refer.png?v=1647157851" alt="Refer Icon" class="info-row__icon" />
+                        </div>
+                        <div class="info-row__text">
+                            <p><strong>Refer Mindful Subscription Box to a Friend</strong></p>
+                            <p>500 Mindful Points!</p>
+                        </div>
                     </div>
                 </div>
+                <div class="reward-card__btn-wrapper">
+                    <a href="https://mindfulsouls.com/pages/mindful-points-rewards-page#smile-points-activity-rules" title="Mindful Souls Points Reward Page">
+                        <button class="btn reward-card__btn" aria-label="Learn More" tabindex="-1">Learn more...</button>
+                    </a>
+                </div>
+            </article>
+
+            <article class="reward-card" aria-labelledby="articleHeading2">
+                <h3 class="reward-card__title" id="articleHeading2">Ways to redeem</h3>
+                <div class="reward-card__info">
+                    <div class="reward-card__info-row">
+                        <div class="info-row__icon-wrapper">
+                            <img src="https://cdn.shopify.com/s/files/1/0557/5317/9223/files/free_shipping.png?v=1647157852" alt="Free Shipping Icon" class="info-row__icon" />
+                        </div>
+                        <div class="info-row__text">
+                            <p><strong>Free Shipping Coupon</strong></p>
+                            <p>50 Mindful Points</p>
+                        </div>
+                    </div>
+                    <div class="reward-card__info-row">
+                        <div class="info-row__icon-wrapper">
+                            <img src="https://cdn.shopify.com/s/files/1/0557/5317/9223/files/coupons.png?v=1647157851" alt="Coupons Icon" class="info-row__icon" />
+                        </div>
+                        <div class="info-row__text">
+                            <p><strong>Mindful Subscription Coupons $5 - $40!</strong></p>
+                            <p>100 - 1000 Mindful Points</p>
+                        </div>
+                    </div>
+                    <div class="reward-card__info-row">
+                        <div class="info-row__icon-wrapper">
+                            <img src="https://cdn.shopify.com/s/files/1/0557/5317/9223/files/discount.png?v=1647157852" alt="Discount Icon" class="info-row__icon" />
+                        </div>
+                        <div class="info-row__text">
+                            <p><strong>15 - 25% Off Storewide Discounts!</strong></p>
+                            <p>100 - 500 Mindful Points</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="reward-card__btn-wrapper">
+                    <a href="https://mindfulsouls.com/pages/mindful-points-rewards-page#smile-points-products" title="Mindful Souls Points Reward Page">
+                        <button class="btn reward-card__btn" aria-label="Learn More" tabindex="-1">Learn more...</button>
+                    </a>
+                </div>
+            </article>
+        </div>
+
+        <div class="rewards-section__foot">
+            <div class="foot-info" aria-labelledby="footInfoTitle">
+                <h2 class="foot-info__title" id="footInfoTitle">Mindful Souls Rewards Program</h2>
+                <div class="auth__group">
+                    <a href="https://mindfulsouls.com/account/register" title="Mindful Souls Register Page">
+                        <button class="btn" aria-label="Join Now" tabindex="-1">JOIN NOW</button>
+                    </a>
+                    <p>
+                        Already have an account?
+                        <strong><a href="https://mindfulsouls.com/account/login" title="Mindful Souls Login Page">Sign in</a></strong>
+                    </p>
+                </div>
             </div>
-        </main>
-    </body>
-    
-    
-    {% schema %}
+        </div>
+    </div>
+</div>
+
+{% schema %}
+{
+"name": "Rewards Page Section",
+"settings": [
     {
-    "name": "Rewards Page Section",
-    "settings": [
+        "type": "image_picker",
+        "id": "banner_image",
+        "label": "Banner Image"
+    },
+    {
+        "type": "url",
+        "id": "banner_link",
+        "label": "Banner Link"
+    }
+],
+"blocks": [
+    {
+        "name": "Reviews",
+        "type": "reviews",
+        "settings": [
         {
             "type": "image_picker",
-            "id": "banner_image",
-            "label": "Banner Image"
+            "id": "person_picture",
+            "label": "Picture"
         },
         {
-            "type": "url",
-            "id": "banner_link",
-            "label": "Banner Link"
-        }
-    ],
-    "blocks": [
+            "type": "image_picker",
+            "id": "stars_image",
+            "label": "Stars Image"
+        },
         {
-          "name": "Reviews",
-          "type": "reviews",
-          "settings": [
-            {
-              "type": "image_picker",
-              "id": "person_picture",
-              "label": "Picture"
-            },
-            {
-                "type": "image_picker",
-                "id": "stars_image",
-                "label": "Stars Image"
-            },
-            {
-                "type": "text",
-                "id": "person_name",
-                "label": "Name"
-            },
-            {
-                "type": "richtext",
-                "id": "person_testimonials",
-                "label": "Testimonials"
-            }
-          ]
+            "type": "text",
+            "id": "person_name",
+            "label": "Name"
+        },
+        {
+            "type": "richtext",
+            "id": "person_testimonials",
+            "label": "Testimonials"
         }
-      ]
+        ]
     }
-    {% endschema %}
+    ]
+}
+{% endschema %}
     
