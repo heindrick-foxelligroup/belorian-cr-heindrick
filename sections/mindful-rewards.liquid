@@ -349,11 +349,11 @@
     .section-{{ section.id }} .mb-50 { margin-bottom: 50px; }
 
     
-    .reviews_wrapper {
+    .section-{{ section.id }} .reviews_wrapper {
         position: relative;
     }
 
-    .reviews_wrapper::after {
+    .section-{{ section.id }} .reviews_wrapper::after {
         content: "";
         background-color: #18444A;
         width: 100%;
@@ -362,34 +362,42 @@
         bottom: 0;
     }
     
-    .reviews_wrapper .reviews-wrapper--inner {
+    .section-{{ section.id }} .reviews_wrapper .reviews-wrapper--inner {
         display: flex;
         justify-content: space-around;
         padding-top: 60px;
         padding-bottom: 70px;
     }
     
-    .reviews_wrapper .reviews-wrapper--inner .person-card {
+    .section-{{ section.id }} .reviews_wrapper .reviews-wrapper--inner .person-card {
         position: relative;
         box-shadow: 0px 0px 10px rgb(0 0 0 / 25%);
         border-radius: 10px;
         padding: 25px;
         max-width: 325px;
+        width: calc(100%/3);
         padding-top: 60px;
         background-color: #ffffff;
         z-index: 1;
+        margin: 0 20px; 
     }
 
-    .reviews_wrapper .reviews-wrapper--inner .person-card__info-name {
+    .section-{{ section.id }} .reviews_wrapper .reviews-wrapper--inner .person-card__info-name {
         font-weight: bold;
     }
     
-    .reviews_wrapper .reviews-wrapper--inner .person-card__image {
+    .section-{{ section.id }} .reviews_wrapper .reviews-wrapper--inner .person-card__image {
         position: absolute;
         top: -75px;
         right: 0;
     }
 
+    .section-{{ section.id }} .hidden-desktop { display: block; }
+    .section-{{ section.id }} .hidden-mobile { display: none; }
+    @media only screen and (min-width: 768px) {
+        .section-{{ section.id }} .hidden-desktop { display: none; }
+        .section-{{ section.id }} .hidden-mobile { display: block; }
+    }
     
     @media only screen and (min-width: 1224px) {
     
@@ -445,7 +453,24 @@
     </div>
 
     <div class="section">
-        <div class="reviews_wrapper">
+        <div class="reviews_wrapper hidden-mobile">
+            <div class="reviews-wrapper--inner">
+                {% for block in section.blocks %}
+                    {% case block.type %}
+                        {% when 'reviews' %}
+                        <div class="person-card" {{ block.shopify_attributes }}>
+                            <div class="person-card__info">
+                                <img class="person-card__image" src="{{ block.settings.person_picture | img_url: "original" }}" alt="{{ section.settings.person_name }}">
+                                <p class="person-card__info-name">{{ block.settings.person_name }}</p>
+                                <img class="person-card__stars" src="{{ block.settings.stars_image | img_url: "original" }}" alt="{{ section.settings.stars_image.label }}">
+                                <p class="person-card__info-testimonials">{{ block.settings.person_testimonials }}</p>
+                            </div>
+                        </div>
+                    {% endcase %}
+                {% endfor %}
+            </div>
+        </div>
+        <div class="reviews_wrapper hidden-desktop">
             <div class="reviews-wrapper--inner">
                 {% for block in section.blocks %}
                     {% case block.type %}
