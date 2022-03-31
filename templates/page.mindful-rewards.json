@@ -2,6 +2,19 @@
   "sections": {
     "main": {
       "type": "mindful-rewards",
+      "blocks": {
+        "5972746a-ba42-4079-a848-fce62a26485a": {
+          "type": "reviews",
+          "settings": {
+            "person_picture": "shopify:\/\/shop_images\/1_2.png",
+            "person_name": "May D.",
+            "person_testimonials": "Quick sign up, super easy to redeem, and you get points for your birthday too. I just got the crystal water bottle for 20% off!"
+          }
+        }
+      },
+      "block_order": [
+        "5972746a-ba42-4079-a848-fce62a26485a"
+      ],
       "settings": {
         "banner_image": "shopify:\/\/shop_images\/22-3-9-MINDFUL-SOULS-REWARDS-SYSTEM-1344x667px-7_1.jpg",
         "banner_link": "shopify:\/\/pages\/about-us"
