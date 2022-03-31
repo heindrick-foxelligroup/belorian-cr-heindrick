@@ -3,7 +3,8 @@
     "main": {
       "type": "mindful-rewards",
       "settings": {
-        "banner_image": "shopify:\/\/shop_images\/22-3-9-MINDFUL-SOULS-REWARDS-SYSTEM-1344x667px-7_1.jpg"
+        "banner_image": "shopify:\/\/shop_images\/22-3-9-MINDFUL-SOULS-REWARDS-SYSTEM-1344x667px-7_1.jpg",
+        "banner_link": "shopify:\/\/pages\/about-us"
       }
     }
   },
