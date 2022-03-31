@@ -8,9 +8,9 @@
 
 <div class="section-{{ section.id }}">
     <div class="banner-wrapper">
-        {{ section.settings.banner_image | image_url: width: 2000 | image_tag: width: nil }}
+        {{ section.settings.banner_image | image_url | image_tag: width: nil }}
     </div>
-</div>>  
+</div>
 
 
 {% schema %}
@@ -22,7 +22,7 @@
     "id": "banner_image",
     "label": "Image"
     }
-]
+    ]
 }
 {% endschema %}
   
