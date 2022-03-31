@@ -325,16 +325,12 @@
     }
     }
 
-
+    .section-{{ section.id }} input[type="checkbox"] + h2 + p { display: none; }
+    .section-{{ section.id }} input[type="checkbox"]:checked + h2 + p { display: block; }
     .section-{{ section.id }} .mb-50 { margin-bottom: 50px; }
     .section-{{ section.id }} .w-full { width: 100%; }
     .section-{{ section.id }} .w-auto { width: auto; }
-    
-    .section-{{ section.id }} .reviews_wrapper {
-        position: relative;
-    }
-
-    
+    .section-{{ section.id }} .reviews_wrapper { position: relative;}
     
     .section-{{ section.id }} .reviews_wrapper .reviews-wrapper--inner {
         display: flex;
@@ -621,7 +617,7 @@
 
     <div class="accordion-section section">
         <div class="">
-            <ul>
+            <ul class="accordion__list">
                 <li>
                     <input type="checkbox" checked>
                     <h2>What is Lorem Ipsum ?</h2>
