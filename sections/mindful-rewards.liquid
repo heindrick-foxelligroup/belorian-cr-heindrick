@@ -348,19 +348,13 @@
 
     .section-{{ section.id }} .mb-50 { margin-bottom: 50px; }
     .section-{{ section.id }} .w-full { width: 100%; }
+    .section-{{ section.id }} .w-auto { width: auto; }
     
     .section-{{ section.id }} .reviews_wrapper {
         position: relative;
     }
 
-    .section-{{ section.id }} .reviews_wrapper::after {
-        content: "";
-        background-color: #18444A;
-        width: 100%;
-        height: 50%;
-        position: absolute;
-        bottom: 0;
-    }
+    
     
     .section-{{ section.id }} .reviews_wrapper .reviews-wrapper--inner {
         display: flex;
@@ -394,9 +388,49 @@
 
     .section-{{ section.id }} .hidden-desktop { display: block; }
     .section-{{ section.id }} .hidden-mobile { display: none; }
+
+
+
+
+    .section-{{ section.id }} .reviews_wrapper.hidden-desktop .reviews-wrapper--inner .person-card__image {
+        max-width: 127px;
+    }
+    
+    .section-{{ section.id }} .reviews_wrapper.hidden-desktop .reviews-wrapper--inner .person-card {
+        max-width: none;
+        overflow: visible;
+    }
+    
+    .section-{{ section.id }} .reviews_wrapper.hidden-desktop .reviews-wrapper--inner .slick-list {
+        padding-top: 80px;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     @media only screen and (min-width: 768px) {
         .section-{{ section.id }} .hidden-desktop { display: none; }
         .section-{{ section.id }} .hidden-mobile { display: block; }
+        .section-{{ section.id }} .reviews_wrapper::after {
+            content: "";
+            background-color: #18444A;
+            width: 100%;
+            height: 50%;
+            position: absolute;
+            bottom: 0;
+        }
     }
     
     @media only screen and (min-width: 1224px) {
@@ -462,7 +496,7 @@
                             <div class="person-card__info">
                                 <img class="person-card__image" src="{{ block.settings.person_picture | img_url: "original" }}" alt="{{ section.settings.person_name }}">
                                 <p class="person-card__info-name">{{ block.settings.person_name }}</p>
-                                <img class="person-card__stars" src="{{ block.settings.stars_image | img_url: "original" }}" alt="{{ section.settings.stars_image.label }}">
+                                <img class="person-card__stars w-auto" src="{{ block.settings.stars_image | img_url: "original" }}" alt="{{ section.settings.stars_image.label }}">
                                 <p class="person-card__info-testimonials">{{ block.settings.person_testimonials }}</p>
                             </div>
                         </div>
@@ -479,7 +513,7 @@
                             <div class="person-card__info">
                                 <img class="person-card__image" src="{{ block.settings.person_picture | img_url: "original" }}" alt="{{ section.settings.person_name }}">
                                 <p class="person-card__info-name">{{ block.settings.person_name }}</p>
-                                <img class="person-card__stars" src="{{ block.settings.stars_image | img_url: "original" }}" alt="{{ section.settings.stars_image.label }}">
+                                <img class="person-card__stars w-auto" src="{{ block.settings.stars_image | img_url: "original" }}" alt="{{ section.settings.stars_image.label }}">
                                 <p class="person-card__info-testimonials">{{ block.settings.person_testimonials }}</p>
                             </div>
                         </div>
