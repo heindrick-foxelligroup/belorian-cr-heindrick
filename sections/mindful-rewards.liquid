@@ -391,20 +391,22 @@
     
     <body>
         <main>
-            <div class="hero-section section" role="img" aria-label="Mindful Souls Products">
-                <div class="hero-info">
-                    <h1 class="hero-info__title">Mindful Souls Rewards Program</h1>
-                    <div class="auth__group">
-                        <a href="https://mindfulsouls.com/account/register" title="Mindful Souls Register Page">
-                            <button class="btn" aria-label="Join Now" tabindex="-1">JOIN NOW</button>
-                        </a>
-                        <p>
-                            Already have an account?
-                            <strong><a href="https://mindfulsouls.com/account/login" title="Mindful Souls Login Page">Sign in</a></strong>
-                        </p>
-                    </div>
+            <a href="{{ section.settings.banner_link }}" title="Mindful Souls Register Page">
+                <div class="hero-section section" role="img" aria-label="Mindful Souls Products">
+                    {% comment %} <div class="hero-info">
+                        <h1 class="hero-info__title">Mindful Souls Rewards Program</h1>
+                        <div class="auth__group">
+                            <a href="https://mindfulsouls.com/account/register" title="Mindful Souls Register Page">
+                                <button class="btn" aria-label="Join Now" tabindex="-1">JOIN NOW</button>
+                            </a>
+                            <p>
+                                Already have an account?
+                                <strong><a href="https://mindfulsouls.com/account/login" title="Mindful Souls Login Page">Sign in</a></strong>
+                            </p>
+                        </div>
+                    </div> {% endcomment %}
                 </div>
-            </div>
+            </a>
         
             <div class="rewards-section section">
                 <div class="rewards-section__head">
@@ -519,6 +521,11 @@
             "type": "image_picker",
             "id": "banner_image",
             "label": "Banner Image"
+        },
+        {
+            "type": "url",
+            "id": "banner_link",
+            "label": "Banner Link"
         }
     ]
     }
