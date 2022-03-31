@@ -592,13 +592,15 @@
 </div>
 
 <script>
-$('.reviews_wrapper.hidden-desktop .reviews-wrapper--inner').slick({
-    dots: true,
-    infinite: true,
-    speed: 300,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-});
+    $(window).load(function(){
+        $('.reviews_wrapper.hidden-desktop .reviews-wrapper--inner').slick({
+            dots: true,
+            infinite: true,
+            speed: 300,
+            slidesToShow: 1,
+            slidesToScroll: 1,
+        });
+    })
 </script>
 
 {% schema %}
