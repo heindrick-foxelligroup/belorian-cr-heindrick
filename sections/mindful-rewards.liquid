@@ -354,7 +354,7 @@
     @media only screen and (min-width: 1224px) {
     .hero-section {
         height: 720px;
-        background-image: url('https://cdn.shopify.com/s/files/1/0557/5317/9223/files/hero__bkgr__3000x3000_50826850-4748-4ec8-ae9f-616ca4650bc6.webp?v=1647157789');
+        background-image: url('{{ section.settings.banner_image | img_url: "original" }}');
     }
     
     .hero-info__title {
@@ -514,7 +514,13 @@
     {% schema %}
     {
     "name": "Rewards Page Section",
-    "settings": []
+    "settings": [
+        {
+            "type": "image_picker",
+            "id": "banner_image",
+            "label": "Banner Image"
+        }
+    ]
     }
     {% endschema %}
     
