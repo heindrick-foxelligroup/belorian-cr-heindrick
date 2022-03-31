@@ -361,7 +361,8 @@
     .reviews_wrapper .reviews-wrapper--inner {
         display: flex;
         justify-content: space-around;
-        padding-top: 100px;
+        padding-top: 60px;
+        padding-bottom: 70px;
     }
     
     .reviews_wrapper .reviews-wrapper--inner .person-card {
@@ -372,6 +373,11 @@
         max-width: 325px;
         padding-top: 60px;
         background-color: #ffffff;
+        z-index: 1;
+    }
+
+    .reviews_wrapper .reviews-wrapper--inner .person-card__info-name {
+        font-weight: bold;
     }
     
     .reviews_wrapper .reviews-wrapper--inner .person-card__image {
@@ -444,8 +450,8 @@
                                 <div class="person-card" {{ block.shopify_attributes }}>
                                     <div class="person-card__info">
                                         <img class="person-card__image" src="{{ block.settings.person_picture | img_url: "original" }}" alt="{{ section.settings.person_name }}">
-                                        <img class="person-card__stars" src="{{ block.settings.stars_image | img_url: "original" }}" alt="{{ section.settings.stars_image.label }}">
                                         <p class="person-card__info-name">{{ block.settings.person_name }}</p>
+                                        <img class="person-card__stars" src="{{ block.settings.stars_image | img_url: "original" }}" alt="{{ section.settings.stars_image.label }}">
                                         <p class="person-card__info-testimonials">{{ block.settings.person_testimonials }}</p>
                                     </div>
                                 </div>
