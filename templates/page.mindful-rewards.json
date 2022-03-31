@@ -7,6 +7,7 @@
           "type": "reviews",
           "settings": {
             "person_picture": "shopify:\/\/shop_images\/1_2.png",
+            "stars_image": "shopify:\/\/shop_images\/Untitled_design-2_3_26fbdd93-ab18-46c4-8c39-acb4fc9cdcf9.png",
             "person_name": "May D.",
             "person_testimonials": "<p>Quick sign up, super easy to redeem, and you get points for your birthday too. I just got the crystal water bottle for 20% off!<\/p>"
           }
@@ -23,6 +24,7 @@
           "type": "reviews",
           "settings": {
             "person_picture": "shopify:\/\/shop_images\/Untitled_design-3_2.png",
+            "stars_image": "shopify:\/\/shop_images\/Untitled_design-2_3.png",
             "person_name": "Stephanie L.",
             "person_testimonials": "<p>I love sharing new products that I’ve discovered with my girls, got one Mindful Box for FREE by recommending it to two friends!<\/p>"
           }
