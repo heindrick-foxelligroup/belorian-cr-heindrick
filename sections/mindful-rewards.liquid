@@ -643,21 +643,16 @@
         <h2 class="heading">FREQUENTLY ASKED QUESTIONS</h2>
         <div class="">
             <ul class="accordion__list">
+            {% for block in section.blocks %}
+                {% case block.type %}
+                    {% when 'faq' %}
                 <li class="accordion__list-item">
-                    <input class="accordion__list-item--input" type="checkbox" checked name="faq-check">
-                    <label class="accordion__list-item--label">What is Lorem Ipsum ?</label>
-                    <div class="accordion__list-item--content">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</div>
+                    <input class="accordion__list-item--input" type="checkbox" checked id="faq-check-{{ forloop.index }}" name="faq-check-{{ forloop.index }}">
+                    <label class="accordion__list-item--label" for="faq-check-{{ forloop.index }}">{{ block.settings.faq_label}}</label>
+                    <div class="accordion__list-item--content">{{ block.settings.faq_content}}</div>
                 </li>
-                <li class="accordion__list-item">
-                    <input class="accordion__list-item--input" type="checkbox" name="faq-check">
-                    <label class="accordion__list-item--label">What is Lorem Ipsum ?</label>
-                    <div class="accordion__list-item--content">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</div>
-                </li>
-                <li class="accordion__list-item">
-                    <input class="accordion__list-item--input" type="checkbox" name="faq-check">
-                    <label class="accordion__list-item--label">What is Lorem Ipsum ?</label>
-                    <div class="accordion__list-item--content">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</div>
-                </li>
+                {% endcase %}
+            {% endfor %}
             </ul>
         </div>
     </div>
@@ -734,6 +729,27 @@
             "id": "person_testimonials",
             "label": "Testimonials"
         }
+        ]
+    },
+    {
+        "name": "FAQ",
+        "type": "faq",
+        "settings": [
+            {
+                "type": "checkbox",
+                "id": "faq_expanded",
+                "label": "Expanded"
+            },
+            {
+                "type": "text",
+                "id": "faq_label",
+                "label": "Label"
+            },
+            {
+                "type": "richtext",
+                "id": "faq_content",
+                "label": "Content"
+            }
         ]
     }
     ]
