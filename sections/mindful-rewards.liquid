@@ -389,6 +389,15 @@
     .section-{{ section.id }} .reviews_wrapper .reviews-wrapper--inner .person-card__info-name {
         font-weight: bold;
     }
+
+    .section-{{ section.id }} .reviews_wrapper.hidden-desktop .reviews-wrapper--inner .person-card__info-name {
+        font-size: 16px;
+        margin-bottom: 5px;
+    }
+
+    .section-{{ section.id }} .reviews_wrapper.hidden-desktop .reviews-wrapper--inner .person-card__info-name {
+        font-size: 16px;
+    }
     
     .section-{{ section.id }} .reviews_wrapper .reviews-wrapper--inner .person-card__image {
         position: absolute;
@@ -403,13 +412,14 @@
 
 
     .section-{{ section.id }} .reviews_wrapper.hidden-desktop .reviews-wrapper--inner .person-card__image {
-        max-width: 127px;
-        top: -55px;
+        max-width: 161px;
+        top: -70px;
     }
     
     .section-{{ section.id }} .reviews_wrapper.hidden-desktop .reviews-wrapper--inner .person-card {
         max-width: none;
         overflow: visible;
+        padding-top: 25px;
     }
     
     .section-{{ section.id }} .reviews_wrapper.hidden-desktop .reviews-wrapper--inner .slick-list {
@@ -430,8 +440,8 @@
         width: 15px;height: 15px;top: 0;background-color: #ffffff;border: 2px solid #18444A;left: 0;right: 0;}
     .section-{{ section.id }} .hidden-desktop .slick-dots > li.slick-active button::before { background-color: #18444A; }
     .section-{{ section.id }} .hidden-desktop button.slick-arrow { font-size: 0; color: #18444A; }
-    .section-{{ section.id }} .hidden-desktop button.slick-arrow.slick-prev { left: 5px; }
-    .section-{{ section.id }} .hidden-desktop button.slick-arrow.slick-next { right: 5px; }
+    {% comment %} .section-{{ section.id }} .hidden-desktop button.slick-arrow.slick-prev { left: 5px; }
+    .section-{{ section.id }} .hidden-desktop button.slick-arrow.slick-next { right: 5px; } {% endcomment %}
     .section-{{ section.id }} .hidden-desktop button.slick-prev.slick-arrow::after {
         content: "\e93b";font-size: 27px;font-family: 'BTBeloria' !important;speak: none;font-style: normal;font-weight: normal;font-variant: normal;text-transform: none;line-height: 1;-webkit-font-smoothing: antialiased;-moz-osx-font-smoothing: grayscale;
     }
@@ -521,7 +531,7 @@
                                 <img class="person-card__image" src="{{ block.settings.person_picture | img_url: "original" }}" alt="{{ section.settings.person_name }}">
                                 <p class="person-card__info-name">{{ block.settings.person_name }}</p>
                                 <img class="person-card__stars w-auto" src="{{ block.settings.stars_image | img_url: "original" }}" alt="{{ section.settings.stars_image.label }}">
-                                <p class="person-card__info-testimonials">{{ block.settings.person_testimonials }}</p>
+                                <div class="person-card__info-testimonials">{{ block.settings.person_testimonials }}</div>
                             </div>
                         </div>
                     {% endcase %}
@@ -538,7 +548,7 @@
                                 <img class="person-card__image" src="{{ block.settings.person_picture | img_url: "original" }}" alt="{{ section.settings.person_name }}">
                                 <p class="person-card__info-name">{{ block.settings.person_name }}</p>
                                 <img class="person-card__stars w-auto" src="{{ block.settings.stars_image | img_url: "original" }}" alt="{{ section.settings.stars_image.label }}">
-                                <p class="person-card__info-testimonials">{{ block.settings.person_testimonials }}</p>
+                                <div class="person-card__info-testimonials">{{ block.settings.person_testimonials }}</div>
                             </div>
                         </div>
                     {% endcase %}
