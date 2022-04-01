@@ -12,19 +12,6 @@
       --clr-mint: #769E8B; 
       --clr-dark-green: #18444A; 
     }
-      
-    body {
-    -webkit-box-sizing: border-box;
-            box-sizing: border-box;
-    font-family: 'Lato', sans-serif;
-    padding: 0px;
-    margin: 0px;
-    color: #000;
-    }
-    
-    main {
-    padding: 10px 12px;
-    }
     
     .btn {
     text-decoration: none;
@@ -285,10 +272,6 @@
     }
     
     @media only screen and (min-width: 768px) {
-    main {
-        padding: 10px 24px;
-    }
-    
     .hero-section {
         background-position: center left;
     }
@@ -436,6 +419,17 @@
         padding-bottom: 0;
     }
 
+    .section-{{ section.id }} .reviews_wrapper.hidden-desktop .person-card__info-testimonials {
+        font-size: 16px;
+        line-height: 19px;
+        color: #2E2E30;
+        margin-top: 8px;
+    }
+
+    .section-{{ section.id }} .reviews_wrapper.hidden-desktop .person-card__info-testimonials p {
+        margin: 0;
+    }
+
     .section-{{ section.id }} .hidden-desktop .slick-dots > li button::before {
         width: 15px;height: 15px;top: 0;background-color: #ffffff;border: 2px solid #18444A;left: 0;right: 0;}
     .section-{{ section.id }} .hidden-desktop .slick-dots > li.slick-active button::before { background-color: #18444A; }
@@ -449,7 +443,7 @@
         content: "\e93a";font-size: 27px;font-family: 'BTBeloria' !important;speak: none;font-style: normal;font-weight: normal;font-variant: normal;text-transform: none;line-height: 1;-webkit-font-smoothing: antialiased;-moz-osx-font-smoothing: grayscale;
     }
 
-    .section-{{ section.id }} .slider-section { margin: 0 -12px; }
+    .section-{{ section.id }} .slider-section { margin: 0 -12px; margin-bottom: 20px; }
     @media only screen and (min-width: 768px) {
         .section-{{ section.id }} .hidden-desktop { display: none; }
         .section-{{ section.id }} .hidden-mobile { display: block; }
