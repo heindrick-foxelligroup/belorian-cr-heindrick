@@ -329,10 +329,9 @@
     {% comment %} Accordion Section {% endcomment %}
     .section-{{ section.id }} input[type="checkbox"].accordion__list-item--input + .accordion__list-item--label + .accordion__list-item--content { display: none; }
     .section-{{ section.id }} input[type="checkbox"].accordion__list-item--input:checked + .accordion__list-item--label + .accordion__list-item--content { display: block; }
-    
     .section-{{ section.id }} .accordion-section .heading {text-align: center;color: #18444A;font-weight: 900;margin-bottom: 36px;}
     .section-{{ section.id }} .accordion-section {background: #E9F4EB;padding: 50px;}
-    .section-{{ section.id }} .accordion-section .accordion__list { padding: 0; }
+    .section-{{ section.id }} .accordion-section .accordion__list { padding: 0; max-width: 776px; margin: auto; }
     .section-{{ section.id }} .accordion-section .accordion__list > li {
         background: #FFFFFF;
         box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.25);
@@ -341,7 +340,7 @@
     }
 
     .section-{{ section.id }} .accordion-section .accordion__list-item--input { display: none;}
-    .section-{{ section.id }} .accordion-section .accordion__list-item--label {display: block;padding: 30px;color: #2E2E30;font-weight: bold;font-size: 18px;}
+    .section-{{ section.id }} .accordion-section .accordion__list-item--label {display: block;padding: 30px;color: #2E2E30;font-weight: bold;font-size: 18px; cursor: pointer; }
     .section-{{ section.id }} .accordion-section .accordion__list-item--content {
         padding: 30px;
         padding-top: 0;
@@ -622,21 +621,6 @@
                 </div>
             </article>
         </div>
-
-        <div class="rewards-section__foot">
-            <div class="foot-info" aria-labelledby="footInfoTitle">
-                <h2 class="foot-info__title" id="footInfoTitle">Mindful Souls Rewards Program</h2>
-                <div class="auth__group">
-                    <a href="https://mindfulsouls.com/account/register" title="Mindful Souls Register Page">
-                        <button class="btn" aria-label="Join Now" tabindex="-1">JOIN NOW</button>
-                    </a>
-                    <p>
-                        Already have an account?
-                        <strong><a href="https://mindfulsouls.com/account/login" title="Mindful Souls Login Page">Sign in</a></strong>
-                    </p>
-                </div>
-            </div>
-        </div>
     </div>
 
     <div class="accordion-section section">
@@ -654,6 +638,21 @@
                 {% endcase %}
             {% endfor %}
             </ul>
+        </div>
+    </div>
+
+    <div class="rewards-section__foot">
+        <div class="foot-info" aria-labelledby="footInfoTitle">
+            <h2 class="foot-info__title" id="footInfoTitle">Mindful Souls Rewards Program</h2>
+            <div class="auth__group">
+                <a href="https://mindfulsouls.com/account/register" title="Mindful Souls Register Page">
+                    <button class="btn" aria-label="Join Now" tabindex="-1">JOIN NOW</button>
+                </a>
+                <p>
+                    Already have an account?
+                    <strong><a href="https://mindfulsouls.com/account/login" title="Mindful Souls Login Page">Sign in</a></strong>
+                </p>
+            </div>
         </div>
     </div>
 </div>
