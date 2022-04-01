@@ -7,487 +7,205 @@
 {% endcomment %}
 
 <style>
-  
+ 
     #shopify-section-{{section.id}} {
-      --clr-mint: #769E8B; 
-      --clr-dark-green: #18444A; 
+    --clr-mint: #769E8B; 
+    --clr-dark-green: #18444A; 
     }
     
-    .btn {
-    text-decoration: none;
-    text-align: center;
-    border-radius: 6px;
-    color: #fff;
-    border-color: #000;
-    border-width: 0px;
-    cursor: pointer;
+    .btn { text-decoration: none; text-align: center; border-radius: 6px; color: #fff; border-color: #000; border-width: 0px; cursor: pointer; } 
+    
+    .section { max-width: 942px; margin: 0px auto; } 
+    
+    .hero-info { position: absolute; bottom: 0px; left: 0px; right: 0px; background-color: #cfe9de; text-align: center; padding: 10px; } 
+    
+    .hero-info__title { font-weight: 900; font-size: 23px; text-align: center; color: var(--clr-mint); margin-top: 0px; margin-bottom: 5px; } 
+    
+    .auth__group { color: #fff; text-align: center; } 
+    
+    .auth__group a .btn { background-color: var(--clr-dark-green); padding: 10px 80px; font-size: 19px; font-weight: 700; display: inline-block; margin-bottom: 5px; border-radius: 15px; font-size: 16px; margin-bottom: 10px; } 
+    
+    .auth__group a .btn:hover { background-color: #424242; } 
+    
+    .auth__group p { margin: 0px; font-size: 16px; overflow-wrap: break-word; color: var(--clr-mint); } 
+    
+    .auth__group p strong a { text-decoration: none; color: var(--clr-mint); } 
+    
+    .rewards-section { text-align: center; margin-bottom: 80px; } 
+    
+    .rewards-section .how-subheading { max-width: 800px; margin: auto; font-size: 18px; line-height: 22px; color: #2E2E30; margin-top: 40px; margin-bottom: 40px; } 
+    
+    .rewards-section__head .how-heading { background: #E9F4EB; font-size: 32px; font-weight: bold; padding: 14px 0; } 
+    
+    .rewards-section__head p:last-of-type { margin-bottom: 0px; } 
+    
+    .rewards-section__main { display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-orient: vertical; -webkit-box-direction: normal; -ms-flex-direction: column; flex-direction: column; text-align: center; padding: 0px 4%; } 
+    
+    .reward-card { margin: 15px 0%; padding: 5px 5%; -webkit-box-shadow: 1px 1px 11px 1px #bebebe; box-shadow: 1px 1px 11px 1px #bebebe; display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-orient: vertical; -webkit-box-direction: normal; -ms-flex-direction: column; flex-direction: column; -webkit-box-align: start; -ms-flex-align: start; align-items: flex-start; } 
+    
+    .reward-card:first-of-type { margin-top: 5px; margin-bottom: 20px; } 
+    
+    .reward-card.last { margin: 5px 0%; } 
+    
+    .reward-card__title { font-size: 24px; overflow-wrap: break-word; margin-bottom: 20px; } 
+    
+    .reward-card__info { display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-orient: vertical; -webkit-box-direction: normal; -ms-flex-direction: column; flex-direction: column; -webkit-box-align: start; -ms-flex-align: start; align-items: flex-start; text-align: left; } 
+    
+    .reward-card__info-row { display: -webkit-box; display: -ms-flexbox; display: flex; width: 100%; } 
+    
+    .reward-card__info-row:nth-of-type(1) { padding-bottom: 10px; border-bottom: 1px solid #e4e4e4; } 
+    
+    .reward-card__info-row:nth-of-type(2) { padding-bottom: 10px; border-bottom: 1px solid #e4e4e4; } 
+    
+    .reward-card__info-row:nth-of-type(2) { padding-top: 10px; } 
+    
+    .reward-card__info-row:nth-of-type(3) { padding-top: 10px; padding-bottom: 30px; } 
+    
+    .info-row__icon-wrapper { width: -webkit-max-content; width: -moz-max-content; width: max-content; padding: 0px 10px; } 
+    
+    .info-row__icon { width: 37px; } 
+    
+    .info-row__text { -webkit-box-flex: 1; -ms-flex: 1; flex: 1; padding: 0px; line-height: 18px; font-size: 16px; } 
+    
+    .info-row__text p { margin: 0px; font-size: 16px; } 
+    
+    .reward-card__btn-wrapper { width: 100%; } 
+    
+    .reward-card__btn { background-color: var(--clr-dark-green); font-size: 17px; letter-spacing: 0px; text-decoration: none; border-radius: 10px; padding: 12px 20%; color: #fff; margin-top: 1px; margin-bottom: 15px; } 
+    
+    .reward-card__btn:focus { background-color: #000; color: #fff; } 
+    
+    .rewards-section__foot { margin-top: 10px; padding-top: 19px; margin-bottom: 10px; padding-bottom: 19px; } 
+    
+    .foot-info { margin: 0px; } 
+    
+    .foot-info__title { font-weight: 700; font-size: 40px; text-transform: none; font-style: normal; letter-spacing: normal; line-height: normal; padding: 0px; color: #BA7F35; } 
+    
+    .foot-info .auth__group p { color: #000; } 
+    
+    .foot-info .auth__group p strong a { color: #000; } 
+    
+    .foot-info .auth__group p strong a:hover { color: #acd049; } 
+    
+    @media only screen and (min-width: 768px){
+    .hero-section { background-position: center left; } 
+    
+    .hero-section img { width: 100%; } 
+    
+    .rewards-section__main { -webkit-box-orient: horizontal; -webkit-box-direction: normal; -ms-flex-direction: row; flex-direction: row; -webkit-box-pack: justify; -ms-flex-pack: justify; justify-content: space-between; padding: 0px 30px; } 
+    
+    .reward-card { width: 44%; padding: 5px 2%; } 
+    
+    .reward-card:nth-last-of-type(1) { margin-top: 0px; margin-bottom: 0px; } 
+    
+    .reward-card:nth-last-of-type(2) { margin: 0px; } 
+    
+    .reward-card__btn { width: 85%; } 
     }
     
-    .section {
-    max-width: 942px;
-    margin: 0px auto;
-    }
+    .section-{{section.id}} .accordion-section { background: #E9F4EB; padding: 15px; margin: 0 -12px; } 
+    .section-{{section.id}} input[type="checkbox"].accordion__list-item--input + .accordion__list-item--label + .accordion__list-item--content { display: none; } 
+    .section-{{section.id}} input[type="checkbox"].accordion__list-item--input:checked + .accordion__list-item--label + .accordion__list-item--content { display: block; } 
+    .section-{{section.id}} .accordion-section .heading { text-align: center; color: #18444A; font-weight: 900; margin-bottom: 36px; } 
+    .section-{{section.id}} .accordion-section .accordion__list { padding: 0; max-width: 776px; margin: auto; } 
+    .section-{{section.id}} .accordion-section .accordion__list > li { background: #FFFFFF; box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.25); border-radius: 15px; margin-bottom: 26px; } 
+    .section-{{section.id}} .accordion-section .accordion__list-item--input { display: none; } 
+    .section-{{section.id}} .accordion-section .accordion__list-item--label { display: flex; padding: 20px 30px; color: #2E2E30; font-weight: bold; font-size: 16px; line-height: 19px; cursor: pointer; justify-content: space-between; align-items: center; } 
+    .section-{{section.id}} .accordion-section .accordion__list-item--content { padding: 30px; padding-top: 0; color: #2E2E30; font-weight: 400; font-size: 18px; line-height: 22px; } 
+    .section-{{section.id}} .accordion-section .accordion__list-item--content > p { border-top: 2px solid #18444A; padding-top: 25px; } 
+    .section-{{section.id}} .accordion-section .accordion__list-item--label i { background: #E9F4EB; border-radius: 100%; padding: 10px; width: 37px; height: 37px; font-weight: bold; } 
+    .section-{{section.id}} input[type="checkbox"].accordion__list-item--input:checked + .accordion__list-item--label i { transform: rotate(180deg); } 
     
-    .hero-info {
-    position: absolute;
-    bottom: 0px;
-    left: 0px;
-    right: 0px;
-    background-color: #cfe9de;
-    text-align: center;
-    padding: 10px;
-    }
+    .section-{{section.id}} .mb-50 { margin-bottom: 50px; } 
+    .section-{{section.id}} .w-full { width: 100%; } 
+    .section-{{section.id}} .w-auto { width: auto; } 
+    .section-{{section.id}} .reviews_wrapper { position: relative; } 
     
-    .hero-info__title {
-    font-weight: 900;
-    font-size: 23px;
-    text-align: center;
-    color: var(--clr-mint);
-    margin-top: 0px;
-    margin-bottom: 5px;
-    }
+    .section-{{section.id}} .reviews_wrapper .reviews-wrapper--inner { display: flex; justify-content: space-around; padding-top: 60px; padding-bottom: 70px; } 
     
-    .auth__group {
-    color: #fff;
-    text-align: center;
-    }
+    .section-{{section.id}} .reviews_wrapper .reviews-wrapper--inner .person-card { position: relative; box-shadow: 0px 0px 10px rgb(0 0 0 / 25%); border-radius: 10px; padding: 25px; max-width: 325px; width: calc(100%/3); padding-top: 60px; background-color: #ffffff; z-index: 1; margin: 0 10px; } 
     
-    .auth__group a .btn {
-    background-color: var(--clr-dark-green);
-    padding: 10px 80px;
-    font-size: 19px;
-    font-weight: 700;
-    display: inline-block;
-    margin-bottom: 5px;
-    }
+    .section-{{section.id}} .reviews_wrapper .reviews-wrapper--inner .person-card__info-name { font-weight: bold; } 
     
-    .auth__group a .btn:hover {
-    background-color: #424242;
-    }
+    .section-{{section.id}} .reviews_wrapper.hidden-desktop .reviews-wrapper--inner .person-card__info-name { font-size: 16px; margin-bottom: 5px; } 
     
-    .auth__group p {
-    margin: 0px;
-    font-size: 16px;
-    overflow-wrap: break-word;
-    color: var(--clr-mint);
-    }
+    .section-{{section.id}} .reviews_wrapper.hidden-desktop .reviews-wrapper--inner .person-card__info-name { font-size: 16px; } 
     
-    .auth__group p strong a {
-    text-decoration: none;
-    color: var(--clr-mint);
-    }
+    .section-{{section.id}} .reviews_wrapper .reviews-wrapper--inner .person-card__image { position: absolute; top: -75px; right: 0; } 
     
-    .rewards-section {
-        text-align: center;
-        margin-bottom: 80px;
-    }
-    
-    .rewards-section__head {
-
-    }
-
-    .rewards-section .how-subheading {
-        max-width: 800px;
-        margin: auto;
-        font-size: 18px;
-        line-height: 22px;
-        color: #2E2E30;
-        margin-top: 40px;
-        margin-bottom: 40px;
-    }
-    
-    .rewards-section__head .how-heading {
-    background: #E9F4EB;
-    font-size: 32px;
-    font-weight: bold;
-    padding: 14px 0;
-    }
-    
-    .rewards-section__head p:last-of-type {
-    margin-bottom: 0px;
-    }
-    
-    .rewards-section__main {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
-    text-align: center;
-    padding: 0px 4%;
-    }
-    
-    .reward-card {
-    margin: 15px 0%;
-    padding: 5px 5%;
-    -webkit-box-shadow: 1px 1px 11px 1px #bebebe;
-            box-shadow: 1px 1px 11px 1px #bebebe;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
-    -webkit-box-align: start;
-        -ms-flex-align: start;
-            align-items: flex-start;
-    }
-    
-    .reward-card:first-of-type {
-    margin-top: 5px;
-    margin-bottom: 20px;
-    }
-    
-    .reward-card.last {
-    margin: 5px 0%;
-    }
-    
-    .reward-card__title {
-    font-size: 24px;
-    overflow-wrap: break-word;
-    margin-bottom: 20px;
-    }
-    
-    .reward-card__info {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
-    -webkit-box-align: start;
-        -ms-flex-align: start;
-            align-items: flex-start;
-    text-align: left;
-    }
-    
-    .reward-card__info-row {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    width: 100%;
-    }
-    
-    .reward-card__info-row:nth-of-type(1) {
-    padding-bottom: 10px;
-    border-bottom: 1px solid #e4e4e4;
-    }
-    
-    .reward-card__info-row:nth-of-type(2) {
-    padding-bottom: 10px;
-    border-bottom: 1px solid #e4e4e4;
-    }
-    
-    .reward-card__info-row:nth-of-type(2) {
-    padding-top: 10px;
-    }
-    
-    .reward-card__info-row:nth-of-type(3) {
-    padding-top: 10px;
-    padding-bottom: 30px;
-    }
-    
-    .info-row__icon-wrapper {
-    width: -webkit-max-content;
-    width: -moz-max-content;
-    width: max-content;
-    padding: 0px 10px;
-    }
-    
-    .info-row__icon {
-    width: 37px;
-    }
-    
-    .info-row__text {
-    -webkit-box-flex: 1;
-        -ms-flex: 1;
-            flex: 1;
-    padding: 0px;
-    line-height: 18px;
-    font-size: 16px;
-    }
-    
-    .info-row__text p {
-    margin: 0px;
-    font-size: 16px;
-    }
-    
-    .reward-card__btn-wrapper {
-    width: 100%;
-    }
-    
-    .reward-card__btn {
-    background-color: var(--clr-dark-green);
-    font-size: 17px;
-    letter-spacing: 0px;
-    text-decoration: none;
-    border-radius: 10px;
-    padding: 12px 20%;
-    color: #fff;
-    margin-top: 1px;
-    margin-bottom: 15px;
-    }
-    
-    .reward-card__btn:focus {
-    background-color: #000;
-    color: #fff;
-    }
-    
-    .rewards-section__foot {
-    margin-top: 10px;
-    padding-top: 19px;
-    margin-bottom: 10px;
-    padding-bottom: 19px;
-    }
-    
-    .foot-info {
-    margin: 0px;
-    }
-    
-    .foot-info__title {
-    font-weight: 700;
-    font-size: 40px;
-    text-transform: none;
-    font-style: normal;
-    letter-spacing: normal;
-    line-height: normal;
-    padding: 0px;
-    color: #BA7F35;
-    }
-    
-    .foot-info .auth__group p {
-    color: #000;
-    }
-    
-    .foot-info .auth__group p strong a {
-    color: #000;
-    }
-    
-    .foot-info .auth__group p strong a:hover {
-    color: #acd049;
-    }
-    
-    @media only screen and (min-width: 768px) {
-    .hero-section {
-        background-position: center left;
-    }
-
-    .hero-section img {
-        width: 100%;
-    }
-    
-    .rewards-section__main {
-        -webkit-box-orient: horizontal;
-        -webkit-box-direction: normal;
-            -ms-flex-direction: row;
-                flex-direction: row;
-        -webkit-box-pack: justify;
-            -ms-flex-pack: justify;
-                justify-content: space-between;
-        padding: 0px 30px;
-    }
-    
-    .reward-card {
-        width: 44%;
-        padding: 5px 2%;
-    }
-    
-    .reward-card:nth-last-of-type(1) {
-        margin-top: 0px;
-        margin-bottom: 0px;
-    }
-    
-    .reward-card:nth-last-of-type(2) {
-        margin: 0px;
-    }
-    
-    .reward-card__btn {
-        width: 85%;
-    }
-    }
-    
-
-    {% comment %} Accordion Section {% endcomment %}
-    .section-{{ section.id }} .accordion-section {background: #E9F4EB; padding: 15px; margin: 0 -12px;}
-    .section-{{ section.id }} input[type="checkbox"].accordion__list-item--input + .accordion__list-item--label + .accordion__list-item--content { display: none; }
-    .section-{{ section.id }} input[type="checkbox"].accordion__list-item--input:checked + .accordion__list-item--label + .accordion__list-item--content { display: block; }
-    .section-{{ section.id }} .accordion-section .heading {text-align: center;color: #18444A;font-weight: 900;margin-bottom: 36px;}
-    .section-{{ section.id }} .accordion-section .accordion__list { padding: 0; max-width: 776px; margin: auto; }
-    .section-{{ section.id }} .accordion-section .accordion__list > li { background: #FFFFFF; box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.25); border-radius: 15px; margin-bottom: 26px;}
-    .section-{{ section.id }} .accordion-section .accordion__list-item--input { display: none;}
-    .section-{{ section.id }} .accordion-section .accordion__list-item--label { display: flex; padding: 20px 30px;color: #2E2E30;font-weight: bold;font-size: 16px; line-height: 19px; cursor: pointer; justify-content: space-between; align-items: center; }
-    .section-{{ section.id }} .accordion-section .accordion__list-item--content {
-        padding: 30px;
-        padding-top: 0;
-        color: #2E2E30;
-        font-weight: 400;
-        font-size: 18px;
-        line-height: 22px;
-    }
-    .section-{{ section.id }} .accordion-section .accordion__list-item--content > p { border-top: 2px solid #18444A; padding-top: 25px;}
-    .section-{{ section.id }} .accordion-section .accordion__list-item--label i {
-        background: #E9F4EB;
-        border-radius: 100%;
-        padding: 10px;
-        width: 37px;
-        height: 37px;
-        font-weight: bold;
-    }    
-    .section-{{ section.id }} input[type="checkbox"].accordion__list-item--input:checked + .accordion__list-item--label i {
-        transform: rotate(180deg);
-    }
+    .section-{{section.id}} .hidden-desktop { display: block; } 
+    .section-{{section.id}} .hidden-mobile { display: none; } 
     
     
     
     
-    .section-{{ section.id }} .mb-50 { margin-bottom: 50px; }
-    .section-{{ section.id }} .w-full { width: 100%; }
-    .section-{{ section.id }} .w-auto { width: auto; }
-    .section-{{ section.id }} .reviews_wrapper { position: relative;}
+    .section-{{section.id}} .reviews_wrapper.hidden-desktop .reviews-wrapper--inner .person-card__image { max-width: 161px; top: -70px; } 
     
-    .section-{{ section.id }} .reviews_wrapper .reviews-wrapper--inner {
-        display: flex;
-        justify-content: space-around;
-        padding-top: 60px;
-        padding-bottom: 70px;
-    }
+    .section-{{section.id}} .reviews_wrapper.hidden-desktop .reviews-wrapper--inner .person-card { max-width: none; overflow: visible; padding-top: 25px; } 
     
-    .section-{{ section.id }} .reviews_wrapper .reviews-wrapper--inner .person-card {
-        position: relative;
-        box-shadow: 0px 0px 10px rgb(0 0 0 / 25%);
-        border-radius: 10px;
-        padding: 25px;
-        max-width: 325px;
-        width: calc(100%/3);
-        padding-top: 60px;
-        background-color: #ffffff;
-        z-index: 1;
-        margin: 0 10px; 
-    }
-
-    .section-{{ section.id }} .reviews_wrapper .reviews-wrapper--inner .person-card__info-name {
-        font-weight: bold;
-    }
-
-    .section-{{ section.id }} .reviews_wrapper.hidden-desktop .reviews-wrapper--inner .person-card__info-name {
-        font-size: 16px;
-        margin-bottom: 5px;
-    }
-
-    .section-{{ section.id }} .reviews_wrapper.hidden-desktop .reviews-wrapper--inner .person-card__info-name {
-        font-size: 16px;
+    .section-{{section.id}} .reviews_wrapper.hidden-desktop .reviews-wrapper--inner .slick-list { padding-top: 70px !important; padding-bottom: 50px !important; } 
+    
+    .section-{{section.id}} .reviews_wrapper.hidden-desktop .reviews-wrapper--inner .slick-list .slick-track { display: flex; } 
+    
+    .section-{{section.id}} .reviews_wrapper.hidden-desktop .reviews-wrapper--inner { padding-top: 0; padding-bottom: 0; } 
+    
+    .section-{{section.id}} .reviews_wrapper.hidden-desktop .person-card__info-testimonials { font-size: 16px; line-height: 19px; color: #2E2E30; margin-top: 8px; } 
+    
+    .section-{{section.id}} .reviews_wrapper.hidden-desktop .person-card__info-testimonials p { margin: 0; } 
+    
+    .section-{{section.id}} .hidden-desktop .slick-dots > li button::before { width: 15px; height: 15px; top: 0; background-color: #ffffff; border: 2px solid #18444A; left: 0; right: 0; } 
+    .section-{{section.id}} .hidden-desktop .slick-dots > li.slick-active button::before { background-color: #18444A; } 
+    .section-{{section.id}} .hidden-desktop button.slick-arrow { font-size: 0; color: #18444A; } 
+    .section-{{section.id}} .hidden-desktop button.slick-arrow.slick-prev { left: 10px; } 
+    .section-{{section.id}} .hidden-desktop button.slick-arrow.slick-next { right: 5px; } 
+    .section-{{section.id}} .hidden-desktop button.slick-prev.slick-arrow::after { content: "\e93b"; font-size: 27px; font-family: 'BTBeloria' !important; speak: none; font-style: normal; font-weight: normal; font-variant: normal; text-transform: none; line-height: 1; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; } 
+    .section-{{section.id}} .hidden-desktop button.slick-next.slick-arrow::after { content: "\e93a"; font-size: 27px; font-family: 'BTBeloria' !important; speak: none; font-style: normal; font-weight: normal; font-variant: normal; text-transform: none; line-height: 1; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; } 
+    
+    .section-{{section.id}} .slider-section { margin: 0 -7px; margin-bottom: 20px; } 
+    @media only screen and (min-width: 768px){
+    .section-{{section.id}} .hidden-desktop { display: none; } 
+    .section-{{section.id}} .hidden-mobile { display: block; } 
+    .section-{{section.id}} .reviews_wrapper::after { content: ""; background-color: #18444A; width: 100%; height: 50%; position: absolute; bottom: 0; } 
+    
+    .section-{{section.id}} .accordion-section { padding: 50px; margin: 0 auto; } 
+    .section-{{section.id}} .accordion-section .accordion__list-item--label { font-size: 18px; line-height: 22px; } 
+    .section-{{section.id}} .slider-section { margin: 0 auto; } 
     }
     
-    .section-{{ section.id }} .reviews_wrapper .reviews-wrapper--inner .person-card__image {
-        position: absolute;
-        top: -75px;
-        right: 0;
-    }
-
-    .section-{{ section.id }} .hidden-desktop { display: block; }
-    .section-{{ section.id }} .hidden-mobile { display: none; }
-
-
-
-
-    .section-{{ section.id }} .reviews_wrapper.hidden-desktop .reviews-wrapper--inner .person-card__image {
-        max-width: 161px;
-        top: -70px;
+    @media only screen and (min-width: 1224px) { 
+    .hero-info__title { font-size: 32px; } 
+    
+    .reward-card { width: 48%; padding: 5px 2%; } 
+    
+    .reward-card__info { width: 100%; } 
+    
+    .reward-card__btn { width: -webkit-max-content; width: -moz-max-content; width: max-content; } 
     }
     
-    .section-{{ section.id }} .reviews_wrapper.hidden-desktop .reviews-wrapper--inner .person-card {
-        max-width: none;
-        overflow: visible;
-        padding-top: 25px;
+    @media only screen and (min-width: 1824px){
+    .section { max-width: 1345px; } 
     }
     
-    .section-{{ section.id }} .reviews_wrapper.hidden-desktop .reviews-wrapper--inner .slick-list {
-        padding-top: 70px !important;
-        padding-bottom: 50px !important;
-    }
-
-    .section-{{ section.id }} .reviews_wrapper.hidden-desktop .reviews-wrapper--inner .slick-list .slick-track {
-        display: flex;
-    }
-
-    .section-{{ section.id }} .reviews_wrapper.hidden-desktop .reviews-wrapper--inner {
-        padding-top: 0;
-        padding-bottom: 0;
-    }
-
-    .section-{{ section.id }} .reviews_wrapper.hidden-desktop .person-card__info-testimonials {
-        font-size: 16px;
-        line-height: 19px;
-        color: #2E2E30;
-        margin-top: 8px;
-    }
-
-    .section-{{ section.id }} .reviews_wrapper.hidden-desktop .person-card__info-testimonials p {
-        margin: 0;
-    }
-
-    .section-{{ section.id }} .hidden-desktop .slick-dots > li button::before {
-        width: 15px;height: 15px;top: 0;background-color: #ffffff;border: 2px solid #18444A;left: 0;right: 0;}
-    .section-{{ section.id }} .hidden-desktop .slick-dots > li.slick-active button::before { background-color: #18444A; }
-    .section-{{ section.id }} .hidden-desktop button.slick-arrow { font-size: 0; color: #18444A; }
-    .section-{{ section.id }} .hidden-desktop button.slick-arrow.slick-prev { left: 10px; }
-    .section-{{ section.id }} .hidden-desktop button.slick-arrow.slick-next { right: 5px; }
-    .section-{{ section.id }} .hidden-desktop button.slick-prev.slick-arrow::after {
-        content: "\e93b";font-size: 27px;font-family: 'BTBeloria' !important;speak: none;font-style: normal;font-weight: normal;font-variant: normal;text-transform: none;line-height: 1;-webkit-font-smoothing: antialiased;-moz-osx-font-smoothing: grayscale;
-    }
-    .section-{{ section.id }} .hidden-desktop button.slick-next.slick-arrow::after {
-        content: "\e93a";font-size: 27px;font-family: 'BTBeloria' !important;speak: none;font-style: normal;font-weight: normal;font-variant: normal;text-transform: none;line-height: 1;-webkit-font-smoothing: antialiased;-moz-osx-font-smoothing: grayscale;
-    }
-
-    .section-{{ section.id }} .slider-section { margin: 0 -12px; margin-bottom: 20px; }
-    @media only screen and (min-width: 768px) {
-        .section-{{ section.id }} .hidden-desktop { display: none; }
-        .section-{{ section.id }} .hidden-mobile { display: block; }
-        .section-{{ section.id }} .reviews_wrapper::after {
-            content: "";
-            background-color: #18444A;
-            width: 100%;
-            height: 50%;
-            position: absolute;
-            bottom: 0;
-        }
-
-        .section-{{ section.id }} .accordion-section { padding: 50px; margin: 0 auto;}
-        .section-{{ section.id }} .accordion-section .accordion__list-item--label {font-size: 18px; line-height: 22px;}
-        .section-{{ section.id }} .slider-section { margin: 0 auto; }
-    }
+    @media only screen and (min-width: 768px){
+    .rewards-section__head .how-heading { font-weight: 900; font-size: 24px; line-height: 29px; color: #18444A; padding: 18px; } 
     
-    @media only screen and (min-width: 1224px) {
+    .rewards-section .how-subheading { padding: 0 33px; margin-top: 30px; margin-bottom: 30px; font-weight: 400; font-size: 16px; line-height: 19px; text-align: center; } 
     
-    .hero-info__title {
-        font-size: 32px;
-    }
+    .rewards-section__main { padding: 0 30px; } 
     
-    .reward-card {
-        width: 48%;
-        padding: 5px 2%;
-    }
+    .rewards-section { margin-bottom: 30px; } 
     
-    .reward-card__info {
-        width: 100%;
-    }
+    .section-{{section.id}} .accordion-section { margin: 0; padding-bottom: 25px; } 
     
-    .reward-card__btn {
-        width: -webkit-max-content;
-        width: -moz-max-content;
-        width: max-content;
-    }
-    }
+    .section-{{section.id}} .accordion-section .heading { font-size: 24px; margin-bottom: 20px; } 
     
-    @media only screen and (min-width: 1824px) {
-    .section {
-        max-width: 1345px;
-    }
+    .section-{{section.id}} .accordion-section .accordion__list>li { margin-bottom: 15px; } 
     
+    .section-{{section.id}} .accordion-section .accordion__list-item--content>p { font-size: 16px; } 
+    
+    .section-{{section.id}} .rewards-section__foot { padding: 0 25px; margin-top: 47px; } 
+    
+    .section-{{section.id}} .foot-info__title { font-size: 24px; margin: 0; margin-bottom: 15px; font-weight: 600; } 
     }
 </style>
 
