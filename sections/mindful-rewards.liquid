@@ -647,7 +647,7 @@
                 {% case block.type %}
                     {% when 'faq' %}
                 <li class="accordion__list-item">
-                    <input class="accordion__list-item--input" type="checkbox" checked id="faq-check-{{ forloop.index }}" name="faq-check-{{ forloop.index }}">
+                    <input class="accordion__list-item--input" type="checkbox" {% if block.settings.faq_expanded %}checked{% endif %} id="faq-check-{{ forloop.index }}" name="faq-check-{{ forloop.index }}">
                     <label class="accordion__list-item--label" for="faq-check-{{ forloop.index }}">{{ block.settings.faq_label}}</label>
                     <div class="accordion__list-item--content">{{ block.settings.faq_content}}</div>
                 </li>
