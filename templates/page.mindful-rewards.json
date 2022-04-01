@@ -35,7 +35,7 @@
           "settings": {
             "faq_expanded": false,
             "faq_label": "How do I create an account?",
-            "faq_content": ""
+            "faq_content": "<p>Click the ‘Join now’ button and enter your details in the ‘Create Account’ tab. <\/p>"
           }
         }
       },
