@@ -37,13 +37,49 @@
             "faq_label": "How do I create an account?",
             "faq_content": "<p>Click the ‘Join now’ button and enter your details in the ‘Create Account’ tab. <\/p>"
           }
+        },
+        "9e128777-3c8a-43d5-8d3e-cc481874c332": {
+          "type": "faq",
+          "settings": {
+            "faq_expanded": false,
+            "faq_label": "Do I receive points for joining?",
+            "faq_content": "<p>Yes! You get 10 Mindful Points as soon as you create an account.<\/p>"
+          }
+        },
+        "35bee2c6-f5e9-4e41-8bc5-35dee3017b33": {
+          "type": "faq",
+          "settings": {
+            "faq_expanded": false,
+            "faq_label": "How can I keep track of my points?",
+            "faq_content": "<p>Log into your account by clicking on the top right corner. Once directed to your account page, click ‘My Mindful Points.’ <br\/><br\/>You can also click on the gift icon located at the bottom of your page if you are already logged in. <\/p>"
+          }
+        },
+        "3e68c6a2-7dfe-4eb5-b016-b9d9f13b6b94": {
+          "type": "faq",
+          "settings": {
+            "faq_expanded": false,
+            "faq_label": "How do I recommend Mindful Box Subscription to a friend?",
+            "faq_content": "<p>‣ Open the rewards panel.<br\/>‣ Scroll down and click ‘Refer your friends’  <br\/>‣ Copy and share your referral code<br\/><br\/>You can then choose to send the URL to your friend by Facebook, Email, or simply copying and pasting it.<br\/><\/p>"
+          }
+        },
+        "624bb2ba-d99e-4188-8df5-9c13acb483d5": {
+          "type": "faq",
+          "settings": {
+            "faq_expanded": false,
+            "faq_label": "What are the minimum points needed to redeem a reward?",
+            "faq_content": "<p>50 Mindful Points. With these points, you can redeem a free shipping coupon.<\/p>"
+          }
         }
       },
       "block_order": [
         "5972746a-ba42-4079-a848-fce62a26485a",
         "dfe46a10-72ec-4fc2-a37a-82bdfbda1e85",
         "f116ab19-333d-4cf3-bb78-50228e84669a",
-        "c18ca2a1-dc46-446c-9d5f-a6a1a59a829d"
+        "c18ca2a1-dc46-446c-9d5f-a6a1a59a829d",
+        "9e128777-3c8a-43d5-8d3e-cc481874c332",
+        "35bee2c6-f5e9-4e41-8bc5-35dee3017b33",
+        "3e68c6a2-7dfe-4eb5-b016-b9d9f13b6b94",
+        "624bb2ba-d99e-4188-8df5-9c13acb483d5"
       ],
       "settings": {
         "banner_image": "shopify:\/\/shop_images\/22-3-9-MINDFUL-SOULS-REWARDS-SYSTEM-1344x667px-7_1.jpg",
