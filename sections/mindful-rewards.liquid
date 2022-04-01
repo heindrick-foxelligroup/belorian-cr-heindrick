@@ -7,7 +7,7 @@
 {% endcomment %}
 
 <style>
-    .section-{{ section.id }}.rewards-container { max-width: 1180px; margin: 0 auto; }
+    .section-{{ section.id }}.rewards-container { max-width: 1180px; margin: 0 auto; overflow-x: hidden; }
     #shopify-section-{{section.id}} {
     --clr-mint: #769E8B; 
     --clr-dark-green: #18444A; 
@@ -106,14 +106,18 @@
     .section-{{section.id}} .accordion-section { background: #E9F4EB; padding: 15px; margin: 0 -12px; } 
     .section-{{section.id}} input[type="checkbox"].accordion__list-item--input + .accordion__list-item--label + .accordion__list-item--content { padding-bottom: 0; max-height: 0; overflow: hidden; } 
     .section-{{section.id}} input[type="checkbox"].accordion__list-item--input:checked + .accordion__list-item--label + .accordion__list-item--content { padding-bottom: 30px; max-height: none; } 
+    .section-template--14580035092540__main input[type="checkbox"].accordion__list-item--input:checked + .accordion__list-item--label + .accordion__list-item--content > p {border-top: 2px solid #18444A;padding-top: 25px;height: auto;}
+    .section-{{section.id}} .accordion-section .accordion__list-item--content > p {     border-top: none;
+        padding-top: 0;
+        height: 0;
+        transition: 0.3s ease-in-out; } 
     .section-{{section.id}} .accordion-section .heading { text-align: center; color: #18444A; font-weight: 900; margin-bottom: 36px; } 
     .section-{{section.id}} .accordion-section .accordion__list { padding: 0; max-width: 776px; margin: auto; } 
     .section-{{section.id}} .accordion-section .accordion__list > li { background: #FFFFFF; box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.25); border-radius: 15px; margin-bottom: 26px; } 
     .section-{{section.id}} .accordion-section .accordion__list-item--input { display: none; } 
     .section-{{section.id}} .accordion-section .accordion__list-item--label { display: flex; padding: 20px 30px; color: #2E2E30; font-weight: bold; font-size: 16px; line-height: 19px; cursor: pointer; justify-content: space-between; align-items: center; } 
     .section-{{section.id}} .accordion-section .accordion__list-item--content { padding: 30px; padding-top: 0; color: #2E2E30; font-weight: 400; font-size: 18px; line-height: 22px; } 
-    .section-{{section.id}} .accordion-section .accordion__list-item--content > p { border-top: 2px solid #18444A; padding-top: 25px; } 
-    .section-{{section.id}} .accordion-section .accordion__list-item--label i { background: #E9F4EB; border-radius: 100%; padding: 10px; width: 37px; height: 37px; font-weight: bold; } 
+    .section-{{section.id}} .accordion-section .accordion__list-item--label i { background: #E9F4EB; border-radius: 100%; padding: 10px; width: 37px; height: 37px; font-weight: bold; transition: ease 0.1s all;} 
     .section-{{section.id}} input[type="checkbox"].accordion__list-item--input:checked + .accordion__list-item--label i { transform: rotate(180deg); } 
     
     .section-{{section.id}} .mb-50 { margin-bottom: 50px; } 
