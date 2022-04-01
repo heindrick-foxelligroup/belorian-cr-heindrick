@@ -7,7 +7,7 @@
 {% endcomment %}
 
 <style>
- 
+    .section-{{ section.id }}.rewards-container { max-width: 1180px; margin: 0 auto; }
     #shopify-section-{{section.id}} {
     --clr-mint: #769E8B; 
     --clr-dark-green: #18444A; 
@@ -104,8 +104,8 @@
     }
     
     .section-{{section.id}} .accordion-section { background: #E9F4EB; padding: 15px; margin: 0 -12px; } 
-    .section-{{section.id}} input[type="checkbox"].accordion__list-item--input + .accordion__list-item--label + .accordion__list-item--content { display: none; } 
-    .section-{{section.id}} input[type="checkbox"].accordion__list-item--input:checked + .accordion__list-item--label + .accordion__list-item--content { display: block; } 
+    .section-{{section.id}} input[type="checkbox"].accordion__list-item--input + .accordion__list-item--label + .accordion__list-item--content { padding-bottom: 0; max-height: 0; overflow: hidden; } 
+    .section-{{section.id}} input[type="checkbox"].accordion__list-item--input:checked + .accordion__list-item--label + .accordion__list-item--content { padding-bottom: 30px; max-height: none; } 
     .section-{{section.id}} .accordion-section .heading { text-align: center; color: #18444A; font-weight: 900; margin-bottom: 36px; } 
     .section-{{section.id}} .accordion-section .accordion__list { padding: 0; max-width: 776px; margin: auto; } 
     .section-{{section.id}} .accordion-section .accordion__list > li { background: #FFFFFF; box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.25); border-radius: 15px; margin-bottom: 26px; } 
@@ -125,7 +125,7 @@
     
     .section-{{section.id}} .reviews_wrapper .reviews-wrapper--inner .person-card { position: relative; box-shadow: 0px 0px 10px rgb(0 0 0 / 25%); border-radius: 10px; padding: 25px; max-width: 325px; width: calc(100%/3); padding-top: 60px; background-color: #ffffff; z-index: 1; margin: 0 10px; } 
     
-    .section-{{section.id}} .reviews_wrapper .reviews-wrapper--inner .person-card__info-name { font-weight: bold; } 
+    .section-{{section.id}} .reviews_wrapper .reviews-wrapper--inner .person-card__info-name { font-weight: bold; font-size: 18px;     margin-bottom: 0;} 
     
     .section-{{section.id}} .reviews_wrapper.hidden-desktop .reviews-wrapper--inner .person-card__info-name { font-size: 16px; margin-bottom: 5px; } 
     
@@ -133,6 +133,9 @@
     
     .section-{{section.id}} .reviews_wrapper .reviews-wrapper--inner .person-card__image { position: absolute; top: -75px; right: 0; } 
     
+    .section-{{section.id}} .person-card__stars { margin-left: -5px; }
+    .section-{{section.id}} .person-card__info-testimonials {font-size: 18px;color: #2E2E30;}
+
     .section-{{section.id}} .hidden-desktop { display: block; } 
     .section-{{section.id}} .hidden-mobile { display: none; } 
     
@@ -211,7 +214,7 @@
     }
 </style>
 
-<div class="section-{{ section.id }}">  
+<div class="section-{{ section.id }} rewards-container">  
     <div class="section-hero section mb-50">
         <div class="banner_wrapper">
             <a href="{{ section.settings.banner_link }}" title="Mindful Souls Register Page">
