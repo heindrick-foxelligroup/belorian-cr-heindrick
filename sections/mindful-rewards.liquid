@@ -556,8 +556,8 @@
                             <img src="https://cdn.shopify.com/s/files/1/0557/5317/9223/files/gift.png?v=1647157852" alt="Gift Icon" class="info-row__icon" />
                         </div>
                         <div class="info-row__text">
-                            <p><strong>Place an Order</strong></p>
-                            <p>1 Mindful Point for every $1 spent</p>
+                            <p><strong>{{ section.settings.earn_heading_1 }}</strong></p>
+                            <p>{{ section.settings.earn_desc_1 }}</p>
                         </div>
                     </div>
                     <div class="reward-card__info-row">
@@ -565,8 +565,8 @@
                             <img src="https://cdn.shopify.com/s/files/1/0557/5317/9223/files/cake.png?v=1647157851" alt="Cake Icon" class="info-row__icon" />
                         </div>
                         <div class="info-row__text">
-                            <p><strong>Celebrate a birthday</strong></p>
-                            <p>100 Mindful Points</p>
+                            <p><strong>{{ section.settings.earn_heading_2 }}</strong></p>
+                            <p>{{ section.settings.earn_desc_2 }}</p>
                         </div>
                     </div>
                     <div class="reward-card__info-row">
@@ -574,14 +574,14 @@
                             <img src="https://cdn.shopify.com/s/files/1/0557/5317/9223/files/refer.png?v=1647157851" alt="Refer Icon" class="info-row__icon" />
                         </div>
                         <div class="info-row__text">
-                            <p><strong>Refer Mindful Subscription Box to a Friend</strong></p>
-                            <p>500 Mindful Points!</p>
+                            <p><strong>{{ section.settings.earn_heading_3 }}</strong></p>
+                            <p>{{ section.settings.earn_desc_3 }}</p>
                         </div>
                     </div>
                 </div>
                 <div class="reward-card__btn-wrapper">
-                    <a href="https://mindfulsouls.com/pages/mindful-points-rewards-page#smile-points-activity-rules" title="Mindful Souls Points Reward Page">
-                        <button class="btn reward-card__btn" aria-label="Learn More" tabindex="-1">Learn more...</button>
+                    <a href="{{ section.settings.earn_learn_link }}" title="Mindful Souls Points Reward Page">
+                        <button class="btn reward-card__btn" aria-label="{{ section.settings.earn_button_text }}" tabindex="-1">{{ section.settings.earn_button_text }}</button>
                     </a>
                 </div>
             </article>
@@ -594,8 +594,8 @@
                             <img src="https://cdn.shopify.com/s/files/1/0557/5317/9223/files/free_shipping.png?v=1647157852" alt="Free Shipping Icon" class="info-row__icon" />
                         </div>
                         <div class="info-row__text">
-                            <p><strong>Free Shipping Coupon</strong></p>
-                            <p>50 Mindful Points</p>
+                            <p><strong>{{ section.settings.redeem_heading_1 }}</strong></p>
+                            <p>{{ section.settings.redeem_desc_1 }}</p>
                         </div>
                     </div>
                     <div class="reward-card__info-row">
@@ -603,8 +603,8 @@
                             <img src="https://cdn.shopify.com/s/files/1/0557/5317/9223/files/coupons.png?v=1647157851" alt="Coupons Icon" class="info-row__icon" />
                         </div>
                         <div class="info-row__text">
-                            <p><strong>Mindful Subscription Coupons $5 - $40!</strong></p>
-                            <p>100 - 1000 Mindful Points</p>
+                            <p><strong>{{ section.settings.redeem_heading_2 }}</strong></p>
+                            <p>{{ section.settings.redeem_desc_2 }}</p>
                         </div>
                     </div>
                     <div class="reward-card__info-row">
@@ -612,14 +612,14 @@
                             <img src="https://cdn.shopify.com/s/files/1/0557/5317/9223/files/discount.png?v=1647157852" alt="Discount Icon" class="info-row__icon" />
                         </div>
                         <div class="info-row__text">
-                            <p><strong>15 - 25% Off Storewide Discounts!</strong></p>
-                            <p>100 - 500 Mindful Points</p>
+                            <p><strong>{{ section.settings.redeem_heading_3 }}</strong></p>
+                            <p>{{ section.settings.redeem_desc_3 }}</p>
                         </div>
                     </div>
                 </div>
                 <div class="reward-card__btn-wrapper">
-                    <a href="https://mindfulsouls.com/pages/mindful-points-rewards-page#smile-points-products" title="Mindful Souls Points Reward Page">
-                        <button class="btn reward-card__btn" aria-label="Learn More" tabindex="-1">Learn more...</button>
+                    <a href="{{ section.settings.redeem_learn_link }}" title="Mindful Souls Points Reward Page">
+                        <button class="btn reward-card__btn" aria-label="{{ section.settings.redeem_button_text }}" tabindex="-1">{{ section.settings.redeem_button_text }}</button>
                     </a>
                 </div>
             </article>
