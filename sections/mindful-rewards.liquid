@@ -214,7 +214,8 @@
         <div class="banner_wrapper">
             <a href="{{ section.settings.banner_link }}" title="Mindful Souls Register Page">
                 <div class="hero-section" role="img" aria-label="Mindful Souls Products">
-                    <img class="w-full" src="{{ section.settings.banner_image | img_url: "original" }}" alt="{{ section.settings.banner_image.label }}">
+                    <img class="w-full hidden-mobile" src="{{ section.settings.banner_image | img_url: "original" }}" alt="{{ section.settings.banner_image.label }}">
+                    <img class="w-full hidden-desktop" src="{{ section.settings.banner_image_mobile | img_url: "original" }}" alt="{{ section.settings.banner_image_mobile.label }}">
                     {% comment %} <div class="hero-info">
                         <h1 class="hero-info__title">Mindful Souls Rewards Program</h1>
                         <div class="auth__group">
@@ -418,6 +419,11 @@
         "type": "image_picker",
         "id": "banner_image",
         "label": "Banner Image"
+    },
+    {
+        "type": "image_picker",
+        "id": "banner_image_mobile",
+        "label": "Banner Image Mobile"
     },
     {
         "type": "url",
