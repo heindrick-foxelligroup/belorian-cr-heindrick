@@ -446,7 +446,7 @@
             bottom: 0;
         }
 
-        .section-{{ section.id }} .accordion-section { padding: 50px; margin: 0;}
+        .section-{{ section.id }} .accordion-section { padding: 50px; margin: 0 auto;}
         .section-{{ section.id }} .accordion-section .accordion__list-item--label {font-size: 18px; line-height: 22px;}
         
     }
@@ -627,7 +627,7 @@
     </div>
 
     <div class="accordion-section section">
-        <h2 class="heading">FREQUENTLY ASKED QUESTIONS</h2>
+        <h2 class="heading">{{ section.settings.faq_heading }}</h2>
         <div class="">
             <ul class="accordion__list">
             {% for block in section.blocks %}
@@ -707,6 +707,15 @@
         "type": "richtext",
         "id": "how_subheading",
         "label": "Subheading"
+    },
+    {
+        "type": "header",
+        "content": "FAQ Section"
+    },
+    {
+        "type": "text",
+        "id": "faq_heading",
+        "label": "Heading"
     }
 ],
 "blocks": [
