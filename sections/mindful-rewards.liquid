@@ -10,7 +10,9 @@
     .section-{{ section.id }}.rewards-container { max-width: 1180px; margin: 0 auto; overflow-x: hidden; }
     #shopify-section-{{section.id}} {
     --clr-mint: #769E8B; 
-    --clr-dark-green: #18444A; 
+    --clr-dark-green: #18444A;
+    --clr-light-green: #E9F4EB;
+    --clr-black: #2E2E30;
     }
     
     .btn { text-decoration: none; text-align: center; border-radius: 6px; color: #fff; border-color: #000; border-width: 0px; cursor: pointer; } 
@@ -33,9 +35,9 @@
     
     .rewards-section { text-align: center; margin-bottom: 80px; } 
     
-    .rewards-section .how-subheading { max-width: 800px; margin: auto; font-size: 18px; line-height: 22px; color: #2E2E30; margin-top: 40px; margin-bottom: 40px; } 
+    .rewards-section .how-subheading { max-width: 800px; margin: auto; font-size: 18px; line-height: 22px; color: var(--clr-black); margin-top: 40px; margin-bottom: 40px; } 
     
-    .rewards-section__head .how-heading { background: #E9F4EB; font-size: 32px; font-weight: bold; padding: 14px 0; } 
+    .rewards-section__head .how-heading { background: var(--clr-light-green); font-size: 32px; font-weight: bold; padding: 14px 0; } 
     
     .rewards-section__head p:last-of-type { margin-bottom: 0px; } 
     
@@ -103,21 +105,21 @@
     .reward-card__btn { width: 85%; } 
     }
     
-    .section-{{section.id}} .accordion-section { background: #E9F4EB; padding: 15px; margin: 0 -12px; } 
+    .section-{{section.id}} .accordion-section { background: var(--clr-light-green); padding: 15px; margin: 0 -12px; } 
     .section-{{section.id}} input[type="checkbox"].accordion__list-item--input + .accordion__list-item--label + .accordion__list-item--content { padding-bottom: 0; max-height: 0; overflow: hidden; } 
     .section-{{section.id}} input[type="checkbox"].accordion__list-item--input:checked + .accordion__list-item--label + .accordion__list-item--content { padding-bottom: 30px; max-height: none; } 
-    .section-template--14580035092540__main input[type="checkbox"].accordion__list-item--input:checked + .accordion__list-item--label + .accordion__list-item--content > p {border-top: 2px solid #18444A;padding-top: 25px;height: auto;}
+    .section-template--14580035092540__main input[type="checkbox"].accordion__list-item--input:checked + .accordion__list-item--label + .accordion__list-item--content > p {border-top: 2px solid var(--clr-dark-green);padding-top: 25px;height: auto;}
     .section-{{section.id}} .accordion-section .accordion__list-item--content > p {     border-top: none;
         padding-top: 0;
         height: 0;
         transition: 0.3s ease-in-out; } 
-    .section-{{section.id}} .accordion-section .heading { text-align: center; color: #18444A; font-weight: 900; margin-bottom: 36px; } 
+    .section-{{section.id}} .accordion-section .heading { text-align: center; color: var(--clr-dark-green); font-weight: 900; margin-bottom: 36px; } 
     .section-{{section.id}} .accordion-section .accordion__list { padding: 0; max-width: 776px; margin: auto; } 
     .section-{{section.id}} .accordion-section .accordion__list > li { background: #FFFFFF; box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.25); border-radius: 15px; margin-bottom: 26px; } 
     .section-{{section.id}} .accordion-section .accordion__list-item--input { display: none; } 
-    .section-{{section.id}} .accordion-section .accordion__list-item--label { display: flex; padding: 20px 30px; color: #2E2E30; font-weight: bold; font-size: 16px; line-height: 19px; cursor: pointer; justify-content: space-between; align-items: center; } 
-    .section-{{section.id}} .accordion-section .accordion__list-item--content { padding: 30px; padding-top: 0; color: #2E2E30; font-weight: 400; font-size: 18px; line-height: 22px; transition: 0.3s ease-in-out; } 
-    .section-{{section.id}} .accordion-section .accordion__list-item--label i { background: #E9F4EB; border-radius: 100%; padding: 10px; width: 37px; height: 37px; font-weight: bold; transition: ease 0.1s all;} 
+    .section-{{section.id}} .accordion-section .accordion__list-item--label { display: flex; padding: 20px 30px; color: var(--clr-black); font-weight: bold; font-size: 16px; line-height: 19px; cursor: pointer; justify-content: space-between; align-items: center; } 
+    .section-{{section.id}} .accordion-section .accordion__list-item--content { padding: 30px; padding-top: 0; color: var(--clr-black); font-weight: 400; font-size: 18px; line-height: 22px; transition: 0.3s ease-in-out; } 
+    .section-{{section.id}} .accordion-section .accordion__list-item--label i { background: var(--clr-light-green); border-radius: 100%; padding: 10px; width: 37px; height: 37px; font-weight: bold; transition: ease 0.1s all;} 
     .section-{{section.id}} input[type="checkbox"].accordion__list-item--input:checked + .accordion__list-item--label i { transform: rotate(180deg); } 
     
     .section-{{section.id}} .mb-50 { margin-bottom: 50px; } 
@@ -138,7 +140,7 @@
     .section-{{section.id}} .reviews_wrapper .reviews-wrapper--inner .person-card__image { position: absolute; top: -75px; right: 0; } 
     
     .section-{{section.id}} .person-card__stars { margin-left: -5px; }
-    .section-{{section.id}} .person-card__info-testimonials {font-size: 18px;color: #2E2E30;}
+    .section-{{section.id}} .person-card__info-testimonials {font-size: 18px;color: var(--clr-black);}
 
     .section-{{section.id}} .hidden-desktop { display: block; } 
     .section-{{section.id}} .hidden-mobile { display: none; } 
@@ -156,13 +158,13 @@
     
     .section-{{section.id}} .reviews_wrapper.hidden-desktop .reviews-wrapper--inner { padding-top: 0; padding-bottom: 0; } 
     
-    .section-{{section.id}} .reviews_wrapper.hidden-desktop .person-card__info-testimonials { font-size: 16px; line-height: 19px; color: #2E2E30; margin-top: 8px; } 
+    .section-{{section.id}} .reviews_wrapper.hidden-desktop .person-card__info-testimonials { font-size: 16px; line-height: 19px; color: var(--clr-black); margin-top: 8px; } 
     
     .section-{{section.id}} .reviews_wrapper.hidden-desktop .person-card__info-testimonials p { margin: 0; } 
     
-    .section-{{section.id}} .hidden-desktop .slick-dots > li button::before { width: 15px; height: 15px; top: 0; background-color: #ffffff; border: 2px solid #18444A; left: 0; right: 0; } 
-    .section-{{section.id}} .hidden-desktop .slick-dots > li.slick-active button::before { background-color: #18444A; } 
-    .section-{{section.id}} .hidden-desktop button.slick-arrow { font-size: 0; color: #18444A; } 
+    .section-{{section.id}} .hidden-desktop .slick-dots > li button::before { width: 15px; height: 15px; top: 0; background-color: #ffffff; border: 2px solid var(--clr-dark-green); left: 0; right: 0; } 
+    .section-{{section.id}} .hidden-desktop .slick-dots > li.slick-active button::before { background-color: var(--clr-dark-green); } 
+    .section-{{section.id}} .hidden-desktop button.slick-arrow { font-size: 0; color: var(--clr-dark-green); } 
     .section-{{section.id}} .hidden-desktop button.slick-arrow.slick-prev { left: 10px; } 
     .section-{{section.id}} .hidden-desktop button.slick-arrow.slick-next { right: 5px; } 
     .section-{{section.id}} .hidden-desktop button.slick-prev.slick-arrow::after { content: "\e93b"; font-size: 27px; font-family: 'BTBeloria' !important; speak: none; font-style: normal; font-weight: normal; font-variant: normal; text-transform: none; line-height: 1; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; } 
@@ -172,7 +174,7 @@
     @media only screen and (min-width: 768px){
     .section-{{section.id}} .hidden-desktop { display: none; } 
     .section-{{section.id}} .hidden-mobile { display: block; } 
-    .section-{{section.id}} .reviews_wrapper::after { content: ""; background-color: #18444A; width: 100%; height: 50%; position: absolute; bottom: 0; } 
+    .section-{{section.id}} .reviews_wrapper::after { content: ""; background-color: var(--clr-dark-green); width: 100%; height: 50%; position: absolute; bottom: 0; } 
     
     .section-{{section.id}} .accordion-section { padding: 50px; margin: 0 auto; } 
     .section-{{section.id}} .accordion-section .accordion__list-item--label { font-size: 18px; line-height: 22px; } 
@@ -196,7 +198,7 @@
     @media only screen and (max-width: 767px){
         .section-{{section.id}} .section-hero { margin-bottom: 0; }
         .section-{{section.id}} .banner_wrapper img { padding: 0 9px; }
-        .section-{{section.id}} .rewards-section__head .how-heading { font-weight: 900; font-size: 24px; line-height: 29px; color: #18444A; padding: 18px; } 
+        .section-{{section.id}} .rewards-section__head .how-heading { font-weight: 900; font-size: 24px; line-height: 29px; color: var(--clr-dark-green); padding: 18px; } 
         
         .section-{{section.id}} .rewards-section .how-subheading { padding: 0 33px; margin-top: 30px; margin-bottom: 30px; font-weight: 400; font-size: 16px; line-height: 19px; text-align: center; } 
         
