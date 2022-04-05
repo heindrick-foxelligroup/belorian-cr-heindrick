@@ -15,7 +15,7 @@
 {% if product.available %}{% render 'subscription-product' with product as product %}{% endif %}
 <!-- End ReCharge code -->
 
-<div class="product-form__item product-form__item--quantity{% if align_center_button %} center-block text-center{% endif %} gutter-ele-top gutter-ele-bottom flex{% if inline_button %} product-form__item--inline{% endif %}">
+<div class="3 product-form__item product-form__item--quantity{% if align_center_button %} center-block text-center{% endif %} gutter-ele-top gutter-ele-bottom flex{% if inline_button %} product-form__item--inline{% endif %}">
   {%- if obj.settings.show_quantity_selector -%}
   <div class="qty-box qty-box--single flex flex-align-ver flex-align-space-between{% if full_qty_box %} qty-box--single-full{% endif %}">
     <a href="#" class="qty-box__ctrl qty-box__ctrl--descrease flex flex-align-hoz flex-align-ver" aria-label="button">
