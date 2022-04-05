@@ -41,6 +41,10 @@
     <span{% if has_compare_btn or has_wishlist_btn or inline_button == false %} class="{% if has_compare_btn or has_wishlist_btn %}hidden-xs{% endif %}{% if inline_button and has_compare_btn and has_wishlist_btn %} hidden-md{% endif %}{% if inline_button == false %} hidden-md{% endif %}"{% endif %}>{{ cart_text }}</span>
   </button>
 </div>
+
+{% render 'multiple-free-item-timer-custom-dvn' %}
+
+
 {%- if has_compare_btn or has_wishlist_btn -%}
   {%- if has_compare_btn -%}
     <a title="{{ 'collections.product_item.add_to_compare' | t | escape }}" data-handle="{{ product.handle }}" href="#" class="button--style3 button--cp button--icon button--square flex flex-align-ver flex-align-hoz distance-top-ele button--single button--single-inline{% unless inline_button %} hidden-md hidden-lg{% endunless %} bt-tooltip" data-product-title="{{ product.title | escape }}">

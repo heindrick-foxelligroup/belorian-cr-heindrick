@@ -1,0 +1,634 @@
+{%-comment-%}
+******************************************
+
+Last changes: 2022-03-18
+
+******************************************
+{%-endcomment-%}
+
+<div class="multiple-free-item-timer style-2">
+  <div class="accordion">
+    <span>
+      <b>LIMITED TIME: Pick an extra FREE GIFT!</b>
+      <span class="open-icon">+</span>
+    </span>
+  </div>
+  <div class="accordion-panel">
+    <div class="accordion-content">
+      {% comment %} <div class="accordion-description">
+        <div class="time-left-wrapper">
+          Let us treat you right! Trust your intuition and <b>choose a FREE GIFT</b> that speaks to you the most!  What gift would you like to get with your Mindful Box?
+        </div>
+      </div> {% endcomment %}
+
+      {% assign handles = 'mindful-subscription' | split: "," %}
+      {% assign summary = "for stress and tension relief" | split: "#" %}
+
+      <div class="accordion-items">
+        {% for handle in handles %}
+        <div class="free-item-container chosen-product">
+          <input value="{{ forloop.index0 }}" name="chosen-product" type="radio" id="{{ all_products[handles[forloop.index0]].id }}" {% if forloop.index0 == 1 %} checked="checked"{% endif %}>
+          <label for="{{ all_products[handles[forloop.index0]].id }}">
+            <div class="product-wrapper">
+              <img src="{{ all_products[handle].images[0] | img_url: "x300" }}"/>
+              <div class="product-content">
+                <div class="free-item-product-title">{{ all_products[handles[forloop.index0]].title }}</div>
+                <div class="free-item-product-summary"><em>{{ summary[forloop.index0] }}</em></div>
+                <div class="free-item-pricing">
+                  <span class="free-item-old-price">{{ all_products[handles[forloop.index0]].price | money }}</span>
+                  <span class="free-item-new-price">FREE</span>
+                </div>
+              </div>
+            </div>
+          </label>
+        </div>
+        {% endfor %}
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+
+<!-- The Modal -->
+<div id="myModal" class="dvn-modal">
+
+  <div class="modal-content">
+<!--     <span class="modal-close">&times;</span> -->
+    <p class="dvn-heading"><span class="limited">Limited time offer:</span> <span class="upgrade">Upgrade to</span><br/> <span class="heading-box">MINDFUL DIVINE BOX!</span></p>
+    <img class="dvn-img" alt="Mindful Divine Box">
+    <span class="dvn-copy-block">
+<!--       <p class="dvn-notice">Accelerate your spiritual journey with Divine Box and 3 more mindful items every month:</p> -->
+      <ul class="dvn-list">
+        <li class="dvn-list-item" style="padding-bottom: 3px;">9-11 items in each box valued at $130</li>
+        <li class="dvn-list-item" style="padding-bottom: 3px;">Additional Premium Crystal ($15)</li>
+        <li class="dvn-list-item" style="padding-bottom: 3px;">Additional Gemstone Jewelry Piece ($15)</li>
+        <li class="dvn-list-item">Book about Mindfulness ($20)</li>
+      </ul>
+    </span>
+    <p class="swap-text">You can swap your boxes anytime later!</p> 
+    <div class="dvn-buttons">
+      <a class="add-cart-new upgrade-link" data-id="1"><span>Upgrade </span> (+$20/month)</a>
+      <a class="add-cart-new thanks-link" data-id="0">No, Thanks. Continue with standard box</a>
+    </div>
+  </div>
+
+</div>
+
+<style>
+  /* The Modal (background) */
+  
+.dvn-modal {
+  --clr-dark-green: #18444A;
+  --clr-orange: #CF7D4F;
+  --dvn-heading-fs: 18px;
+  --dvn-heading-lh: 32px;
+  --dvn-content-fs: 14px;
+  --dvn-content-lh: 18px;
+  --dvn-swap-text-fs: 16px;
+  --dvn-swap-text-ls: normal;
+  --dvn-swap-text-fw: 700;
+  --dvn-plus-scale: .7;
+  --dvn-btn-fs: 18px;
+  --dvn-btn-fs2: 22px;
+  --dvn-content-wdth: 290px;
+  --dvn-list-padding: 0.5em 0 0.5em 25px;
+  --dvn-padding-top: 20px; 
+  --dvn-padding-btm: 20px; 
+}
+  
+@media all and (min-width:768px){
+  .dvn-modal {
+    --dvn-heading-fs: 28px;
+    --dvn-heading-lh: 40px;
+    --dvn-content-fs: 18px;
+    --dvn-content-lh: 24px;
+    --dvn-swap-text-fs: 18px;
+    --dvn-swap-text-ls: 0.01em;
+    --dvn-swap-text-fw: 500;
+    --dvn-plus-scale: 1;
+    --dvn-content-wdth: 450px;  
+    --dvn-list-padding: 0.5em 25px;
+    --dvn-padding-top: 82px; 
+    --dvn-padding-btm: 52px; 
+  }
+}
+
+.dvn-modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index:999999; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content/Box */
+.modal-content {
+  font-size: var(--dvn-content-fs);
+  line-height: var(--dvn-content-lh);
+  background-color: #F9FDF9;
+  margin: auto; /* 15% from the top and centered */
+/*   padding: var(--dvn-padding)!important; */
+  padding-top: var(--dvn-padding-top)!important;
+  padding-bottom: var(--dvn-padding-btm)!important;
+  border: 1px solid #888;
+  width: 95%; /* Could be more or less, depending on screen size */
+  color: var(--clr-dark-green);   
+}
+  
+.modal-content > img,
+.modal-content > div,
+.modal-content .dvn-copy-block {
+  width: var(--dvn-content-wdth);
+  display: block;
+  margin: 0 auto; 
+}
+
+/* The Close Button */
+.modal-close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.modal-close:hover,
+.modal-close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+  
+.dvn-heading { 
+  text-align: center;
+  font-size: var(--dvn-heading-fs);
+  line-height: var(--dvn-heading-lh);
+  font-weight: 800;
+  padding-bottom: 24px;
+} 
+
+.dvn-heading .limited {
+  color: var(--clr-orange);  
+}
+  
+.dvn-heading .heading-box {
+  text-transform: uppercase;
+  font-weight: 900;
+}  
+  
+.dvn-img { 
+  content: url('https://cdn.shopify.com/s/files/1/2987/3832/files/pop-up_green.jpg?v=1648810041');
+/*   image-rendering: pixelated; */
+  object-fit: contain;
+}
+ 
+.dvn-list { 
+  padding: var(--dvn-list-padding);
+} 
+  
+.dvn-list-item { 
+  position: relative;
+  font-weight: bold;
+}
+.dvn-list-item:before { 
+  content: url('https://cdn.shopify.com/s/files/1/2987/3832/files/dvn-plus.svg?v=1647609743');
+  height: 100%;
+  left: -25px;
+  top: 0;
+  position: absolute;
+  transform: scale(var(--dvn-plus-scale));
+}
+  
+p.swap-text { 
+  font-size: var(--dvn-swap-text-fs);
+  letter-spacing: var(--dvn-swap-text-ls);
+  font-weight: var(--dvn-swap-text-fw);
+  text-align: center;
+  margin-top: 16px;
+  margin-bottom: 8px; 
+} 
+
+.dvn-buttons { 
+  display: flex;
+  flex-direction: column;
+}  
+
+.dvn-buttons a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+/*   text-align: center; */
+  width: 100%;
+  cursor: pointer;
+}
+  
+.dvn-buttons a.upgrade-link{
+  height: 54px;
+  font-size: var(--dvn-btn-fs);
+  font-weight: 500;
+  border: 1px solid var(--clr-dark-green);
+  border-radius: 10px;  
+}
+  
+.dvn-buttons a.upgrade-link span {
+  text-transform: uppercase; 
+}
+  
+.dvn-buttons a.upgrade-link span {
+  font-size: var(--dvn-btn-fs1);
+  font-weight: bold;
+}
+  
+.dvn-buttons a.thanks-link { 
+  text-decoration: underline;
+} 
+  
+.dvn-img { 
+  max-width: 100%; 
+  height: auto; }
+   
+.dvn-buttons a.upgrade-link:hover { 
+  background-color: #CF7D4F;
+  border-color: #CF7D4F;
+}
+  
+.dvn-buttons a.upgrade-link { 
+  background-color: var(--clr-dark-green);
+  color: #fff;
+  margin-bottom: 10px;
+}
+
+.dvn-buttons a.thanks-link { color: var(--clr-dark-green); } 
+  
+.modal-content {
+  border-radius: 20px;  
+/*   padding: 17px 24px; */
+  max-width: 682px;
+}
+
+  
+</style>
+
+<style>
+  
+  @media all and (max-width: 767px) {
+    .multiple-free-item-timer.style-2 .accordion > span { padding-left: 0.5em; }
+  }
+  
+  .multiple-free-item-timer .accordion-panel { background-color: #fff!important; }
+  .free-item-container input { display: none; }
+  .free-item-container div.product-wrapper { 
+    display: flex; 
+    position: relative;
+    border: 1px solid #FFEBEB;
+    border-radius: 20px 20px 0 20px; 
+    margin: 5px 10px; 
+    cursor: pointer;
+    justify-content: center;
+  }
+
+  .free-item-container div.product-wrapper:after {
+    position: absolute;
+    right: -1px;
+    bottom: -1px;
+    content: "";
+    height: 24px;
+    width: 24px;
+    background-color: #fff;  
+    border: 1px solid #FFEBEB; }
+
+  .free-item-container input[type="radio"]:checked + label > div.product-wrapper { 
+    border-color: #FEBCBC;
+    background-color: #FFEBEB; }
+
+  .free-item-container input[type="radio"]:checked + label div.product-wrapper:after {
+    content: url('https://cdn.shopify.com/s/files/1/2987/3832/files/akar-icons_check.svg?v=1638212158');
+    border-color: #FEBCBC;
+  }
+  
+  .free-item-container.chosen-product .product-wrapper img { 
+    width: 100px; 
+    height: 100px;
+    border-radius: 20px; }
+
+  .free-item-container input.accordion-items { 
+    display: flex; 
+    flex-direction: column; }
+
+  .free-item-container .product-content { 
+    padding-top:24px;
+    padding-left: 16px; }
+  
+  .free-item-container .free-item-product-title,
+  .free-item-container .free-item-product-summary,
+  .free-item-container.chosen-product .free-item-old-price,
+  .free-item-container.chosen-product .free-item-new-price {
+    font-size: 0.75rem;
+    line-height: 17px; }
+
+  .free-item-container .free-item-product-title { 
+    text-transform: uppercase;
+    font-weight: 400;
+    color: #000; }
+
+  .free-item-container .free-item-product-summary { 
+    font-weight: 400;
+    font-weight: 400;
+    color: #305875;
+    padding-bottom: 10px; }
+
+  .free-item-container.chosen-product .free-item-old-price { 
+    color: #9D9D9D; }
+
+  .free-item-container.chosen-product .free-item-new-price { 
+    font-weight: 900;
+    color: #18444A; 
+    padding-left: 7px; }
+
+  
+  /* .multiple-free-item-timer .accordion-items{
+    padding: 10px;
+   	display: flex; 
+    justify-content: space-evenly;
+  } */
+  
+  .multiple-free-item-timer .free-item-container{
+   	flex-grow: 1;
+    min-width: 0;
+    min-height: 0;
+    padding: 4px;
+  }
+  
+  .multiple-free-item-timer .free-item-container img{
+   	width: 100%;
+    height: auto;
+  }
+  
+  :is(.accordion, .time-left-wrapper, .free-item-description) p {
+   	margin: 0;
+    display: inline-block;
+  }
+  
+  .multiple-free-item-timer .accordeon-item-image-wrapper { 
+    -webkit-box-flex: 0; 
+        -ms-flex: 0 0 38%; 
+            flex: 0 0 38%;
+    border: 2px solid #fff; } 
+  
+  .multiple-free-item-timer .accordion {
+    padding: 10px;
+    background-color: #ACD049;
+    width: 100%;
+    color: white;
+    font-weight: 500;
+    font-size: 15px;
+    cursor: pointer;
+  }
+  
+  .multiple-free-item-timer .accordeon-item-image-wrapper img{
+     -o-object-fit: cover;
+        object-fit: cover;
+     max-width: 100%
+  }
+  
+  .multiple-free-item-timer .accordion-panel {
+    overflow: hidden;
+    max-height: 0;
+    -webkit-transition: max-height 0.2s ease-in-out;
+    -o-transition: max-height 0.2s ease-in-out;
+    transition: max-height 0.2s ease-in-out;
+    border: 1px solid #94b72a;
+    background-color: #FBFCF7;
+  }
+  
+  .multiple-free-item-timer .fa-gift{
+    position: relative !important;
+    margin-right: 5px;
+    top: 1px !important;
+  }
+  
+  .multiple-free-item-timer .open-icon {
+   	font-size: 20px; 
+    float: right;
+  }
+  .multiple-free-item-timer .time-left-wrapper {
+   	font-size: 14px; 
+    text-align: center;
+    color: #000;
+    font-weight: 500; }
+  
+  .multiple-free-item-timer{
+    width: 90%;
+    max-width: 440px;
+    margin: auto;
+    margin-bottom: 10px;
+  }
+  
+  .multiple-free-item-timer .time-left{
+    font-weight: 700;
+    color: #FF0000;
+  }
+  
+  .multiple-free-item-timer .accordion-description{
+   	padding: 10px 20px 10px 20px; 
+  }
+  
+  .multiple-free-item-timer .accordion-item-border{
+   	border: 1px solid #94b72a;
+  }
+  
+  .multiple-free-item-timer .free-item-description{
+    color: #707070;
+    font-size: 0.75rem;
+    line-height: 1.2;
+  }
+ 
+  .multiple-free-item-timer .free-item-details{
+   	display: -webkit-box;
+   	display: -ms-flexbox;
+   	display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+   	-webkit-box-pack: justify;
+   	    -ms-flex-pack: justify;
+   	        justify-content: space-between;
+    margin-left: 12px;
+  }
+  
+  .multiple-free-item-timer .accordion-item-info {
+   	padding: 5px 20px 20px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+  }
+  
+  .multiple-free-item-timer .free-item-title {
+	text-transform: uppercase;
+    font-weight: 700;
+    font-size: 13px;
+    color: #000; }
+  
+  .multiple-free-item-timer .free-item-old-price {
+   	color: black;
+    text-decoration: line-through;
+    font-size: 0.75rem;
+    text-align: center;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .multiple-free-item-timer .free-item-new-price{
+    color: #ACD049;
+    font-weight: 800;
+    font-size:0.95rem;
+   
+    width: 100%;
+    text-align: center;
+  }  
+  
+</style>
+    
+<script>
+  (function(){
+
+	const requiredItemVariantId = 41329529258164; // Subscription Box RE
+    const requiredItem2VariantId = 41252966629566; // Divine Box Auto renew 
+    
+    
+    // Get the modal
+    const modal = document.getElementById("myModal");
+//     const span = document.getElementsByClassName("modal-close")[0];
+
+    $(".add-cart-new").click(function(e){
+      
+      {% comment %} const checkedInputValue = "0"
+      const freeProducts = 
+            [
+              {
+                type: "obsidianNecklace",
+                productId: 7084182536372, 
+                variantId: 41329529258164
+              }
+            ]; {% endcomment %}
+      
+      
+      modal.style.display = "flex";
+//       span.onclick = function() {
+//         modal.style.display = "none";
+//       }
+     
+      /*
+      * No Timer Needed
+      if(Cookies.get("necklace-timer") == undefined){
+          Cookies.set("necklace-timer", Date.now(), {expires: (1/24)*{{ settings.timer_refresh_time }}});
+      }
+                      
+      Cookies.set("free-item-data", freeProducts[checkedInputValue].type, {expires: (1/24)*{{ settings.timer_refresh_time }}});
+
+      e.preventDefault();
+      e.stopPropagation();
+      */
+    });
+
+    $('.add-cart-btn').click(function(event){
+        event.preventDefault();
+        
+        console.log("added")
+
+        const requiredItemVariants =  
+          [
+            {
+              type: "Subscription Box RE",
+              variantId: 41329529258164
+            }
+    	  ]; 
+
+        const checkedInputValue = 0
+        const freeProducts = 
+            [
+              {
+                type: "obsidianNecklace",
+                productId: 7084182536372, 
+                variantId: 41329529258164
+              }
+            ];
+        
+        this.textContent = "Loading...";
+        let selectedDataNum = 0;
+        Shopify.queue = [];
+        //Shopify.queue.push( {variantId: requiredItemVariants[selectedDataNum].variantId,quantity: 1 ,shipping_interval_frequency:"1",shipping_interval_unit_type:"Months" } );
+        Shopify.queue.push( {variantId: freeProducts[checkedInputValue].variantId,quantity: 1 } );
+
+        Shopify.moveAlong = function() {
+          if (Shopify.queue.length) {
+            var request = Shopify.queue.shift();
+            Shopify.addItem(request.variantId, request.quantity);
+          } else {
+            document.location.href = '/cart';
+          }
+        };    
+
+        Shopify.addItem = function(id, qty) {
+          var params = {
+            id: id,
+            quantity: qty
+          };
+          $.ajax({
+            type: 'POST',
+            url: '/cart/add.js',
+            data: params,
+            dataType: 'json',
+            success: function(){
+              if(typeof callback === 'function'){
+                callback();
+              }
+            },
+            error: function(err){
+              console.log(err);
+            }
+          });
+        }
+
+        Shopify.moveAlong();
+
+        return false;
+    });
+      
+      
+
+    const config = {
+      timer: document.querySelector(".multiple-free-item-timer"),
+      accordion: document.querySelector(".multiple-free-item-timer .accordion"),
+      accordionPanel: document.querySelector(".multiple-free-item-timer .accordion-panel"),
+      openIcon: document.querySelector(".multiple-free-item-timer .open-icon"),
+      timeElement: document.querySelector(".multiple-free-item-timer .time-left"),
+    };
+
+    config.accordion.addEventListener("click", function() {
+
+      if(config.accordionPanel.style.maxHeight){
+        config.accordionPanel.style.maxHeight = null;
+        config.openIcon.innerHTML = "+";
+
+      } else {
+        config.accordionPanel.style.maxHeight = config.accordionPanel.scrollHeight + "px";
+        config.openIcon.innerHTML = "-";
+      }
+
+    });    
+  })();
+
+</script>
