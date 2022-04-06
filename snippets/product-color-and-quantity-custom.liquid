@@ -1,7 +1,7 @@
 
 {%- render 'product-group-variants' with product: product, enable_product_options: true, color_size: '45x', is_single_view: true, is_show_sub_info: true -%}
 
-{%- render 'product-single-form' with product: product, current_variant: current_variant, full_qty_box: false, product_form_id: product_form_id, obj: obj, inline_button: inline_button -%}
+{%- render 'product-single-form-buy' with product: product, current_variant: current_variant, full_qty_box: false, product_form_id: product_form_id, obj: obj, inline_button: inline_button -%}
 
 {% assign has_color = false %}
 
