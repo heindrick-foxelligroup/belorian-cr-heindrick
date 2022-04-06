@@ -25,7 +25,7 @@
   {%- else -%}
     {%- assign cart_text = 'products.product.sold_out' | t -%}  
   {%- endif -%}
-  <button class="button button--one-line add-cart-btn button--single-cart button--cart flex flex-align-ver flex-align-hoz add-cart-btn--state por button--single-cart-main button--single{% unless current_variant.available %} soldout{% endunless %}" type="submit" name="add" title="{{ 'products.product.add_to_cart' | t | escape }}" aria-label="button"{% unless current_variant.available %} disabled="disabled"{% endunless %}>
+  <button class="product-single-form-inner button button--one-line add-cart-btn button--single-cart button--cart flex flex-align-ver flex-align-hoz add-cart-btn--state por button--single-cart-main button--single{% unless current_variant.available %} soldout{% endunless %}" type="submit" name="add" title="{{ 'products.product.add_to_cart' | t | escape }}" aria-label="button"{% unless current_variant.available %} disabled="disabled"{% endunless %}>
     {%- render 'icon-cart' -%}
     <span>{{ cart_text }}</span>
   </button>
