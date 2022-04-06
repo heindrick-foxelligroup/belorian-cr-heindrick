@@ -67,8 +67,8 @@
         "quantity_buy_buttons": {
           "type": "quantity_buy_buttons",
           "settings": {
-            "show_quantity_selector": true,
-            "show_dynamic_checkout": false,
+            "show_quantity_selector": false,
+            "show_dynamic_checkout": true,
             "show_compare_btn": false,
             "show_wishlist_btn": false,
             "enable_shop_pay_banner": false
