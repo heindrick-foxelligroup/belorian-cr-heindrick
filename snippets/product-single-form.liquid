@@ -15,7 +15,7 @@
 {% if product.available %}{% render 'subscription-product' with product as product %}{% endif %}
 <!-- End ReCharge code -->
 
-<div class="product-single-form product-form__item product-form__item--quantity{% if align_center_button %} center-block text-center{% endif %} gutter-ele-top gutter-ele-bottom flex{% if inline_button %} product-form__item--inline{% endif %}">
+<div class="product-form__item product-form__item--quantity{% if align_center_button %} center-block text-center{% endif %} gutter-ele-top gutter-ele-bottom flex{% if inline_button %} product-form__item--inline{% endif %}">
   {%- if obj.settings.show_quantity_selector -%}
   <div class="qty-box qty-box--single flex flex-align-ver flex-align-space-between{% if full_qty_box %} qty-box--single-full{% endif %}">
     <a href="#" class="qty-box__ctrl qty-box__ctrl--descrease flex flex-align-hoz flex-align-ver" aria-label="button">
@@ -36,11 +36,14 @@
   {%- else -%}
     {%- assign cart_text = 'products.product.sold_out' | t -%}  
   {%- endif -%}
-  <button class="product-single-form button button--one-line add-cart-btn button--single-cart button--cart flex flex-align-ver flex-align-hoz add-cart-btn--state por button--single-cart-main button--single{% unless current_variant.available %} soldout{% endunless %} fw-bold text-uppercase h100" type="submit" name="add" title="{{ 'products.product.add_to_cart' | t | escape }}" aria-label="button"{% unless current_variant.available %} disabled="disabled"{% endunless %}>
+  <button class="button button--one-line add-cart-btn button--single-cart button--cart flex flex-align-ver flex-align-hoz add-cart-btn--state por button--single-cart-main button--single{% unless current_variant.available %} soldout{% endunless %} fw-bold text-uppercase h100" type="submit" name="add" title="{{ 'products.product.add_to_cart' | t | escape }}" aria-label="button"{% unless current_variant.available %} disabled="disabled"{% endunless %}>
     {%- render 'icon-cart' -%}
     <span{% if has_compare_btn or has_wishlist_btn or inline_button == false %} class="{% if has_compare_btn or has_wishlist_btn %}hidden-xs{% endif %}{% if inline_button and has_compare_btn and has_wishlist_btn %} hidden-md{% endif %}{% if inline_button == false %} hidden-md{% endif %}"{% endif %}>{{ cart_text }}</span>
   </button>
 </div>
+
+{% render 'multiple-free-item-timer-custom-dvn' %}
+
 
 {%- if has_compare_btn or has_wishlist_btn -%}
   {%- if has_compare_btn -%}
