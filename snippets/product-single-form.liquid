@@ -65,7 +65,7 @@
   {%- endif -%}  
 {%- endif -%}
 {%- if template.suffix != 'quick_view' and template.suffix != 'select_option' and obj.settings.show_dynamic_checkout -%}
-  <div class="shopify-payment-btn-wrap w100 buy-only">
+  <div class="shopify-payment-btn-wrap w100 buy-only-form">
     {{ form | payment_button }}
   </div>
 {%- endif -%}
