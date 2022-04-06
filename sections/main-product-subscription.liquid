@@ -364,7 +364,7 @@
           {%- endif -%}
           {%- if quantity_buy_buttons_block != blank -%}
           <div class="col-xs-12 col-md-8 pg__main-options__border-col">
-            {%- render 'product-single-form' with product: product, current_variant: current_variant, full_qty_box: false, inline_button: true, left_holder: left_holder, obj: quantity_buy_buttons_block -%}
+            {%- render 'product-single-form-buy' with product: product, current_variant: current_variant, full_qty_box: false, inline_button: true, left_holder: left_holder, obj: quantity_buy_buttons_block -%}
         
           </div>
           {%- endif -%}
