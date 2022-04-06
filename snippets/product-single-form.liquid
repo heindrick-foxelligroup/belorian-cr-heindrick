@@ -42,6 +42,7 @@
   </button>
 </div>
 
+
 {%- if has_compare_btn or has_wishlist_btn -%}
   {%- if has_compare_btn -%}
     <a title="{{ 'collections.product_item.add_to_compare' | t | escape }}" data-handle="{{ product.handle }}" href="#" class="button--style3 button--cp button--icon button--square flex flex-align-ver flex-align-hoz distance-top-ele button--single button--single-inline{% unless inline_button %} hidden-md hidden-lg{% endunless %} bt-tooltip" data-product-title="{{ product.title | escape }}">
