@@ -40,6 +40,7 @@
     {%- render 'icon-cart' -%}
     <span{% if has_compare_btn or has_wishlist_btn or inline_button == false %} class="{% if has_compare_btn or has_wishlist_btn %}hidden-xs{% endif %}{% if inline_button and has_compare_btn and has_wishlist_btn %} hidden-md{% endif %}{% if inline_button == false %} hidden-md{% endif %}"{% endif %}>{{ cart_text }}</span>
   </button>
+  <button>BUY NOW</button>
 </div>
 
 {%- if has_compare_btn or has_wishlist_btn -%}
