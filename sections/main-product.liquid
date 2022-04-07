@@ -97,6 +97,7 @@
                   {% assign prodIdSelected = product.id %}
                 {% else %}
                   {% for variant in product.variants %}
+                    {{ variant.selected }}
                     {% if variant.selected %}
                       {% assign prodIdSelected = 'tests' %}
                     {% endif %}
