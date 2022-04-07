@@ -1,7 +1,7 @@
 {
   "sections": {
     "main": {
-      "type": "main-product-buy-now",
+      "type": "main-product",
       "blocks": {
         "62568e13-2832-4a1c-9b37-9eb935008091": {
           "type": "mobile_headline",
