@@ -36,10 +36,10 @@
   {%- else -%}
     {%- assign cart_text = 'products.product.sold_out' | t -%}  
   {%- endif -%}
-  {% comment %} <button class="button button--one-line add-cart-btn button--single-cart button--cart flex flex-align-ver flex-align-hoz add-cart-btn--state por button--single-cart-main button--single{% unless current_variant.available %} soldout{% endunless %} fw-bold text-uppercase h100" type="submit" name="add" title="{{ 'products.product.add_to_cart' | t | escape }}" aria-label="button"{% unless current_variant.available %} disabled="disabled"{% endunless %}>
+  <button class="button button--one-line add-cart-btn button--single-cart button--cart flex flex-align-ver flex-align-hoz add-cart-btn--state por button--single-cart-main button--single{% unless current_variant.available %} soldout{% endunless %} fw-bold text-uppercase h100" type="submit" name="add" title="{{ 'products.product.add_to_cart' | t | escape }}" aria-label="button"{% unless current_variant.available %} disabled="disabled"{% endunless %}>
     {%- render 'icon-cart' -%}
     <span{% if has_compare_btn or has_wishlist_btn or inline_button == false %} class="{% if has_compare_btn or has_wishlist_btn %}hidden-xs{% endif %}{% if inline_button and has_compare_btn and has_wishlist_btn %} hidden-md{% endif %}{% if inline_button == false %} hidden-md{% endif %}"{% endif %}>{{ cart_text }}</span>
-  </button> {% endcomment %}
+  </button>
 </div>
 
 
