@@ -89,7 +89,10 @@
               {%- elsif block.type == 'quantity_buy_buttons' -%}
                 {%- assign has_quantity_box = block.settings.show_quantity_selector -%}
               {%- elsif block.type == 'buy_button' -%}
-                <button>BUY NOW 2</button>
+              <div class="buy-now-wrapper">
+                <a class="buy-now__button" href="https://www.closetrituals.com/cart/39780825137212:1">BUY NOW</a>
+                {{ product | json }}
+              </div>
               {%- endif -%}  
               {%- render 'product-single-block-list' with current_variant: current_variant, block: block, enable_rtl: enable_rtl, left_holder: left_holder, right_holder: right_holder, product_form_id: product_form_id, description: description, inline_button: inline_button -%}  
             {%- endif -%}
