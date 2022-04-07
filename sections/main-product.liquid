@@ -90,10 +90,10 @@
                 {%- assign has_quantity_box = block.settings.show_quantity_selector -%}
               {%- elsif block.type == 'buy_button' -%}
               <div class="buy-now-wrapper">
-                {% assign prodIdSelected = 'product.id' %}
+                {% assign prodIdSelected = product.id %}
                 {% assign prodQuantity = '1' %}
                 {{ product.has_only_default_variant }}
-                
+
                 {% for variant in product.variants %}
                   {{ variant.selected }}
                   {% if variant.selected %}
