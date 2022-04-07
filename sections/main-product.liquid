@@ -91,9 +91,19 @@
               {%- elsif block.type == 'buy_button' -%}
               <div class="buy-now-wrapper">
                 <a class="buy-now__button" href="https://www.closetrituals.com/cart/39780825137212:1">BUY NOW</a>
-                {% for variant in product.variants %}
-                  <p>{{ variant.id }} === {{ variant.selected }}</p>
-                {% endfor %}
+                {% assign prodIdSelected = '' %}
+                {% assign prodQuantity = '1' %}
+
+                {% if product.has_only_default_variant %}
+                  {% assign prodIdSelected = product.id %}
+                {% else %}
+                  {% for variant in product.variants %}
+                    {% if variant.selected %}
+                      {% assign prodIdSelected = variant.id %}
+                    {% endif %}
+                  {% endfor%}
+                {% endif %}
+                <a class="buy-now__button" href="https://www.closetrituals.com/cart/{{ prodIdSelected }}:{{ prodQuantity }}">BUY NOW</a>
               </div>
               {%- endif -%}  
               {%- render 'product-single-block-list' with current_variant: current_variant, block: block, enable_rtl: enable_rtl, left_holder: left_holder, right_holder: right_holder, product_form_id: product_form_id, description: description, inline_button: inline_button -%}  
