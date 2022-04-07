@@ -88,6 +88,32 @@
                 {%- assign is_show_desc = true -%}
               {%- elsif block.type == 'quantity_buy_buttons' -%}
                 {%- assign has_quantity_box = block.settings.show_quantity_selector -%}
+              {%- elsif block.type == 'buy_button' -%}
+
+              {% comment %} BUY NOW BUTTON {% endcomment %}
+              <style>
+                .buy-now__button { width: 100%; color: var(--color_btn_cart_hover); background: var(--bkg_btn_cart_hover); border-color: var(--bkg_btn_cart_hover); font-size: 18px; line-height: 22px; letter-spacing: 0.05em; }
+              </style>
+              <div class="buy-now-wrapper">
+                {% assign prodIdSelected = product.selected_or_first_available_variant.id %}
+                {% assign prodQuantity = '01' %}
+
+                {% for variant in product.variants %}
+                  {% if variant.selected %}
+                    {% assign prodIdSelected = variant.id %}
+                  {% endif %}
+                {% endfor%}
+                <a class="buy-now__button button button--cart fw-bold" href="https://www.closetrituals.com/cart/{{ prodIdSelected }}:{{ prodQuantity }}">BUY NOW</a>
+              </div>
+              <script>
+                document.querySelectorAll('.buy-now__button').forEach((button)=>{
+                  button.onclick = () => {
+                      var buyUrl = window.location.origin+"/cart/"+document.querySelector('.variant-id[type="hidden"]').value+":"+document.querySelector('[name="quantity"]').value
+                      button.attributes.href.value = buyUrl
+                  }
+                })
+              </script>
+              {% comment %} END BUY NOW BUTTON {% endcomment %}
               {%- endif -%}  
               {%- render 'product-single-block-list' with current_variant: current_variant, block: block, enable_rtl: enable_rtl, left_holder: left_holder, right_holder: right_holder, product_form_id: product_form_id, description: description, inline_button: inline_button -%}  
             {%- endif -%}
@@ -161,7 +187,10 @@
                       {%- assign is_show_desc = true -%}
                     {%- elsif block.type == 'quantity_buy_buttons' -%}
                       {%- assign has_quantity_box = block.settings.show_quantity_selector -%}
+                    {%- elsif block.type == 'buy_button' -%}
+                        <button>BUY NOW 3</button>
                     {%- endif -%}  
+                     
                     {%- render 'product-single-block-list' with current_variant: current_variant, block: block, enable_rtl: enable_rtl, left_holder: left_holder, right_holder: right_holder, product_form_id: product_form_id, description: description, inline_button: inline_button -%}  
                   {%- endif -%}
                 {%- elsif block.type == '@app' -%}
@@ -208,6 +237,8 @@
                     {%- assign is_show_desc = true -%}
                   {%- elsif block.type == 'quantity_buy_buttons' -%}
                     {%- assign has_quantity_box = block.settings.show_quantity_selector -%}
+                  {%- elsif block.type == 'buy_button' -%}
+                    <button>BUY NOW 4</button>
                   {%- endif -%}  
                   {%- render 'product-single-block-list' with current_variant: current_variant, block: block, enable_rtl: enable_rtl, left_holder: left_holder, right_holder: right_holder, product_form_id: product_form_id, description: description, inline_button: inline_button -%}  
                 {%- endif -%}
@@ -317,6 +348,11 @@
                     {%- assign quantity_buy_buttons_block = block -%}  
                   {%- endif -%}
                 {%- endunless -%}
+                {%- if block.type == 'buy_button' -%}
+                
+                  <button>BUY NOW</button>
+                {%- endif -%}
+
               {%- endfor -%}
               {%- if opened_tag -%}
                 </div>
@@ -861,6 +897,11 @@
             "default": false
           }
         ]
+      },
+      {
+        "type": "buy_button",
+        "name": "Buy Button",
+        "limit": 1
       },
       {
         "type": "description",
