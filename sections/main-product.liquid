@@ -317,6 +317,11 @@
                     {%- assign quantity_buy_buttons_block = block -%}  
                   {%- endif -%}
                 {%- endunless -%}
+                {%- if block.type == 'variant_picker' -%}
+                
+                  <button>BUY NOW</button>
+                {%- endif -%}
+
               {%- endfor -%}
               {%- if opened_tag -%}
                 </div>
