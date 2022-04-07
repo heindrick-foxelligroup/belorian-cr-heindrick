@@ -90,19 +90,16 @@
                 {%- assign has_quantity_box = block.settings.show_quantity_selector -%}
               {%- elsif block.type == 'buy_button' -%}
               <div class="buy-now-wrapper">
-                {% assign prodIdSelected = '' %}
+                {% assign prodIdSelected = 'product.id' %}
                 {% assign prodQuantity = '1' %}
                 {{ product.has_only_default_variant }}
-                {% if product.has_only_default_variant %}
-                  {% assign prodIdSelected = product.id %}
-                {% else %}
-                  {% for variant in product.variants %}
-                    {{ variant.selected }}
-                    {% if variant.selected %}
-                      {% assign prodIdSelected = 'tests' %}
-                    {% endif %}
-                  {% endfor%}
-                {% endif %}
+                
+                {% for variant in product.variants %}
+                  {{ variant.selected }}
+                  {% if variant.selected %}
+                    {% assign prodIdSelected = 'tests' %}
+                  {% endif %}
+                {% endfor%}
                 <a class="buy-now__button" href="https://www.closetrituals.com/cart/{{ prodIdSelected }}:{{ prodQuantity }}">BUY NOW</a>
               </div>
               {%- endif -%}  
