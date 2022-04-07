@@ -103,7 +103,7 @@
                     {% assign prodIdSelected = variant.id %}
                   {% endif %}
                 {% endfor%}
-                <a class="buy-now__button button button--cart fw-bold" href="https://www.closetrituals.com/cart/{{ prodIdSelected }}:{{ prodQuantity }}">BUY NOW</a>
+                <a class="buy-now__button button button--cart fw-bold" href="https://www.closetrituals.com/cart/{{ prodIdSelected }}:{{ prodQuantity }}">{{ block.settings.button_text }}</a>
               </div>
               <script>
                 document.querySelectorAll('.buy-now__button').forEach((button)=>{
@@ -901,7 +901,14 @@
       {
         "type": "buy_button",
         "name": "Buy Button",
-        "limit": 1
+        "limit": 1,
+        "settings": [
+          {
+            "type": "text",
+            "id": "button_text",
+            "default": "BUY NOW"
+          }
+        ]
       },
       {
         "type": "description",
