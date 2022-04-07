@@ -60,6 +60,7 @@
         },
         "633b8d57-f96b-4e9a-bcbf-be9d7e1d7c46": {
           "type": "buy_button",
+          "disabled": true,
           "settings": {
           }
         },
