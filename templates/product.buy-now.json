@@ -58,7 +58,7 @@
             "show_quantity_selector": true
           }
         },
-        "633b8d57-f96b-4e9a-bcbf-be9d7e1d7c46": {
+        "buy_button": {
           "type": "buy_button",
           "settings": {
           }
