@@ -58,7 +58,7 @@
             "show_quantity_selector": true
           }
         },
-        "buy_button": {
+        "65b01083-7fcb-43ae-bbce-6a5d8b91d884": {
           "type": "buy_button",
           "settings": {
           }
@@ -73,8 +73,8 @@
           "type": "quantity_buy_buttons",
           "disabled": true,
           "settings": {
-            "show_quantity_selector": false,
-            "show_dynamic_checkout": true,
+            "show_quantity_selector": true,
+            "show_dynamic_checkout": false,
             "show_compare_btn": false,
             "show_wishlist_btn": false,
             "enable_shop_pay_banner": false
@@ -117,7 +117,7 @@
         "c3ce6acf-842a-4f6a-9817-70b3a3ab3a23",
         "group_2",
         "c8536a60-536b-4c3a-a87e-c396d0cec25d",
-        "633b8d57-f96b-4e9a-bcbf-be9d7e1d7c46",
+        "65b01083-7fcb-43ae-bbce-6a5d8b91d884",
         "variant_picker",
         "quantity_buy_buttons",
         "753be2e3-015e-4978-9902-43a2554a97bb",
