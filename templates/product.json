@@ -66,6 +66,7 @@
         },
         "quantity_buy_buttons": {
           "type": "quantity_buy_buttons",
+          "disabled": true,
           "settings": {
             "show_quantity_selector": false,
             "show_dynamic_checkout": true,
