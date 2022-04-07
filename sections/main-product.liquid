@@ -106,7 +106,7 @@
                 <a class="buy-now__button button button--cart button--single-cart fw-bold" href="https://www.closetrituals.com/cart/{{ prodIdSelected }}:{{ prodQuantity }}">BUY NOW</a>
               </div>
               <script>
-                window.shop.loaded_variant = {{ product.selected_variant.id }};
+                window.shop.loaded_variant = "{{ product.selected_variant.id }}";
                 document.querySelectorAll('.buy-now__button').forEach((button)=>{
                   button.onclick = () => {
                       var buyUrl = button.attributes.href.value.split(':0')[0]+":0"+document.querySelector('[name="quantity"]').value
