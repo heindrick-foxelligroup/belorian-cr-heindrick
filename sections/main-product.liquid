@@ -92,7 +92,7 @@
               <div class="buy-now-wrapper">
                 {% assign prodIdSelected = product.id %}
                 {% assign prodQuantity = '1' %}
-                {{ product.has_only_default_variant }}
+                {{ product.selected_or_first_available_variant }}
 
                 {% for variant in product.variants %}
                   {{ variant.selected }}
