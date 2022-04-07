@@ -89,12 +89,13 @@
               {%- elsif block.type == 'quantity_buy_buttons' -%}
                 {%- assign has_quantity_box = block.settings.show_quantity_selector -%}
               {%- elsif block.type == 'buy_button' -%}
+
+              {% comment %} BUY NOW BUTTON {% endcomment %}
               <div class="buy-now-wrapper">
                 {% assign prodIdSelected = product.selected_or_first_available_variant.id %}
                 {% assign prodQuantity = '1' %}
 
                 {% for variant in product.variants %}
-                  {{ variant.selected }}
                   {% if variant.selected %}
                     {% assign prodIdSelected = variant.id %}
                   {% endif %}
