@@ -58,6 +58,11 @@
             "show_quantity_selector": true
           }
         },
+        "633b8d57-f96b-4e9a-bcbf-be9d7e1d7c46": {
+          "type": "buy_button",
+          "settings": {
+          }
+        },
         "variant_picker": {
           "type": "variant_picker",
           "disabled": true,
@@ -66,6 +71,7 @@
         },
         "quantity_buy_buttons": {
           "type": "quantity_buy_buttons",
+          "disabled": true,
           "settings": {
             "show_quantity_selector": false,
             "show_dynamic_checkout": true,
@@ -111,6 +117,7 @@
         "c3ce6acf-842a-4f6a-9817-70b3a3ab3a23",
         "group_2",
         "c8536a60-536b-4c3a-a87e-c396d0cec25d",
+        "633b8d57-f96b-4e9a-bcbf-be9d7e1d7c46",
         "variant_picker",
         "quantity_buy_buttons",
         "753be2e3-015e-4978-9902-43a2554a97bb",
