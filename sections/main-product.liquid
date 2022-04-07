@@ -92,7 +92,7 @@
               <div class="buy-now-wrapper">
                 {% assign prodIdSelected = '' %}
                 {% assign prodQuantity = '1' %}
-                {{ product | json }}
+                {{ product.has_only_default_variant }}
                 {% if product.has_only_default_variant %}
                   {% assign prodIdSelected = product.id %}
                 {% else %}
