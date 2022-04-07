@@ -96,7 +96,7 @@
               </style>
               <div class="buy-now-wrapper">
                 {% assign prodIdSelected = product.selected_or_first_available_variant.id %}
-                {% assign prodQuantity = '1' %}
+                {% assign prodQuantity = '01' %}
 
                 {% for variant in product.variants %}
                   {% if variant.selected %}
