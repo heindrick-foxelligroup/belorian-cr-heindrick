@@ -96,7 +96,7 @@
                 {% for variant in product.variants %}
                   {{ variant.selected }}
                   {% if variant.selected %}
-                    {% assign prodIdSelected = 'tests' %}
+                    {% assign prodIdSelected = variant.id %}
                   {% endif %}
                 {% endfor%}
                 <a class="buy-now__button" href="https://www.closetrituals.com/cart/{{ prodIdSelected }}:{{ prodQuantity }}">BUY NOW</a>
