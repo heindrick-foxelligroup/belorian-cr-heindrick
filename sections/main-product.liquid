@@ -108,7 +108,7 @@
               <script>
                 document.querySelectorAll('.buy-now__button').forEach((button)=>{
                   button.onclick = () => {
-                      var buyUrl = button.attributes.href.value.split(':0')[0]+":0"+document.querySelector('[name="quantity"]').value
+                      var buyUrl = window.location.origin+"/cart/"+document.querySelector('.variant-id[type="hidden"]').value+":"+document.querySelector('[name="quantity"]').value
                       button.attributes.href.value = buyUrl
                   }
                 })
