@@ -91,6 +91,9 @@
               {%- elsif block.type == 'buy_button' -%}
 
               {% comment %} BUY NOW BUTTON {% endcomment %}
+              <style>
+                .buy-now__button { color: var(--color_btn_cart_hover); background: var(--bkg_btn_cart_hover); border-color: var(--bkg_btn_cart_hover); }
+              </style>
               <div class="buy-now-wrapper">
                 {% assign prodIdSelected = product.selected_or_first_available_variant.id %}
                 {% assign prodQuantity = '1' %}
@@ -100,8 +103,9 @@
                     {% assign prodIdSelected = variant.id %}
                   {% endif %}
                 {% endfor%}
-                <a class="buy-now__button button button--cart add-cart-btn button--single-cart fw-bold" href="https://www.closetrituals.com/cart/{{ prodIdSelected }}:{{ prodQuantity }}">BUY NOW</a>
+                <a class="buy-now__button button button--cart button--single-cart fw-bold" href="https://www.closetrituals.com/cart/{{ prodIdSelected }}:{{ prodQuantity }}">BUY NOW</a>
               </div>
+              {% comment %} END BUY NOW BUTTON {% endcomment %}
               {%- endif -%}  
               {%- render 'product-single-block-list' with current_variant: current_variant, block: block, enable_rtl: enable_rtl, left_holder: left_holder, right_holder: right_holder, product_form_id: product_form_id, description: description, inline_button: inline_button -%}  
             {%- endif -%}
